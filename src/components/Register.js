@@ -2,8 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
-import {Link} from "react-router-dom";
-import Home from "./Home";
+import { Link } from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -46,7 +45,6 @@ const Register = () => {
     }, [user, pwd, matchPwd])
 
     const handleSubmit = async (e) => {
-        console.log(user, pwd)
         e.preventDefault();
         // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
@@ -59,10 +57,7 @@ const Register = () => {
             const response = await axios.post(REGISTER_URL,
                 { username: user, password: pwd },
                 {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Access-Control-Allow-Origin': '*'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 }
             );
@@ -89,7 +84,12 @@ const Register = () => {
     return (
         <>
             {success ? (
-                <Home/>
+                <section>
+                    <h1>Success!</h1>
+                    <p>
+                        <Link to="/login">Sign in</Link>
+                    </p>
+                </section>
             ) : (
                 <section>
                     <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
@@ -171,7 +171,7 @@ const Register = () => {
                     <p>
                         Already registered?<br />
                         <span className="line">
-                            <a href="/login">Sign In</a>
+                            <Link to="/">Sign In</Link>
                         </span>
                     </p>
                 </section>
