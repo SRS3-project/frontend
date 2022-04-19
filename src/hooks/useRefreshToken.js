@@ -2,6 +2,7 @@ import axios from '../api/axios';
 import useAuth from './useAuth';
 
 const useRefreshToken = () => {
+    console.log('useRefreshToken');
     const { setAuth } = useAuth();
 
     const refresh = async () => {
@@ -9,8 +10,6 @@ const useRefreshToken = () => {
             withCredentials: true
         });
         setAuth(prev => {
-            console.log(JSON.stringify(prev));
-            console.log(response.data.accessToken);
             return {
                 ...prev,
                 roles: response.data.roles,
@@ -19,6 +18,7 @@ const useRefreshToken = () => {
         });
         return response.data.accessToken;
     }
+
     return refresh;
 };
 

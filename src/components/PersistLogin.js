@@ -16,14 +16,14 @@ const PersistLogin = () => {
                 await refresh();
             }
             catch (err) {
-                console.error(err);
+                console.error('err:', err);
             }
             finally {
                 isMounted && setIsLoading(false);
             }
         }
 
-        console.log(auth);
+        console.log('auth:', auth);
 
         // persist added here AFTER tutorial video
         // Avoids unwanted call to verifyRefreshToken
@@ -34,7 +34,7 @@ const PersistLogin = () => {
 
     useEffect(() => {
         console.log(`isLoading: ${isLoading}`)
-        console.log(`aT: ${JSON.stringify(auth?.accessToken)}`)
+        console.log(`aT: ${auth?.accessToken}`)
     }, [isLoading])
 
     return (
