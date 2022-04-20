@@ -1,13 +1,12 @@
 import axios from 'axios';
-// const BASE_URL = 'http://localhost:8080';
-const BASE_URL = 'https://auth-backend-esgjqfxwbq-ew.a.run.app';
+import env from 'react-dotenv';
 
 export default axios.create({
-    baseURL: BASE_URL
+    baseURL: env.AUTH_BACKEND_URL
 });
 
 export const axiosPrivate = axios.create({
-    baseURL: BASE_URL,
+    baseURL: env.AUTH_BACKEND_URL,
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true
 });

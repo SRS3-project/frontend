@@ -12,6 +12,8 @@ import RequireAuth from './components/RequireAuth';
 import PersistLogin from './components/PersistLogin';
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import {AuthProvider} from "./context/AuthProvider";
+import env from 'react-dotenv';
+import io from 'socket.io-client';
 
 const ROLES = {
   'User': 2001,
@@ -20,6 +22,10 @@ const ROLES = {
 }
 
 function App() {
+    // const sock = io(env.RTM_URL, { transports: ['websocket'] });
+    // sock.on('connect', () => {
+    //     sock.emit('auth', env.RTM_AUTH_TOKEN);
+    // })
 
   return (
       <AuthProvider>
