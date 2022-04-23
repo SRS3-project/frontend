@@ -1,0 +1,7 @@
+.button {
+    display: inline-block;
+    background-color: #03033e;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: white;
+}

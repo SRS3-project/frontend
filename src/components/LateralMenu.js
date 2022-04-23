@@ -1,6 +1,8 @@
 import { element } from "prop-types";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Router } from "react-router-dom";
+import Button from "./Button/Button";
+import { useHistory } from 'react-router-dom'
 import Users from './Users';
 
 //const stampa = () => { console.log('pressed button')}
@@ -28,11 +30,14 @@ function towerButton(props) {
     return(null);
 }
 
+
 //JSX
 function LateralMenu() {
     return(
         <section>
             <ul>
+                <Button label='Test'/>
+
                 <li><button><Link to="/home">Overview</Link></button></li>
                 <li><button><Link to="/town">Town</Link></button></li>
                 <li><button><Link to="/castle">Castle</Link></button></li>
