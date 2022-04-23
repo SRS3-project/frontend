@@ -1,0 +1,35 @@
+.div {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border: .5rem;
+    border-radius: .5rem;
+    border-color: rgb(0, 24, 46);
+    background-color: rgb(99, 2, 2);
+    width: 5rem;
+    height: 5rem;
+    margin-top: .5rem;
+    margin-right: .6rem;
+}
+
+.img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+}
+
+.topLabel {
+    top: -.8rem;
+    margin-left: .2rem;
+    position: absolute;
+    background-color: rgba(30, 0, 0, 0.783);
+    font-size: small;
+}
+
+.bottomLabel {
+    bottom: .2rem;
+    margin-left: .2rem;
+    position: absolute;
+    background-color: rgba(30, 0, 0, 0.783);
+    font-size: small;
+}

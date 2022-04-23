@@ -2,7 +2,12 @@ import { element } from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
 import RedirectButton from "./Button/RedirectButton/RedirectButton";
+import ItemBox from "./ItemBox/ItemBox";
 import Users from './Users';
+
+// IMAGE IMPORT
+import image from '../images/logo192.png'
+import ContainerBox from "./ContainerBox/ContainerBox";
 
 //const stampa = () => { console.log('pressed button')}
 
@@ -44,6 +49,13 @@ function LateralMenu() {
                 {towerButton()}
                 <RedirectButton label='World' path='/world'/>
             </ul>
+            <ContainerBox>
+                <ItemBox image={image} topLabel='itemName1' bottomLabel='900 $'/>
+                <ItemBox image={image} topLabel='itemName1' bottomLabel='900 $'/>
+                <ItemBox image={image} topLabel='itemName2' bottomLabel='1000 $'/>
+                <ItemBox image={image} topLabel='itemName3' bottomLabel='20 $'/>
+            </ContainerBox>
+
         </section>
     )
 }
