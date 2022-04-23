@@ -1,7 +1,12 @@
 .button {
-    display: inline-block;
+    display: block;
+    border-radius: .5rem;
+    width: 100%;
     background-color: #03033e;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    font-size: .8em;
     color: white;
+    margin-top: .5rem;
+    padding: .5rem;
 }
