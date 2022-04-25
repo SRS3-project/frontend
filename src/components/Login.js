@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
-import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
+import Button from './Button/Button';
 
 import axios from '../api/axios';
 const LOGIN_URL = '/login';
@@ -93,7 +94,7 @@ const Login = () => {
                     value={pwd}
                     required
                 />
-                <button>Sign In</button>
+                <Button label='Sign in'/>
                 <div className="persistCheck">
                     <input
                         type="checkbox"

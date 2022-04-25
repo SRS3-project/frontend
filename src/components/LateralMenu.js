@@ -1,7 +1,13 @@
 import { element } from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
+import RedirectButton from "./Button/RedirectButton/RedirectButton";
+import ItemBox from "./ItemBox/ItemBox";
 import Users from './Users';
+
+// IMAGE IMPORT
+import image from '../images/logo192.png'
+import ContainerBox from "./ContainerBox/ContainerBox";
 
 //const stampa = () => { console.log('pressed button')}
 
@@ -10,7 +16,7 @@ function barracsButton(props) {
     if(hasBarracs > 0)
     {
         return(
-            <li><button><Link to="/barracs">Barracs</Link></button></li>
+            <RedirectButton label='Barracs' path='/barracs'/>
         );
     }
     return(null);
@@ -22,7 +28,7 @@ function towerButton(props) {
     if(hasTower > 0)
     {
         return(
-            <li><button><Link to="/magetower">Mage Tower</Link></button></li>
+            <RedirectButton label='Mage Tower' path='/magetower'/>
         );
     }
     return(null);
@@ -30,18 +36,26 @@ function towerButton(props) {
 
 //JSX
 function LateralMenu() {
+    
     return(
         <section>
             <ul>
-                <li><button><Link to="/home">Overview</Link></button></li>
-                <li><button><Link to="/town">Town</Link></button></li>
-                <li><button><Link to="/castle">Castle</Link></button></li>
-                <li><button><Link to="/city">City</Link></button></li>
-                <li><button><Link to="/army">Army</Link></button></li>
+                <RedirectButton label='Overview' path='/home'/>
+                <RedirectButton label='Town' path='/town'/>
+                <RedirectButton label='Castle' path='/castle'/>
+                <RedirectButton label='City' path='/city'/>
+                <RedirectButton label='Army' path='/army'/>
                 {barracsButton()}
                 {towerButton()}
-                <li><button><Link to="/world">World</Link></button></li>            
+                <RedirectButton label='World' path='/world'/>
             </ul>
+            <ContainerBox>
+                <ItemBox image={image} topLabel='itemName1' bottomLabel='900 $'/>
+                <ItemBox image={image} topLabel='itemName1' bottomLabel='900 $'/>
+                <ItemBox image={image} topLabel='itemName2' bottomLabel='1000 $'/>
+                <ItemBox image={image} topLabel='itemName3' bottomLabel='20 $'/>
+            </ContainerBox>
+
         </section>
     )
 }
