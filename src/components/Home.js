@@ -1,6 +1,6 @@
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../hooks/useLogout";
-import LateralMenu from "./LateralMenu";
+import LateralMenu from "./LateralMenu/LateralMenu";
 import Button from "./Button/Button";
 
 const Home = () => {

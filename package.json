@@ -10,6 +10,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "bulma": "^0.9.3",
+    "dotenv": "^16.0.0",
+    "node-sass": "^7.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -44,6 +46,11 @@
     ]
   },
   "react-dotenv": {
-    "whitelist": ["RTM_URL", "RTM_AUTH_TOKEN", "AUTH_BACKEND_URL", "GAME_BACKEND_URL"]
+    "whitelist": [
+      "RTM_URL",
+      "RTM_AUTH_TOKEN",
+      "AUTH_BACKEND_URL",
+      "GAME_BACKEND_URL"
+    ]
   }
 }
