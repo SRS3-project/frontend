@@ -2,6 +2,8 @@ import React from "react";
 import RedirectButton from "../Button/RedirectButton/RedirectButton";
 import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 //const stampa = () => { console.log('pressed button')}
 
@@ -46,7 +48,8 @@ function LateralMenu() {
                 </p>
                 <ul class="menu-list">
                 <li>
-                    <span class="icon"><i class="fa fa-home"></i></span>
+                    
+                    <FontAwesomeIcon icon={["fas", "home"]} />
                     <RedirectButton label='Overview' path='/home'/>
                 </li>
                 </ul>
