@@ -1,3 +1,6 @@
+import { useNavigate, Link } from "react-router-dom";
+import useLogout from "../../hooks/useLogout";
+import Button from "../Button/Button"
 import React from "react";
 import RedirectButton from "../Button/RedirectButton/RedirectButton";
 import "bulma/sass/utilities/_all.sass"
@@ -8,7 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 //const stampa = () => { console.log('pressed button')}
 
 function barracsButton(props) {
-    var hasBarracs = 1; //get LVL from user
+
+    let hasBarracs = 1; //get LVL from user
     if(hasBarracs > 0)
     {
         return(
@@ -22,7 +26,7 @@ function barracsButton(props) {
 }
 
 function towerButton(props) {
-    var hasTower = 1; //get LVL from user
+    let hasTower = 1; //get LVL from user
 
     if(hasTower > 0)
     {
@@ -39,6 +43,14 @@ function towerButton(props) {
 //JSX
 function LateralMenu() {
     
+    const navigate = useNavigate();
+    const logout = useLogout();
+
+    const signOut = async () => {
+        await logout();
+        navigate('/linkpage');
+    }
+
     return(
         <>
         <section class="main-content columns is-fullheight">
@@ -59,8 +71,8 @@ function LateralMenu() {
                 <ul class="menu-list">
                     <li>
                         <ul>
-                            <li>
-                                <span class="icon"><i class="fa fa-industry"></i></span>
+                            <li class="has-icon-left">
+                                <span class="icon is-small is-left"><i class="fas fa-industry"></i></span>
                                 <RedirectButton label='Castle' path='/castle'/>
                             </li>
                             <li>
@@ -86,10 +98,35 @@ function LateralMenu() {
                     </li>
                 </ul>
                 <ul>
-                <li>
-                    <span class="icon"><i class="fa fa-globe"></i></span>    
-                    <RedirectButton label='World' path='/world'/>
-                </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-globe"></i></span>    
+                        <RedirectButton label='World' path='/world'/>
+                    </li>
+                </ul>
+                <p class="menu-label is-hidden-touch">
+                    Other
+                </p>
+                <ul class="menu-list">
+                    <li>
+                        <span class="icon"><i class="fa fa-bolt"></i></span>
+                        <RedirectButton label='Editor' path='/editor'/>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-bomb"></i></span>
+                        <RedirectButton label='Admin' path='/admin'/>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-globe"></i></span>    
+                        <RedirectButton label='Lounge' path='/lounge'/>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-globe"></i></span>    
+                        <RedirectButton label='Links' path='/linkpage'/>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-globe"></i></span>    
+                        <Button label='Sign Out' onClick={signOut}/>
+                    </li>
                 </ul>
             </aside>
         </section>
