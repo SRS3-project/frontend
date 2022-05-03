@@ -11,8 +11,7 @@ export async function getUser() {
     catch(error) {
         return [];
     }
+    
 }
-
-
 
 */

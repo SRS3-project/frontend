@@ -6,6 +6,7 @@ import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
 import "bulma/sass/grid/columns.sass"
 import TechPanel from "./ElementPanels/TechPanel";
+import ResourcePanel from "./ElementPanels/ResourcePanel";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -18,18 +19,23 @@ const Home = () => {
 
     return (
         <>
-            <div class="columns">
-                <div class="column is-6">                    
-                    <LateralMenu />               
-                </div>
-                <div class="column is-8">
+        <div>
+            <ResourcePanel/>
+        </div>
+        <div><br></br></div>         
+        <div class="columns">
+            <div class="column is-6">                    
+                <LateralMenu />               
+            </div>
+            <div class="column is-8">
+                <section>
+                    <h1>Home</h1>
+                    <br />
+                    <p>You are logged in!</p>
+                    <br />
+                    <br />
+                    <br />
                     <section>
-                        <h1>Home</h1>
-                        <br />
-                        <p>You are logged in!</p>
-                        <br />
-                        <br />
-                        <br />
                         <TechPanel/>
                         {/*
                         <Link to="/editor">Go to the Editor page</Link>
@@ -42,8 +48,9 @@ const Home = () => {
                         <Button label='Sign Out' onClick={signOut}/>
                         */}
                     </section>
-                </div>
+                </section>
             </div>
+        </div>
         </>
         )
 }
