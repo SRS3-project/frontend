@@ -10,16 +10,12 @@ function ResourcePanel() {
 
     return(
         <>
-        <section>
         <ContainerBox>
             <ItemBox topLabel="Minerals" image="mineral-icon.png" bottomLabel="TODO"/>
             <ItemBox topLabel="Wood" image="wood-icon.png" bottomLabel="TODO"/>
             <ItemBox topLabel="Gold" image="gold-icon.png" bottomLabel="TODO"/>
             <ItemBox topLabel="Food" image="food-plate-icon.png" bottomLabel="TODO"/>
-        </ContainerBox>
-        </section>
-        
-
+        </ContainerBox>     
         </>
     );
 

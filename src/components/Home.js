@@ -22,7 +22,7 @@ const Home = () => {
         <div>
             <ResourcePanel/>
         </div>
-                    
+        <div><br></br></div>         
         <div class="columns">
             <div class="column is-6">                    
                 <LateralMenu />               
@@ -35,17 +35,19 @@ const Home = () => {
                     <br />
                     <br />
                     <br />
-                    <TechPanel/>
-                    {/*
-                    <Link to="/editor">Go to the Editor page</Link>
-                    <br />
-                    <Link to="/admin">Go to the Admin page</Link>
-                    <br />
-                    <Link to="/lounge">Go to the Lounge</Link>
-                    <br />
-                    <Link to="/linkpage">Go to the link page</Link>
-                    <Button label='Sign Out' onClick={signOut}/>
-                    */}
+                    <section>
+                        <TechPanel/>
+                        {/*
+                        <Link to="/editor">Go to the Editor page</Link>
+                        <br />
+                        <Link to="/admin">Go to the Admin page</Link>
+                        <br />
+                        <Link to="/lounge">Go to the Lounge</Link>
+                        <br />
+                        <Link to="/linkpage">Go to the link page</Link>
+                        <Button label='Sign Out' onClick={signOut}/>
+                        */}
+                    </section>
                 </section>
             </div>
         </div>
