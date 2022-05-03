@@ -2,7 +2,7 @@ import React from "react";
 import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
 import ItemBox from "../ItemBox/ItemBox";
-import { checkPropTypes } from "prop-types";
+
 
 
 //this should create the single tecnology button

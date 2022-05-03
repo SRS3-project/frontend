@@ -28,6 +28,8 @@ const Home = () => {
                         <br />
                         <p>You are logged in!</p>
                         <br />
+                        <br />
+                        <br />
                         <TechPanel/>
                         {/*
                         <Link to="/editor">Go to the Editor page</Link>
