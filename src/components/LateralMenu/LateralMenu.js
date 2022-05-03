@@ -59,8 +59,7 @@ function LateralMenu() {
                     General
                 </p>
                 <ul class="menu-list">
-                <li>
-                    
+                <li>                    
                     <FontAwesomeIcon icon={["fas", "home"]} />
                     <RedirectButton label='Overview' path='/home'/>
                 </li>
