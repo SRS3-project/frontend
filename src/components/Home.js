@@ -7,6 +7,9 @@ import "bulma/sass/components/menu.sass"
 import "bulma/sass/grid/columns.sass"
 import TechPanel from "./ElementPanels/TechPanel";
 import ResourcePanel from "./ElementPanels/ResourcePanel";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
+import styles from './Header/header.module.css'
 
 const Home = () => {
     const navigate = useNavigate();
@@ -19,22 +22,18 @@ const Home = () => {
 
     return (
         <>
-        <div>
-            <ResourcePanel/>
+        <div class="topInfo">
+            <Header/>
         </div>
         <div><br></br></div>         
         <div class="columns">
-            <div class="column is-6">                    
+            <div class="column is-5">                    
                 <LateralMenu />               
             </div>
-            <div class="column is-8">
+            <div class="column is-12">
                 <section>
                     <h1>Home</h1>
-                    <br />
                     <p>You are logged in!</p>
-                    <br />
-                    <br />
-                    <br />
                     <section>
                         <TechPanel/>
                         {/*
@@ -50,6 +49,9 @@ const Home = () => {
                     </section>
                 </section>
             </div>
+        </div>
+        <div class="booty">
+            <Footer/>
         </div>
         </>
         )

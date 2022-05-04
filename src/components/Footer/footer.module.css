@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 0.25em;
+    background-color: mediumblue;
+    color: aliceblue;
+    place-content: bottom;
+    justify-content: center;
+    margin: auto;
+    max-height: 50px;
+}
+
+.item {
+    margin-inline: 2rem;
+}
+
+.rickroll:hover {
+    color: red;
+}
