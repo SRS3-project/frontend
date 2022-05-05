@@ -20,7 +20,7 @@
 
 .topLabel {
     top: -.8rem;
-    margin-left: .2rem;
+    left: .2rem;
     position: absolute;
     background-color: rgba(30, 0, 0, 0.783);
     font-size: small;
@@ -28,7 +28,8 @@
 
 .bottomLabel {
     bottom: .2rem;
-    margin-left: .2rem;
+/*    margin-left: 0.2rem; */
+    right: 0.2rem;
     position: absolute;
     background-color: rgba(30, 0, 0, 0.783);
     font-size: small;
