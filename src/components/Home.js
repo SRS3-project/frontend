@@ -4,16 +4,18 @@ import ResourcePanel from "./ElementPanels/ResourcePanel";
 import { Columns, Notification } from "react-bulma-components";
 import 'bulma/css/bulma.min.css';
 import Logo from "../images/logo.png"
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer"
+
 
 
 function Home() {  
     return (
         <>
+{/*
         <div class="topInfo">
             <Header/>
         </div>
+*/}
+        <br/>
         <Columns multiline centered>
             <Columns.Column size={3}>
                 <img src={Logo}/>
@@ -46,9 +48,11 @@ function Home() {
                 </Notification>
             </Columns.Column >
         </Columns>
+{/*
         <div class="booty">
             <Footer/>
         </div>
+*/}
         </>
     );
 }
