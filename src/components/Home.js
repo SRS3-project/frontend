@@ -1,60 +1,60 @@
-import { useNavigate, Link } from "react-router-dom";
-import useLogout from "../hooks/useLogout";
 import LateralMenu from "./LateralMenu/LateralMenu";
-import Button from "./Button/Button";
-import "bulma/sass/utilities/_all.sass"
-import "bulma/sass/components/menu.sass"
-import "bulma/sass/grid/columns.sass"
 import TechPanel from "./ElementPanels/TechPanel";
 import ResourcePanel from "./ElementPanels/ResourcePanel";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
-import styles from './Header/header.module.css'
+import { Columns, Notification } from "react-bulma-components";
+import 'bulma/css/bulma.min.css';
+import Logo from "../images/logo.png"
 
-const Home = () => {
-    const navigate = useNavigate();
-    const logout = useLogout();
 
-    const signOut = async () => {
-        await logout();
-        navigate('/linkpage');
-    }
 
+function Home() {  
     return (
         <>
+{/*
         <div class="topInfo">
             <Header/>
         </div>
-        <div><br></br></div>         
-        <div class="columns">
-            <div class="column is-5">                    
-                <LateralMenu />               
-            </div>
-            <div class="column is-12">
-                <section>
+*/}
+        <br/>
+        <Columns multiline centered>
+            <Columns.Column size={3}>
+                <img src={Logo}/>
+            </Columns.Column>
+            <Columns.Column size={6}>
+                <Notification color="link">
+                    <ResourcePanel/>
+                </Notification>
+                <Columns.Column>
+                    <Notification color="link">
+                        <h1 class="gameName">dr.Ogame</h1>
+                    </Notification>
+                </Columns.Column>
+            </Columns.Column>
+            <Columns.Column size={3}></Columns.Column>
+
+            <Columns.Column size={4}>
+                <Notification color="link">
+                    <LateralMenu />
+                </Notification>
+            </Columns.Column>
+            <Columns.Column size="auto">
+                <Notification color="link">
                     <h1>Home</h1>
                     <p>You are logged in!</p>
-                    <section>
-                        <TechPanel/>
-                        {/*
-                        <Link to="/editor">Go to the Editor page</Link>
-                        <br />
-                        <Link to="/admin">Go to the Admin page</Link>
-                        <br />
-                        <Link to="/lounge">Go to the Lounge</Link>
-                        <br />
-                        <Link to="/linkpage">Go to the link page</Link>
-                        <Button label='Sign Out' onClick={signOut}/>
-                        */}
-                    </section>
-                </section>
-            </div>
-        </div>
+                </Notification>
+                <br />
+                <Notification color="link">
+                    <TechPanel/>
+                </Notification>
+            </Columns.Column >
+        </Columns>
+{/*
         <div class="booty">
             <Footer/>
         </div>
+*/}
         </>
-        )
+    );
 }
 
-export default Home
+export default Home;
