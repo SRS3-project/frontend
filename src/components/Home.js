@@ -30,7 +30,9 @@ function Home() {
                     </Notification>
                 </Columns.Column>
             </Columns.Column>
-            <Columns.Column size={3}></Columns.Column>
+            <Columns.Column size={3}>
+                <h1> Aggiungere Pannello Utente</h1>
+            </Columns.Column>
 
             <Columns.Column size={4}>
                 <Notification color="link">
