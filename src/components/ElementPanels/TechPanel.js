@@ -28,38 +28,33 @@ function TechPanel() {
     
     return(
         <>
-        <div id="technologies" class="box">
-        <div id="technologies_basic" class="columns">
-            <div class="Column">
-                <h3>Ricerche base</h3>
-            
-                {techInit("Ciao","logo192.png","2")}
-                {techInit("Ciao","logo192.png","2")}
-                <span>
-                    <ItemBox topLabel="Tette" image="confirm.png" bottomLabel="7" onclick={() => console.log("Start Upgrade")}/>
-                </span>
-            
+        <div id="technologies">
+            <div id="technologies_basic" class="columns">
+                <div class="Column">
+                    <h3>Ricerche base</h3>
+                    {techInit("Ciao","logo192.png","2")}
+                    {techInit("Ciao","logo192.png","2")}
+                    <span>
+                        <ItemBox topLabel="Tette" image="confirm.png" bottomLabel="7" onclick={() => console.log("Start Upgrade")}/>
+                    </span>
+                </div>
+            </div>
+            <div id="technologies_speed">
+                <h3>Ricerche trasporto</h3>
+                <ul class="icons">
+                </ul>
+            </div>
+            <div id="technologies_advanced">
+                <h3>Ricerche avanzate</h3>
+                <ul class="icons">
+                </ul>
+            </div>
+            <div id="technologies_combat">
+                <h3>Ricerche militari</h3>
+                <ul class="icons">
+                </ul>
             </div>
         </div>
-        <div id="technologies_speed">
-            <h3>Ricerche trasporto</h3>
-            <ul class="icons">
-            
-            </ul>
-        </div>
-        <div id="technologies_advanced">
-            <h3>Ricerche avanzate</h3>
-            <ul class="icons">
-            
-            </ul>
-        </div>
-        <div id="technologies_combat">
-            <h3>Ricerche militari</h3>
-            <ul class="icons">
-            
-            </ul>
-        </div>
-    </div>
         </>
     )
 }

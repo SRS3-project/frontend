@@ -10,9 +10,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 //const stampa = () => { console.log('pressed button')}
 
+
 function barracsButton(props) {
 
-    let hasBarracs = 1; //get LVL from user
+    let hasBarracs = 1; //get LVL from user {getBarracs}
     if(hasBarracs > 0)
     {
         return(
@@ -26,7 +27,7 @@ function barracsButton(props) {
 }
 
 function towerButton(props) {
-    let hasTower = 1; //get LVL from user
+    let hasTower = 1; //get LVL from user {getTower}
 
     if(hasTower > 0)
     {
@@ -53,8 +54,8 @@ function LateralMenu() {
 
     return(
         <>
-        <section class="main-content columns is-fullheight">
-            <aside class="column is-6.5 is-narrow-mobile is-fullheight section is-hidden-mobile">
+        <div class="main-content columns is-fullheight">
+            <aside class="menu column is-6.5 is-narrow-mobile is-fullheight section is-hidden-mobile">
                 <p class="menu-label is-hidden-touch">
                     General
                 </p>
@@ -128,7 +129,7 @@ function LateralMenu() {
                     </li>
                 </ul>
             </aside>
-        </section>
+        </div>
         </>
     )
 }
