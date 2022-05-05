@@ -1,8 +1,9 @@
 import LateralMenu from "./LateralMenu/LateralMenu";
 import TechPanel from "./ElementPanels/TechPanel";
 import ResourcePanel from "./ElementPanels/ResourcePanel";
-import { Columns, Notification } from "react-bulma-components";
+import { Columns, Footer, Notification } from "react-bulma-components";
 import 'bulma/css/bulma.min.css';
+import Logo from "../images/logo.png"
 
 const Home = () => {
 /*   const navigate = useNavigate();
@@ -16,11 +17,18 @@ const Home = () => {
     return (
         <>
         <Columns multiline centered>
-            <Columns.Column size={3}></Columns.Column>
+            <Columns.Column size={3}>
+                <img src={Logo}/>
+            </Columns.Column>
             <Columns.Column size={6}>
                 <Notification color="link">
                     <ResourcePanel/>
                 </Notification>
+                <Columns.Column>
+                    <Notification color="link">
+                        <h1 class="gameName">dr.Ogame</h1>
+                    </Notification>
+                </Columns.Column>
             </Columns.Column>
             <Columns.Column size={3}></Columns.Column>
 
