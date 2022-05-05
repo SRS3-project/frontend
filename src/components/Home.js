@@ -24,7 +24,7 @@ const Home = () => {
             </Columns.Column>
             <Columns.Column size={3}></Columns.Column>
 
-            <Columns.Column size={6}>
+            <Columns.Column size={4}>
                 <Notification color="link">
                     <LateralMenu />
                 </Notification>
