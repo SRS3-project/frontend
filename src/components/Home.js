@@ -1,21 +1,19 @@
 import LateralMenu from "./LateralMenu/LateralMenu";
 import TechPanel from "./ElementPanels/TechPanel";
 import ResourcePanel from "./ElementPanels/ResourcePanel";
-import { Columns, Footer, Notification } from "react-bulma-components";
+import { Columns, Notification } from "react-bulma-components";
 import 'bulma/css/bulma.min.css';
 import Logo from "../images/logo.png"
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer"
 
-const Home = () => {
-/*   const navigate = useNavigate();
-*    const logout = useLogout();
-*
-*    const signOut = async () => {
-*        await logout();
-*        navigate('/linkpage');
-*    }
-*/    
+
+function Home() {  
     return (
         <>
+        <div class="topInfo">
+            <Header/>
+        </div>
         <Columns multiline centered>
             <Columns.Column size={3}>
                 <img src={Logo}/>
@@ -40,7 +38,6 @@ const Home = () => {
             <Columns.Column size="auto">
                 <Notification color="link">
                     <h1>Home</h1>
-                    <br />
                     <p>You are logged in!</p>
                 </Notification>
                 <br />
@@ -49,6 +46,9 @@ const Home = () => {
                 </Notification>
             </Columns.Column >
         </Columns>
+        <div class="booty">
+            <Footer/>
+        </div>
         </>
     );
 }

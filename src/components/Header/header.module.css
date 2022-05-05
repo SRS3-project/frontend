@@ -1,0 +1,22 @@
+.header {
+    width: 100%;
+    padding: 0 0.25em;
+    background-color: mediumblue;
+    color: aliceblue;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.img {
+    display: flex;
+    justify-content: left;
+    height: 100px;
+}
+
+.resources {
+    display: flex;
+    justify-content: right;
+}
