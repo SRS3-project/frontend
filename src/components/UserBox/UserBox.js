@@ -3,7 +3,6 @@ import styles from './userbox.module.css'
 import { useContext } from "react";
 import AuthContext from "../../context/AuthProvider";
 
-import RedirectButton from "../Button/RedirectButton/RedirectButton";
 import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import Button from "../Button/Button"
@@ -11,8 +10,10 @@ import Button from "../Button/Button"
 const UserBox = () => {
 
   const { auth } = useContext(AuthContext);
-  /* const userName = auth?.username; */
+  /* TODO:: sostituire il nome utente banana con il nome reale del player, il comando precedente dovrebbe funzionare ma torna vuoto */
+  /* const userName = auth?.user; */
   const userName = 'banana';
+  
 
   const navigate = useNavigate();
   const logout = useLogout();
