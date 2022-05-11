@@ -1,7 +1,7 @@
 /* import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../../hooks/useLogout"; */
 import Button from "../Button/Button"
-import React from "react";
+import React, { useState } from "react";
 import RedirectButton from "../Button/RedirectButton/RedirectButton";
 import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
@@ -12,7 +12,7 @@ import { Menu } from "react-bulma-components";
 //const stampa = () => { console.log('pressed button')}
 
 
-function barracsButton(props) {
+/* function barracsButton(props) {
 
     let hasBarracs = 1; //get LVL from user {getBarracs}
     if(hasBarracs > 0)
@@ -24,9 +24,9 @@ function barracsButton(props) {
         );
     }
     return(null);
-}
+} */
 
-function towerButton(props) {
+/* function towerButton(props) {
     let hasTower = 1; //get LVL from user {getTower}
 
     if(hasTower > 0)
@@ -38,10 +38,10 @@ function towerButton(props) {
         );
     }
     return(null);
-}
+} */
 
 //JSX
-function LateralMenu() {
+const LateralMenu = () => {
     
     /* const navigate = useNavigate();
     const logout = useLogout();
@@ -50,6 +50,45 @@ function LateralMenu() {
         await logout();
         navigate('/login');
     } */
+
+    // Lateral Menu State
+    const [structures, setStructures] = useState([
+        {
+            barracsLvl: 1,
+            towerLvl: 0
+        }
+    ])
+
+    // To show the "Barracs" Button
+    const barracsButton = () => {
+
+        let hasBarracs = 1; //get LVL from user {getBarracs}
+        
+        if(hasBarracs > 0)
+        {
+            return(
+                <Menu.List.Item>
+                    <RedirectButton label='Barracs' path='/barracs'/>
+                </Menu.List.Item>                
+            );
+        }
+        return(null);
+    }
+    
+    // To show the "Tower" ButtonS
+    const towerButton = () => {
+        
+        let hasTower = 1; //get LVL from user {getTower}
+        if(hasTower > 0)
+        {
+            return(
+                <Menu.List.Item>
+                    <RedirectButton label='Mage Tower' path='/magetower'/>
+                </Menu.List.Item>
+            );
+        }
+        return(null);
+    }
 
     return(
         <>
