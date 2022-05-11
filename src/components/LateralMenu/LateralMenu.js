@@ -40,6 +40,7 @@ import { Menu } from "react-bulma-components";
     return(null);
 } */
 
+
 //JSX
 const LateralMenu = () => {
     
@@ -52,19 +53,59 @@ const LateralMenu = () => {
     } */
 
     // Lateral Menu State
-    const [structures, setStructures] = useState([
+    /* const [structures, setStructures] = useState(
         {
             barracsLvl: 1,
             towerLvl: 0
         }
-    ])
+    ) */
+    const [structures, setStructures] = useState(
+        () => {
+            const saved = localStorage.getItem("structures");
+            const initialValue = JSON.parse(saved);
+            return initialValue || {
+                barracsLvl: 0,
+                towerLvl: 0
+            };
+        }
+    )
+
+
+
+    const handleLoad = (id) => {
+        console.log(`structures ${structures.barracsLvl} and ${id}`);
+
+        //Only-4-Testing: Enable Barracs Button from state
+        let newStructure = {};
+        
+        if(structures.barracsLvl === 0 && structures.towerLvl === 0)
+        {
+            newStructure = {
+                barracsLvl: 1,
+                towerLvl: 1
+            };
+        }
+        else{
+            newStructure = {
+                barracsLvl: 0,
+                towerLvl: 0
+            }
+        }
+        
+        //Only-4-Testing: Enable Tower Button from state
+        //const newStructures = structures.map((structures) => structures.towerLvl === 0 ? {...structures, TowerLvl: 1} : structures);
+        
+        setStructures(newStructure);
+
+        localStorage.setItem('structures', JSON.stringify(newStructure));
+    }   
 
     // To show the "Barracs" Button
     const barracsButton = () => {
 
         let hasBarracs = 1; //get LVL from user {getBarracs}
         
-        if(hasBarracs > 0)
+        if(structures.barracsLvl > 0)
         {
             return(
                 <Menu.List.Item>
@@ -79,7 +120,8 @@ const LateralMenu = () => {
     const towerButton = () => {
         
         let hasTower = 1; //get LVL from user {getTower}
-        if(hasTower > 0)
+        
+        if(structures.towerLvl > 0)
         {
             return(
                 <Menu.List.Item>
@@ -89,10 +131,11 @@ const LateralMenu = () => {
         }
         return(null);
     }
-
+    
     return(
         <>
-        <Menu >
+        <Menu>
+            <button onClick={() => handleLoad(3)}>Io inverto lo stato #ReactMerda</button>
             <Menu.List title="General">
                 <Menu.List.Item>
                     <RedirectButton label='Overview' path='/'/>
@@ -106,8 +149,10 @@ const LateralMenu = () => {
                 <Menu.List.Item>
                     <RedirectButton label='City' path='/castle'/>
                 </Menu.List.Item>
+
                 {barracsButton()}
                 {towerButton()}
+                
             </Menu.List>
             
             <Menu.List title="Troops">
