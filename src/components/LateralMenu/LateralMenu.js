@@ -1,5 +1,5 @@
-import { useNavigate, Link } from "react-router-dom";
-import useLogout from "../../hooks/useLogout";
+/* import { useNavigate, Link } from "react-router-dom";
+import useLogout from "../../hooks/useLogout"; */
 import Button from "../Button/Button"
 import React from "react";
 import RedirectButton from "../Button/RedirectButton/RedirectButton";
@@ -7,7 +7,6 @@ import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
 import 'bulma/css/bulma.min.css';
 import { Menu } from "react-bulma-components";
-
 
 
 //const stampa = () => { console.log('pressed button')}
@@ -44,20 +43,20 @@ function towerButton(props) {
 //JSX
 function LateralMenu() {
     
-    const navigate = useNavigate();
+    /* const navigate = useNavigate();
     const logout = useLogout();
 
     const signOut = async () => {
         await logout();
-        navigate('/linkpage');
-    }
+        navigate('/login');
+    } */
 
     return(
         <>
-        <Menu>
+        <Menu >
             <Menu.List title="General">
                 <Menu.List.Item>
-                    <RedirectButton label='Overview' path='/home'/>
+                    <RedirectButton label='Overview' path='/'/>
                 </Menu.List.Item>
             </Menu.List>
 
@@ -87,7 +86,7 @@ function LateralMenu() {
                 </Menu.List.Item>
             </Menu.List>
 
-            <Menu.List title="User's">
+            {/* <Menu.List title="User's">
                 <Menu.List.Item>
                     <RedirectButton label='Editor' path='/editor'/>
                 </Menu.List.Item>
@@ -103,7 +102,7 @@ function LateralMenu() {
                 <Menu.List.Item>
                     <Button label='Sign Out' onClick={signOut}/>   
                 </Menu.List.Item>
-            </Menu.List>
+            </Menu.List> */}
         </Menu>
         </>
     )
