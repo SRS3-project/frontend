@@ -1,32 +1,33 @@
-import React from 'react'
 import axios from '../api/axios';
+import { useContext } from "react";
 import UserContext from "../context/UserProvider";
 
 const retrieveUserInfo = () => {
-    const { user } = useContext(UserContext);
-    console.log(user);
-    /* useDebugValue(user, auth => auth?.user ? "Logged In" : "Logged Out") */
-    return useContext(UserContext);
+    /* const { user, setUser } = useContext(UserContext); */
+
+    const updateUserInfo = () => {
+        const { setUser } = useContext(UserContext);
+
+        const retreiveInfo = async () => {
+            setUser({});
+            try {
+            /* bisogna mettere a posto la richiesta axios */
+                const response = await axios('/logout', {
+                    withCredentials: true
+                });
+            } catch (err) {
+                console.error(err);
+            }
+        }
+        
+        console.log(user);
+
+        return retreiveInfo;
+    }
+    
+    return updateUserInfo;
 }
 
 export default retrieveUserInfo
 
 
-/* to use a s try catch example to retrieve info*/
-
-/* const useLogout = () => {
-    const { setAuth } = useAuth();
-
-    const logout = async () => {
-        setAuth({});
-        try {
-            const response = await axios('/logout', {
-                withCredentials: true
-            });
-        } catch (err) {
-            console.error(err);
-        }
-    }
-
-    return logout;
-} */

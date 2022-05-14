@@ -13,3 +13,16 @@ export const UserProvider = ({ children }) => {
 }
 
 export default UserContext;
+
+
+/* const user = {
+    anagrafica: {
+        nome,cognome
+    },
+    materiali: {
+        minerali,legno,oro,cibo
+    }
+    armate: {
+        soldati,arcieri
+    }
+} */

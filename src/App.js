@@ -14,6 +14,8 @@ import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import {AuthProvider} from "./context/AuthProvider";
 import env from 'react-dotenv';
 import io from 'socket.io-client';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
 
 const ROLES = {
   'User': 2001,
@@ -37,6 +39,8 @@ function App() {
               {/* public routes */}
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
+              <Route path="forgotPassword" element={<ForgotPassword />} />
+              <Route path="resetPassword/:token" element={<ResetPassword />} />
               {/* <Route path="linkpage" element={<LinkPage />} /> */}
               <Route path="unauthorized" element={<Unauthorized />} />
 

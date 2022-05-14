@@ -93,7 +93,7 @@ const Login = () => {
                     onChange={(e) => setPwd(e.target.value)}
                     value={pwd}
                     required
-                />
+                /> <br/>
                 <Button label='Sign in'/>
                 <div className="persistCheck">
                     <input
@@ -109,6 +109,12 @@ const Login = () => {
                 Need an Account?<br />
                 <span className="line">
                     <Link to="/register">Sign Up</Link>
+                </span>
+            </p>
+            <p>
+                Forgot password?<br />
+                <span className="line">
+                    <Link to="/forgotPassword">Recover Password</Link>
                 </span>
             </p>
         </section>

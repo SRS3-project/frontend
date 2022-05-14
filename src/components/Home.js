@@ -7,6 +7,7 @@ import Logo from "../images/logo.png";
 import UserBox from "./UserBox/UserBox";
 import Footer from "./Footer/Footer";
 import { UserProvider } from "../context/UserProvider";
+import styles from "../index.css"
 
 
 function Home() {  
@@ -19,7 +20,7 @@ function Home() {
                     </Columns.Column>
                     <Columns.Column size={6}>
                         <Notification color="link">
-                            <h1 class="gameName">dr.Ogame</h1>
+                            <h1 class="gameName">diOgame</h1>
                         </Notification>
                         <Notification color="link">
                             <ResourcePanel/>
@@ -46,13 +47,13 @@ function Home() {
                             <TechPanel/>
                         </Notification>
                     </Columns.Column >
-                </Columns>
 
-                <Columns.Column size={12}>
-                    <Notification color="link">
-                        <Footer/>
-                    </Notification>
-                </Columns.Column>
+                    <Columns.Column size={12}>
+                        <Notification color="link">
+                            <Footer/>
+                        </Notification>
+                    </Columns.Column>
+                </Columns>
             
             </UserProvider>
    

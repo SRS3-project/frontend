@@ -14,6 +14,12 @@ function ResourcePanel() {
     return(
         <>
         <ContainerBox>
+
+            {/*
+            user.materials.map(material => {
+                <ItemBox topLabel="material.name" image={material.name} bottomLabel="material.quantity"/>
+            }) 
+            */}
             <ItemBox topLabel="Minerals" image={mineral} bottomLabel="TODO"/>
             <ItemBox topLabel="Wood" image={wood} bottomLabel="TODO"/>
             <ItemBox topLabel="Gold" image={gold} bottomLabel="TODO"/>

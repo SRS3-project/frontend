@@ -7,6 +7,7 @@ import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
 import 'bulma/css/bulma.min.css';
 import { Menu } from "react-bulma-components";
+import styles from "./lateralmenu.module.css"
 
 
 //const stampa = () => { console.log('pressed button')}
@@ -55,7 +56,7 @@ function LateralMenu() {
         <>
         <Menu >
             <Menu.List title="General">
-                <Menu.List.Item>
+                <Menu.List.Item >
                     <RedirectButton label='Overview' path='/'/>
                 </Menu.List.Item>
             </Menu.List>
@@ -67,6 +68,11 @@ function LateralMenu() {
                 <Menu.List.Item>
                     <RedirectButton label='City' path='/castle'/>
                 </Menu.List.Item>
+                {true && (
+                    <Menu.List.Item>
+                        <RedirectButton label='Barracs' path='/barracs'/>
+                    </Menu.List.Item>
+                )}
                 {barracsButton()}
                 {towerButton()}
             </Menu.List>
