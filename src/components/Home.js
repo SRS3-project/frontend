@@ -20,7 +20,7 @@ function Home() {
                     </Columns.Column>
                     <Columns.Column size={6}>
                         <Notification color="link">
-                            <h1 class="gameName">diOgame</h1>
+                            <h1 className="gameName">diOgame</h1>
                         </Notification>
                         <Notification color="link">
                             <ResourcePanel/>

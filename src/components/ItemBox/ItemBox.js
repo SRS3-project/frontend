@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 function ItemBox(props) {
 
     return (
-        <div class={styles.div}>
+        <div className={styles.div}>
             <label className={styles.topLabel}>{props.topLabel}</label>
             <img className={styles.img} src={props.image}/>
             <label className={styles.bottomLabel}>{props.bottomLabel}</label>

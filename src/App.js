@@ -40,7 +40,15 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="forgotPassword" element={<ForgotPassword />} />
-              <Route path="resetPassword/:token" element={<ResetPassword />} />
+              
+
+
+              {/* <Route path="resetPassword" > */}
+                <Route exact path="resetPassword" element={<ResetPassword />} />
+                <Route path="/resetPassword/:id" element={<ResetPassword />} />
+              {/* </Route> */}
+
+
               {/* <Route path="linkpage" element={<LinkPage />} /> */}
               <Route path="unauthorized" element={<Unauthorized />} />
 

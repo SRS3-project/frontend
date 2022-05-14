@@ -30,7 +30,7 @@ function TechPanel() {
         <>
         <div id="technologies">
             <div id="technologies_basic" class="columns">
-                <div class="Column">
+                <div className="Column">
                     <h3>Ricerche base</h3>
                     {techInit("Ciao","logo192.png","2")}
                     {techInit("Ciao","logo192.png","2")}
@@ -41,17 +41,17 @@ function TechPanel() {
             </div>
             <div id="technologies_speed">
                 <h3>Ricerche trasporto</h3>
-                <ul class="icons">
+                <ul className="icons">
                 </ul>
             </div>
             <div id="technologies_advanced">
                 <h3>Ricerche avanzate</h3>
-                <ul class="icons">
+                <ul className="icons">
                 </ul>
             </div>
             <div id="technologies_combat">
                 <h3>Ricerche militari</h3>
-                <ul class="icons">
+                <ul className="icons">
                 </ul>
             </div>
         </div>

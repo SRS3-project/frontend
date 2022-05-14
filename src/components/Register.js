@@ -6,11 +6,13 @@ import { Link } from "react-router-dom";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const MAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const REGISTER_URL = '/register';
 
 const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
+    const mailRef = useRef();
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
@@ -23,6 +25,14 @@ const Register = () => {
     const [matchPwd, setMatchPwd] = useState('');
     const [validMatch, setValidMatch] = useState(false);
     const [matchFocus, setMatchFocus] = useState(false);
+
+    const [mail, setMail] = useState('');
+    const [validMail, setValidMail] = useState(false);
+    const [mailFocus, setMailFocus] = useState(false);
+
+    const [matchMail, setMatchMail] = useState('');
+    const [validMailMatch, setValidMailMatch] = useState(false);
+    const [matchMailFocus, setMatchMailFocus] = useState(false);
 
     const [errMsg, setErrMsg] = useState('');
     const [success, setSuccess] = useState(false);
@@ -40,22 +50,31 @@ const Register = () => {
         setValidMatch(pwd === matchPwd);
     }, [pwd, matchPwd])
 
+    
+    useEffect(() => {
+        setValidPwd(MAIL_REGEX.test(mail));
+        setValidMatch(mail === matchMail);
+    }, [mail, matchMail])
+
     useEffect(() => {
         setErrMsg('');
-    }, [user, pwd, matchPwd])
+    }, [user, pwd, matchPwd, mail, matchMail])
+    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // if button enabled with JS hack
         const v1 = USER_REGEX.test(user);
         const v2 = PWD_REGEX.test(pwd);
-        if (!v1 || !v2) {
+        const v3 = MAIL_REGEX.test(mail);
+        if (!v1 || !v2 || !v3) {
             setErrMsg("Invalid Entry");
             return;
         }
         try {
             const response = await axios.post(REGISTER_URL,
-                { username: user, password: pwd },
+                { username: user, password: pwd, email: mail },
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
@@ -166,7 +185,50 @@ const Register = () => {
                             Must match the first password input field.
                         </p>
 
-                        <button disabled={!validName || !validPwd || !validMatch ? true : false}>Sign Up</button>
+                        <label htmlFor="email">
+                            Email:
+                            <FontAwesomeIcon icon={faCheck} className={validMail ? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validMail || !mail ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="text"
+                            id="email"
+                            autoComplete="off"
+                            onChange={(e) => setMail(e.target.value)}
+                            value={mail}
+                            required
+                            aria-invalid={validMail ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setMailFocus(true)}
+                            onBlur={() => setMailFocus(false)}
+                        />
+                        <p id="uidnote" className={mailFocus && mail && !validMail ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            Something is wrong in your mail.<br />
+                        </p>
+                        <label htmlFor="confirm_email">
+                            Confirm Email:
+                            <FontAwesomeIcon icon={faCheck} className={validMailMatch && matchMail ? "valid" : "hide"} />
+                            <FontAwesomeIcon icon={faTimes} className={validMailMatch || !matchMail ? "hide" : "invalid"} />
+                        </label>
+                        <input
+                            type="text"
+                            id="confirm_email"
+                            autoComplete="off"
+                            onChange={(e) => setMatchMail(e.target.value)}
+                            value={matchMail}
+                            required
+                            aria-invalid={validMail ? "false" : "true"}
+                            aria-describedby="uidnote"
+                            onFocus={() => setMatchMailFocus(true)}
+                            onBlur={() => setMatchMailFocus(false)}
+                        />
+                        <p id="confirmnote" className={matchMailFocus && !validMailMatch ? "instructions" : "offscreen"}>
+                            <FontAwesomeIcon icon={faInfoCircle} />
+                            Must match the first email input field.
+                        </p>
+                        <br/>
+                        <button disabled={!validName || !validPwd || !validMatch || !validMailMatch ? true : false}>Sign Up</button>
                     </form>
                     <p>
                         Already registered?<br />

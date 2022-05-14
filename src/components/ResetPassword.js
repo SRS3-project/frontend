@@ -7,16 +7,23 @@ const RESETPASSWORD_URL = '/forgotpassword/email';
 
 const ResetPassword = () => {
 
-    const { token } = useParams();
-    console.log (token); 
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log ("location"); 
+    console.log (location); 
+    console.log ("navigate"); 
+    console.log (navigate); 
+
+    /* let { id } = useParams();
+    console.log (id);  */
     /* const location = useLocation();
     console.log (location);  */
-    /* const token = "banana"; */
+    /* const id = "banana"; */
     return (
         <section>
             ResetPassword
             <br/>
-            { token }
+            {/* { id } */}
         </section>
     )
 }
