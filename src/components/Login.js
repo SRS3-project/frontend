@@ -3,6 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Button from './Button/Button';
 import useAuth from '../hooks/useAuth';
 
+import AuthContext from "../context/AuthProvider";
+
 import axios from '../api/axios';
 const LOGIN_URL = '/login';
 
@@ -100,7 +102,8 @@ const Login = () => {
                         type="checkbox"
                         id="persist"
                         onChange={togglePersist}
-                        checked={persist}
+                        checked={ !!persist }
+                        //checked need TOBEFIXED don't render correctly, with !! we at least don't see the error on console
                     />
                     <label htmlFor="persist">Trust This Device</label>
                 </div>

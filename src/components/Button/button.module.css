@@ -16,3 +16,7 @@
 a {
     text-decoration: none !important;
 }
+
+.button:disabled{
+    background-color: #56565f;
+}

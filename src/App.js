@@ -2,20 +2,17 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Home from './components/Home';
 import Layout from './components/Layout';
-import Editor from './components/Editor';
-import Admin from './components/Admin';
 import Missing from './components/Missing';
 import Unauthorized from './components/Unauthorized';
-import Lounge from './components/Lounge';
-import LinkPage from './components/LinkPage';
 import RequireAuth from './components/RequireAuth';
 import PersistLogin from './components/PersistLogin';
+
 import {Routes, Route, BrowserRouter} from 'react-router-dom';
 import {AuthProvider} from "./context/AuthProvider";
-import env from 'react-dotenv';
-import io from 'socket.io-client';
+
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
+import ConfirmEmail from './components/ConfirmEmail';
 
 const ROLES = {
   'User': 2001,
@@ -40,13 +37,8 @@ function App() {
               <Route path="login" element={<Login />} />
               <Route path="register" element={<Register />} />
               <Route path="forgotPassword" element={<ForgotPassword />} />
-              
-
-
-              {/* <Route path="resetPassword" > */}
-                <Route exact path="resetPassword" element={<ResetPassword />} />
-                <Route path="/resetPassword/:id" element={<ResetPassword />} />
-              {/* </Route> */}
+              <Route path="resetPassword" element={<ResetPassword />} />
+              <Route path="confirmemail" element={<ConfirmEmail />} />
 
 
               {/* <Route path="linkpage" element={<LinkPage />} /> */}

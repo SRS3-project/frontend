@@ -5,7 +5,7 @@ import React from "react";
 import RedirectButton from "../Button/RedirectButton/RedirectButton";
 import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
-import 'bulma/css/bulma.min.css';
+import "bulma/css/bulma.min.css";
 import { Menu } from "react-bulma-components";
 import styles from "./lateralmenu.module.css"
 

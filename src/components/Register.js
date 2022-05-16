@@ -3,6 +3,7 @@ import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from '../api/axios';
 import { Link } from "react-router-dom";
+import Button from './Button/Button';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -12,7 +13,6 @@ const REGISTER_URL = '/register';
 const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
-    const mailRef = useRef();
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);
@@ -52,8 +52,8 @@ const Register = () => {
 
     
     useEffect(() => {
-        setValidPwd(MAIL_REGEX.test(mail));
-        setValidMatch(mail === matchMail);
+        setValidMail(MAIL_REGEX.test(mail));
+        setValidMailMatch(mail === matchMail);
     }, [mail, matchMail])
 
     useEffect(() => {
@@ -81,16 +81,20 @@ const Register = () => {
                 }
             );
             // TODO: remove console.logs before deployment
-            console.log(JSON.stringify(response?.data));
+            //console.log(JSON.stringify(response?.data));
             //console.log(JSON.stringify(response))
             setSuccess(true);
             //clear state and controlled inputs
             setUser('');
             setPwd('');
             setMatchPwd('');
+            setMail('');
+            setMatchMail('');
         } catch (err) {
             if (!err?.response) {
                 setErrMsg('No Server Response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Invalid Input');
             } else if (err.response?.status === 409) {
                 setErrMsg('Username Taken');
             } else {
@@ -228,12 +232,12 @@ const Register = () => {
                             Must match the first email input field.
                         </p>
                         <br/>
-                        <button disabled={!validName || !validPwd || !validMatch || !validMailMatch ? true : false}>Sign Up</button>
+                        <Button label='Sign Up' disabled={!validName || !validPwd || !validMatch || !validMail || !validMailMatch ? true : false}/>
                     </form>
                     <p>
-                        Already registered?<br />
+                        Wanna go back?<br />
                         <span className="line">
-                            <Link to="/">Sign In</Link>
+                            <Link to="/login">Login Page</Link>
                         </span>
                     </p>
                 </section>
