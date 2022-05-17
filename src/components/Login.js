@@ -3,8 +3,6 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Button from './Button/Button';
 import useAuth from '../hooks/useAuth';
 
-import AuthContext from "../context/AuthProvider";
-
 import axios from '../api/axios';
 const LOGIN_URL = '/login';
 
@@ -41,10 +39,10 @@ const Login = () => {
                     withCredentials: true
                 }
             );
-            console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
             const accessToken = response?.data?.accessToken;
             const roles = response?.data?.roles;
+            localStorage.setItem('auth', JSON.stringify({ user, roles, accessToken }));
+            localStorage.setItem("persist", persist);
             setAuth({ user, pwd, roles, accessToken });
             setUser('');
             setPwd('');
@@ -66,10 +64,6 @@ const Login = () => {
     const togglePersist = () => {
         setPersist(prev => !prev);
     }
-
-    useEffect(() => {
-        localStorage.setItem("persist", persist);
-    }, [persist])
 
     return (
 
@@ -102,7 +96,7 @@ const Login = () => {
                         type="checkbox"
                         id="persist"
                         onChange={togglePersist}
-                        checked={ !!persist }
+                        checked={ persist }
                         //checked need TOBEFIXED don't render correctly, with !! we at least don't see the error on console
                     />
                     <label htmlFor="persist">Trust This Device</label>
