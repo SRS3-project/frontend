@@ -10,7 +10,7 @@ import Button from "../Button/Button";
 const UserBox = () => {
 	const { auth } = useContext(AuthContext);
 
-	const userName = auth?.user.charAt(0).toUpperCase() + auth?.user.slice(1);
+	const userName = auth?.user?.charAt(0).toUpperCase() + auth?.user?.slice(1);
 
 	const navigate = useNavigate();
 	const logout = useLogout();
