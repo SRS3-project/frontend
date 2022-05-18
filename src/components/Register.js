@@ -96,7 +96,7 @@ const Register = () => {
             } else if (err.response?.status === 400) {
                 setErrMsg('Invalid Input');
             } else if (err.response?.status === 409) {
-                setErrMsg('Username Taken');
+                setErrMsg('Username or Email alerady Taken');
             } else {
                 setErrMsg('Registration Failed')
             }

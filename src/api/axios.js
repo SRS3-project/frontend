@@ -10,3 +10,9 @@ export const axiosPrivate = axios.create({
     headers: { 'Content-Type': 'application/json' },
     withCredentials: true
 });
+
+/* export const axiosUser = axios.create({
+    baseURL: env.GAME_BACKEND_URL,
+    headers: { 'Content-Type': 'application/json' },
+    withCredentials: true
+}); */
