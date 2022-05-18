@@ -1,13 +1,13 @@
 import axios from "../api/axios";
 import useAuth from "./useAuth";
 
-const LOGOUT_URL = '/logout';
+const LOGOUT_URL = "/logout";
 
 const useLogout = () => {
-    const { setAuth } = useAuth();
+	const { setAuth } = useAuth();
 
-    const logout = async () => {
-        /* try {
+	const logout = async () => {
+		/* try {
             const response = await axios.post(LOGOUT_URL,
                 { username: username },
                 {
@@ -18,13 +18,11 @@ const useLogout = () => {
         } catch (err) {
             console.error(err);
         } */
-        localStorage.setItem('auth', '{}');
-        setAuth({});
-    }
+		localStorage.setItem("auth", "{}");
+		setAuth({});
+	};
 
-    
+	return logout;
+};
 
-    return logout;
-}
-
-export default useLogout
+export default useLogout;
