@@ -7,7 +7,7 @@ import axios from "../api/axios";
 const LOGIN_URL = "/login";
 
 const Login = () => {
-	const { setAuth, persist, setPersist } = useAuth();
+	const { auth, setAuth, persist, setPersist } = useAuth();
 
 	const navigate = useNavigate();
 	const location = useLocation();
@@ -49,6 +49,7 @@ const Login = () => {
 			localStorage.setItem("persist", persist);
 			//setAuth({ user, pwd, roles, accessToken });
 			setAuth({ user, roles, accessToken });
+			console.log("auth is ", typeof auth);
 			setUser("");
 			setPwd("");
 			navigate(from, { replace: true });
@@ -106,7 +107,7 @@ const Login = () => {
 						type="checkbox"
 						id="persist"
 						onChange={togglePersist}
-						checked={persist}
+						checked={!!persist}
 						//checked need TOBEFIXED don't render correctly, with !! we at least don't see the error on console
 					/>
 					<label htmlFor="persist">Trust This Device</label>

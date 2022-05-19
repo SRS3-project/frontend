@@ -11,8 +11,15 @@ export const axiosPrivate = axios.create({
 	withCredentials: true,
 });
 
+export const axiosUser = axios.create({
+	baseURL: env.GAME_BACKEND_URL,
+});
+
 /* export const axiosUser = axios.create({
-    baseURL: env.GAME_BACKEND_URL,
-    headers: { 'Content-Type': 'application/json' },
-    withCredentials: true
+	baseURL: env.GAME_BACKEND_URL,
+	headers: {
+		"Content-Type": "application/json",
+		Authorization: `Bearer ${token}`,
+	},
+	withCredentials: true,
 }); */

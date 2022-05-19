@@ -1,20 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import {
-	useSearchParams,
-	Link,
-	useNavigate,
-	useLocation,
-} from "react-router-dom";
+import { useSearchParams, Link } from "react-router-dom";
 
 import axios from "../api/axios";
 
 const CONFIRMEMAIL_URL = "/confirmemail";
 
 const ConfirmEmail = () => {
-	/* const navigate = useNavigate();
-    const location = useLocation(); */
-
 	const [searchParams] = useSearchParams();
 	const token = searchParams.get("token");
 
@@ -33,12 +25,7 @@ const ConfirmEmail = () => {
 					withCredentials: true,
 				}
 			);
-			// TODO: remove console.logs before deployment
-			//console.log(JSON.stringify(response?.data));
-			//console.log(JSON.stringify(response))
 			setSuccess(true);
-			//console.log (success);
-			//console.log (response);
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
@@ -48,7 +35,6 @@ const ConfirmEmail = () => {
 				setErrMsg("Confirmation Failed");
 			}
 		}
-		//console.log (errMsg);
 	};
 
 	useEffect(() => {

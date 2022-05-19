@@ -28,7 +28,7 @@ function TechPanel() {
 	return (
 		<>
 			<div id="technologies">
-				<div id="technologies_basic" class="columns">
+				<div id="technologies_basic" className="columns">
 					<div className="Column">
 						<h3>Ricerche base</h3>
 						{techInit("Ciao", "logo192.png", "2")}
