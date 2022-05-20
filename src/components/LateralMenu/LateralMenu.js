@@ -1,7 +1,7 @@
 /* import { useNavigate, Link } from "react-router-dom";
 import useLogout from "../../hooks/useLogout"; */
 import Button from "../Button/Button"
-import React from "react";
+import React, { useState } from "react";
 import RedirectButton from "../Button/RedirectButton/RedirectButton";
 import "bulma/sass/utilities/_all.sass"
 import "bulma/sass/components/menu.sass"
@@ -12,7 +12,7 @@ import { Menu } from "react-bulma-components";
 //const stampa = () => { console.log('pressed button')}
 
 
-function barracsButton(props) {
+/* function barracsButton(props) {
 
     let hasBarracs = 1; //get LVL from user {getBarracs}
     if(hasBarracs > 0)
@@ -24,9 +24,9 @@ function barracsButton(props) {
         );
     }
     return(null);
-}
+} */
 
-function towerButton(props) {
+/* function towerButton(props) {
     let hasTower = 1; //get LVL from user {getTower}
 
     if(hasTower > 0)
@@ -38,11 +38,12 @@ function towerButton(props) {
         );
     }
     return(null);
-}
+} */
+
 
 
 //JSX
-function LateralMenu() {
+const LateralMenu = () => {
     
     /* const navigate = useNavigate();
     const logout = useLogout();
@@ -52,8 +53,11 @@ function LateralMenu() {
         navigate('/login');
     } */
 
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> 4f56d1c2c8b44b6ba6db2903fcda655a21c2a17a
     // Lateral Menu State
     /* const [structures, setStructures] = useState(
         {
@@ -134,11 +138,18 @@ function LateralMenu() {
         return(null);
     }
     
+<<<<<<< HEAD
 >>>>>>> Stashed changes
     return(
         <>
         <Menu>
             <button onClick={() => handleLoad(3)}>Io inverto lo stato</button>
+=======
+    return(
+        <>
+        <Menu>
+            <button onClick={() => handleLoad(3)}>Io inverto lo stato #ReactMerda</button>
+>>>>>>> 4f56d1c2c8b44b6ba6db2903fcda655a21c2a17a
             <Menu.List title="General">
                 <Menu.List.Item>
                     <RedirectButton label='Overview' path='/'/>
