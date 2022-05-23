@@ -1,0 +1,22 @@
+{
+    "buildings": {
+        "Castle": "This is the Castle descriprion",
+        "City": "This is the City descriprion",
+        "Barracs": "This is the Barracs descriprion",
+        "Mage Tower": "This is the Mage Tower descriprion"
+    },
+
+    "troops": {
+        "Archer": "This is the Archer descriprion",
+        "Warrior": "This is the Warrior descriprion",
+        "DumbFucker": "This is the DumbFucker descriprion",
+        "Mage": "This is the Mage descriprion"
+    },
+
+    "technologies": {
+        "Smelting": "This is the Smelting descriprion",
+        "Fire": "This is the Fire descriprion",
+        "Magic": "This is the Magic descriprion",
+        "WoodCutting": "This is the WoodCutting descriprion"
+    }
+  }

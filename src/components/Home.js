@@ -28,15 +28,16 @@ function Home() {
 			//old backend
 			//const requestUrl = `/me`;
 			//new backend
-			const requestUrl = `${USERINFO_URL}/${auth.user}`;
-			//const requestUrl = `${USERINFO_URL}`;
+			//const requestUrl = `${USERINFO_URL}/${auth.user}`;
+			const requestUrl = `${USERINFO_URL}`;
 			console.log("requestUrl: ", requestUrl);
 
 			const response = await axiosUser.get(requestUrl, {
 				headers: {
 					"Content-Type": "application/json",
 					//new backend
-					Authorization: `Bearer ${auth.accessToken}`,
+					Authorization: `Bearer=${auth.accessToken}`,
+					//Cookie: `X-AUTH-TOKEN=${auth.accessToken}`,
 					//old backend
 					//Authorization: auth.accessToken,
 
