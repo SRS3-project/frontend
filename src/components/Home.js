@@ -5,21 +5,27 @@ import { Columns, Notification } from "react-bulma-components";
 import Logo from "../images/logo.png";
 import UserBox from "./UserBox/UserBox";
 import Footer from "./Footer/Footer";
-import { UserProvider } from "../context/UserProvider";
 import TryHarder from "./TryHarder";
 
 import { axiosUser } from "../api/axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useUser from "../hooks/useUser";
 import useAuth from "../hooks/useAuth";
 
 import styles from "../index.css";
+import InfoBox from "./InfoBox/InfoBox";
+
+import Descriptions from "../../data/descriptions.json";
 
 const USERINFO_URL = "/player";
 
 function Home() {
 	const { auth } = useAuth();
 	const { user, setUser } = useUser();
+	const [info, setInfo] = useState(Descriptions.buildings.home);
+
+	//setInfo(Descriptions.buildings.home);
+	//console.log("info: ", info);
 
 	const updateUserInfo = async () => {
 		console.log("fetchingData");
@@ -98,13 +104,15 @@ function Home() {
 
 					<Columns.Column size={4}>
 						<Notification color="link">
-							<LateralMenu />
+							<LateralMenu
+								descriptions={Descriptions.buildings}
+								setInfo={setInfo}
+							/>
 						</Notification>
 					</Columns.Column>
 					<Columns.Column size="auto">
 						<Notification color="link">
-							<h1>Home</h1>
-							<p>You are logged in!</p>
+							<InfoBox info={info} />
 						</Notification>
 						<br />
 						<Notification color="link">

@@ -11,33 +11,8 @@ import styles from "./lateralmenu.module.css";
 
 //const stampa = () => { console.log('pressed button')}
 
-function barracsButton(props) {
-	let hasBarracs = 1; //get LVL from user {getBarracs}
-	if (hasBarracs > 0) {
-		return (
-			<Menu.List.Item>
-				<RedirectButton label="Barracs" path="/barracs" />
-			</Menu.List.Item>
-		);
-	}
-	return null;
-}
-
-function towerButton(props) {
-	let hasTower = 1; //get LVL from user {getTower}
-
-	if (hasTower > 0) {
-		return (
-			<Menu.List.Item>
-				<RedirectButton label="Mage Tower" path="/magetower" />
-			</Menu.List.Item>
-		);
-	}
-	return null;
-}
-
 //JSX
-function LateralMenu() {
+function LateralMenu({ descriptions, setInfo }) {
 	/* const navigate = useNavigate();
     const logout = useLogout();
 
@@ -51,24 +26,57 @@ function LateralMenu() {
 			<Menu>
 				<Menu.List title="General">
 					<Menu.List.Item>
-						<RedirectButton label="Overview" path="/" />
+						<Button
+							label="Overview"
+							onClick={(e) => {
+								e.preventDefault();
+								setInfo(descriptions.home);
+							}}
+						/>
 					</Menu.List.Item>
 				</Menu.List>
 
 				<Menu.List title="Domain">
 					<Menu.List.Item>
-						<RedirectButton label="Castle" path="/castle" />
+						<Button
+							label="Castle"
+							onClick={(e) => {
+								e.preventDefault();
+								setInfo(descriptions.castle);
+							}}
+						/>
 					</Menu.List.Item>
 					<Menu.List.Item>
-						<RedirectButton label="City" path="/castle" />
+						<Button
+							label="City"
+							onClick={(e) => {
+								e.preventDefault();
+								setInfo(descriptions.city);
+							}}
+						/>
 					</Menu.List.Item>
 					{true && (
 						<Menu.List.Item>
-							<RedirectButton label="Barracs" path="/barracs" />
+							<Button
+								label="Barracs"
+								onClick={(e) => {
+									e.preventDefault();
+									setInfo(descriptions.barracs);
+								}}
+							/>
 						</Menu.List.Item>
 					)}
-					{barracsButton()}
-					{towerButton()}
+					{true && (
+						<Menu.List.Item>
+							<Button
+								label="Mage Tower"
+								onClick={(e) => {
+									e.preventDefault();
+									setInfo(descriptions.magetower);
+								}}
+							/>
+						</Menu.List.Item>
+					)}
 				</Menu.List>
 
 				<Menu.List title="Troops">
