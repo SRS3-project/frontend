@@ -53,11 +53,7 @@ const LateralMenu = () => {
         navigate('/login');
     } */
 
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> 4f56d1c2c8b44b6ba6db2903fcda655a21c2a17a
+
     // Lateral Menu State
     /* const [structures, setStructures] = useState(
         {
@@ -138,18 +134,12 @@ const LateralMenu = () => {
         return(null);
     }
     
-<<<<<<< HEAD
->>>>>>> Stashed changes
-    return(
-        <>
-        <Menu>
-            <button onClick={() => handleLoad(3)}>Io inverto lo stato</button>
-=======
+
     return(
         <>
         <Menu>
             <button onClick={() => handleLoad(3)}>Io inverto lo stato #ReactMerda</button>
->>>>>>> 4f56d1c2c8b44b6ba6db2903fcda655a21c2a17a
+
             <Menu.List title="General">
                 <Menu.List.Item>
                     <RedirectButton label='Overview' path='/'/>
