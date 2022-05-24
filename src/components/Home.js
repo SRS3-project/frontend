@@ -15,7 +15,7 @@ import useAuth from "../hooks/useAuth";
 import styles from "../index.css";
 import InfoBox from "./InfoBox/InfoBox";
 
-import Descriptions from "../../data/descriptions.json";
+import Descriptions from "../locales/en.json";
 
 const USERINFO_URL = "/player";
 
@@ -34,30 +34,26 @@ function Home() {
 			//old backend
 			//const requestUrl = `/me`;
 			//new backend
-			//const requestUrl = `${USERINFO_URL}/${auth.user}`;
-			const requestUrl = `${USERINFO_URL}`;
+			const requestUrl = `${USERINFO_URL}/${auth.user}`;
 			console.log("requestUrl: ", requestUrl);
 
 			const response = await axiosUser.get(requestUrl, {
 				headers: {
 					"Content-Type": "application/json",
 					//new backend
-					Authorization: `Bearer=${auth.accessToken}`,
-					//Cookie: `X-AUTH-TOKEN=${auth.accessToken}`,
+					Authorization: `Bearer ${auth.accessToken}`,
 					//old backend
 					//Authorization: auth.accessToken,
-
-					//Cookie: `X-AUTH-TOKEN=${auth.accessToken}`,
 				},
 				withCredentials: true,
 			});
-			console.log("response: ", response);
+			//console.log("response: ", response.data);
 
 			//response.data.player is for the old backend
 			//console.log(typeof response.data.player, " ", response.data.player);
-			localStorage.setItem("user", JSON.stringify(response.data.player));
+			localStorage.setItem("user", JSON.stringify(response.data));
 
-			setUser(response.data.player);
+			setUser(response.data);
 		} catch (err) {
 			//console.log(err);
 			if (!err?.response) {
@@ -68,7 +64,7 @@ function Home() {
 				console.log("FETCH USER DATA: Unknown error");
 			}
 		} finally {
-			//console.log("user: ", user);
+			console.log("user: ", user);
 		}
 	};
 
@@ -80,10 +76,10 @@ function Home() {
 
 	return (
 		<>
-			{Object.keys(user).length === 0 ? (
+			{/* {Object.keys(user).length === 0 ? ( */}
+			{false ? (
 				<TryHarder />
 			) : (
-				/* <UserProvider> */
 				<Columns multiline centered>
 					<Columns.Column size={3}>
 						<img src={Logo} />
@@ -126,7 +122,6 @@ function Home() {
 						</Notification>
 					</Columns.Column>
 				</Columns>
-				/* </UserProvider> */
 			)}
 		</>
 	);
