@@ -8,7 +8,7 @@ const ContainerPanel = ({filter, elements, setInfo, toBuild,setToBuild, handleSu
 	
     switch(filter) {
         case "barracs":
-          return BarracsPanel(elements, setInfo, toBuild, setToBuild, handleSubmmit);
+          return BarracsPanel(elements, setInfo, setToBuild, handleSubmmit);
         case "tower":
           {return TechPanel(elements, setInfo);}
         case "troops":

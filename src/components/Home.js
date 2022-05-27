@@ -205,7 +205,6 @@ function Home() {
 								filter={elements.filter} 
 								elements={elements.desc}
 								setInfo={elements.setInfo}
-								toBuild={toBuild}
 								setToBuild={setToBuild}
 								handleSubmmit={handleSubmmit}
 							/>

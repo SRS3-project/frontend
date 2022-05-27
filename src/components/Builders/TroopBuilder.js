@@ -3,7 +3,7 @@ import { FaPlus } from 'react-icons/fa'
 import styles from './troop.builder.css'
 import { useState } from 'react'
 
-const TroopBuilder = ({item,toBuild, setToBuild, handleSubmmit}) => {
+const TroopBuilder = ({item, setToBuild, handleSubmmit}) => {
   
   const [val,setVal] = useState('');
   const id = item.id;
