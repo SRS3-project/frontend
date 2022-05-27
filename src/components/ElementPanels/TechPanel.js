@@ -3,44 +3,40 @@ import "bulma/sass/utilities/_all.sass";
 import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
 
-//this should create the single tecnology button
-function techInit(name, src, lvl) {
-	let label = name;
-	let img = src;
-	let level = lvl;
 
-	return (
-		<span>
-			<ItemBox
-				topLabel={label}
-				image={img}
-				bottomLabel={level}
-				onclick={() => console.log("Start Upgrade")}
-			/>
-		</span>
-	);
-}
 
 //this should read the player tecnlogies tree
-function techPopulate() {}
 
-function TechPanel() {
+const TechPanel = ({ techs, setInfo} ) => {
+
+	let techInit = () => {
+
+		techs.filter((item) => item.type.include('base')).map(filteredType => (
+			<span>
+					<ItemBox
+						topLabel={filteredType.name}
+						image="logo192.png"
+						bottomLabel={filteredType.level}
+						onclick={(e) => {
+							e.preventDefault();
+							setInfo(filteredType.description);
+						}}
+									/>
+				</span>
+		))}
+
 	return (
 		<>
 			<div id="technologies">
 				<div id="technologies_basic" className="columns">
 					<div className="Column">
 						<h3>Ricerche base</h3>
-						{techInit("Ciao", "logo192.png", "2")}
-						{techInit("Ciao", "logo192.png", "2")}
-						<span>
-							<ItemBox
-								topLabel="Tette"
-								image="confirm.png"
-								bottomLabel="7"
-								onclick={() => console.log("Start Upgrade")}
-							/>
-						</span>
+						{/* {techs.map((tech) => (
+								<div>{tech.name}</div>
+							))} */
+							/* () => techInit() */
+						}
+						
 					</div>
 				</div>
 				<div id="technologies_speed">

@@ -112,7 +112,10 @@ function Home() {
 						</Notification>
 						<br />
 						<Notification color="link">
-							<TechPanel />
+							<TechPanel 
+								techs={Descriptions.technologies}
+								setInfo={setInfo}
+								/>
 						</Notification>
 					</Columns.Column>
 
