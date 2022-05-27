@@ -3,6 +3,7 @@ import "bulma/sass/utilities/_all.sass";
 import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
+import styles from "./items.panels.css"
 
 
 //this should read the player tecnlogies tree
@@ -11,12 +12,12 @@ function TechPanel( techs, setInfo ) {
 
 	return (
 		<>
-			<Columns multiline centered id="technologies">
-				<Columns.Column size={6} id="technologies_basic">
+			<Columns multiline centered className="technologies">
+				<Columns.Column size={6} className="technologies_basic">
 					<Notification color="link">
 						<h3>Ricerche base</h3>
 					</Notification>
-					<ul>
+					<ul id="horizontal-list">
 					{
 						techs.map((tech) => (tech.type === 'base' ? (
 							<li key={tech.id}>
@@ -36,11 +37,11 @@ function TechPanel( techs, setInfo ) {
 					}	
 					</ul>
 				</Columns.Column >
-				<Columns.Column size={6} id="technologies_speed">
+				<Columns.Column size={6} className="technologies_speed">
 					<Notification color="link">
 						<h3>Ricerche trasporto</h3>
 					</Notification>
-					<ul>
+					<ul id="horizontal-list">
 					{
 						techs.map((tech) => (tech.type === 'movement' ? (
 							<li key={tech.id}>
@@ -61,11 +62,11 @@ function TechPanel( techs, setInfo ) {
 					</ul>
 				</Columns.Column >
 
-				<Columns.Column  size={6} id="technologies_advanced">
+				<Columns.Column  size={6} className="technologies_advanced">
 					<Notification color="link">
 						<h3>Ricerche avanzate</h3>
 					</Notification>
-					<ul>
+					<ul id="horizontal-list">
 					{
 						techs.map((tech) => (tech.type === 'advanced' ? (
 							<li key={tech.id}>
@@ -89,7 +90,7 @@ function TechPanel( techs, setInfo ) {
 					<Notification color="link">
 						<h3>Ricerche militari</h3>
 					</Notification>
-					<ul>
+					<ul id="horizontal-list">
 					{
 						techs.map((tech) => (tech.type === 'military' ? (
 							<li key={tech.id}>
