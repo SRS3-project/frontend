@@ -4,15 +4,15 @@ import TechPanel from "./TechPanel";
 import BarracsPanel from "./BarracsPanel";
 
 
-const ContainerPanel = ({filter, element, setInfo}) => {
+const ContainerPanel = ({filter, elements, setInfo, toBuild,setToBuild, handleSubmmit}) => {
 	
     switch(filter) {
         case "barracs":
-          return BarracsPanel(element, setInfo);
+          return BarracsPanel(elements, setInfo, toBuild, setToBuild, handleSubmmit);
         case "tower":
-          {return TechPanel(element, setInfo);}
+          {return TechPanel(elements, setInfo);}
         case "troops":
-          return TroopPanel(element, setInfo);
+          return TroopPanel(elements, setInfo);
         default:
           {};
       }

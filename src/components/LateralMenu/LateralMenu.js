@@ -65,7 +65,11 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 									e.preventDefault();
 									setInfo(descriptions.buildings.barracs);
 									setItems(descriptions.troops);
-									setElements( ["barracs",descriptions.troops,setInfo] );
+									setElements({
+										filter:"barracs",
+										desc: descriptions.troops,
+										setInfo:setInfo
+									});
 								}}
 							/>
 						</Menu.List.Item>
@@ -78,7 +82,11 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 									e.preventDefault();
 									setInfo(descriptions.buildings.magetower);
 									setItems(descriptions.technologies);
-									setElements(["tower",descriptions.technologies, setInfo]);
+									setElements({
+										filter:"tower",
+										desc: descriptions.technologies,
+										setInfo:setInfo
+									});
 								}}
 							/>
 						</Menu.List.Item>
@@ -93,7 +101,12 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								e.preventDefault();
 								setInfo("This is your army");
 								setItems(descriptions.troops);
-								setElements(["troops",descriptions.troops,setInfo]);
+								//setElements(["troops",descriptions.troops, setInfo ]);
+								setElements({
+									filter:"troops",
+									desc: descriptions.troops,
+									setInfo:setInfo
+								});
 							}}
 						/>
 					</Menu.List.Item>

@@ -25,7 +25,7 @@
     "troops": [
       {
         "id":"wanderers",
-        "name": "Wanderers ",
+        "name": "Wanderers",
         "resume": "Wanderers  are very agile units used to transport resources from one territory to another.",
         "description": "Wanderers are, roughly, like archers, but have less efficient equipment and weaponry to provide more space for transportation. Therefore, the wanderers, should be employed in battle only if supported by strong ships in combat. As the search for wagons reaches level 5, wanderers are equipped with small tow carts, therefore their base speed increases.",
         "icon": "general",
