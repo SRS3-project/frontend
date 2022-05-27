@@ -48,7 +48,7 @@ function Home() {
 			const requestUrl = `${USERINFO_URL}/${auth.user}`;
 			console.log("requestUrl: ", requestUrl);
 			
-			const response = await axiosUser.post(requestUrl, {
+			const response = await axiosUser.post(USERINFO_URL, {
 				headers: {
 					"Content-Type": "application/json",
 					//new backend
@@ -57,7 +57,7 @@ function Home() {
 					//Authorization: auth.accessToken,
 				},				
 				body: {
-					username: `${auth.user}`,
+					"username": `${auth.user}`,
 				},
 				withCredentials: true,
 			})
