@@ -25,8 +25,11 @@ function Home() {
 	const { user, setUser } = useUser();
 	const [info, setInfo] = useState(Descriptions.buildings.home);
 	const [items, setItems] = useState(Descriptions.technologies);
-	const [elements, setElements] = useState([]);
-
+	const [elements, setElements] = useState({});
+	const [toBuild, setToBuild] = useState({
+		"type": "WARRIORS",
+		"amount": 0		
+	});
 
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
@@ -101,6 +104,20 @@ function Home() {
 		//setInterval(updateUserInfo, 30000);
 	}, []);
 
+	const handleSubmmit = (e) => {
+		e.preventDefault();
+
+		console.log("Submitted: ", toBuild.amount,"x", toBuild.type);
+		//additem
+		
+		setToBuild('');
+
+		if(!toBuild) return;
+
+
+		console.log('submitted');
+	}
+
 	return (
 		<>
 			{/* {Object.keys(user).length === 0 ? ( */}
@@ -145,9 +162,12 @@ function Home() {
 						<br />
 						<Notification color="link">
 							<ContainerPanel
-								filter={elements[0]} 
-								element={elements[1]}
-								setInfo={elements[2]}
+								filter={elements.filter} 
+								elements={elements.desc}
+								setInfo={elements.setInfo}
+								toBuild={toBuild}
+								setToBuild={setToBuild}
+								handleSubmmit={handleSubmmit}
 							/>
 							{/* <TechPanel 
 								techs={items}
