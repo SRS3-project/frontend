@@ -9,7 +9,7 @@ import wood from "../../images/wood-icon.png";
 import gold from "../../images/gold-icon.png";
 import food from "../../images/food-icon.png";
 
-function ResourcePanel() {
+const ResourcePanel = ({ resources }) => {
 	return (
 		<>
 			<ContainerBox>
@@ -21,11 +21,23 @@ function ResourcePanel() {
 				<ItemBox
 					topLabel="Minerals"
 					image={mineral}
-					bottomLabel="TODO"
+					bottomLabel={resources.mineral}
 				/>
-				<ItemBox topLabel="Wood" image={wood} bottomLabel="TODO" />
-				<ItemBox topLabel="Gold" image={gold} bottomLabel="TODO" />
-				<ItemBox topLabel="Food" image={food} bottomLabel="TODO" />
+				<ItemBox 
+					topLabel="Wood" 
+					image={wood} 
+					bottomLabel={resources.wood} 
+				/>
+				<ItemBox 
+					topLabel="Gold" 
+					image={gold} 
+					bottomLabel={resources.gold}
+				/>
+				<ItemBox 
+					topLabel="Food" 
+					image={food} 
+					bottomLabel={resources.food}
+				/>
 			</ContainerBox>
 		</>
 	);

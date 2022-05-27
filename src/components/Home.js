@@ -27,6 +27,14 @@ function Home() {
 	const [items, setItems] = useState(Descriptions.technologies);
 	const [elements, setElements] = useState([]);
 
+	//mock list for resources
+	let mock_resources = {
+		mineral:10000,
+		wood: 7500,
+		gold: 5000,
+		food:2500
+	}
+
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
 
@@ -39,24 +47,44 @@ function Home() {
 			//new backend
 			const requestUrl = `${USERINFO_URL}/${auth.user}`;
 			console.log("requestUrl: ", requestUrl);
-
-			const response = await axiosUser.get(requestUrl, {
+			
+			const response = await axiosUser.post(requestUrl, {
 				headers: {
 					"Content-Type": "application/json",
 					//new backend
 					Authorization: `Bearer ${auth.accessToken}`,
 					//old backend
 					//Authorization: auth.accessToken,
+				},				
+				body: {
+					username: `${auth.user}`,
 				},
 				withCredentials: true,
-			});
-			//console.log("response: ", response.data);
-
-			//response.data.player is for the old backend
-			//console.log(typeof response.data.player, " ", response.data.player);
-			localStorage.setItem("user", JSON.stringify(response.data));
-
-			setUser(response.data);
+			})
+			
+			if(!response.ok)
+			{
+				response = await axiosUser.get(requestUrl, {
+					headers: {
+						"Content-Type": "application/json",
+						//new backend
+						Authorization: `Bearer ${auth.accessToken}`,
+						//old backend
+						//Authorization: auth.accessToken,
+					},
+					withCredentials: true,
+				});
+				
+				//console.log("response: ", response.data);
+	
+				//response.data.player is for the old backend
+				//console.log(typeof response.data.player, " ", response.data.player);
+				localStorage.setItem("user", JSON.stringify(response.data));
+	
+				setUser(response.data);
+			}
+			
+			
 		} catch (err) {
 			//console.log(err);
 			if (!err?.response) {
@@ -92,7 +120,9 @@ function Home() {
 							<h1 className="gameName">diOgame</h1>
 						</Notification>
 						<Notification color="link">
-							<ResourcePanel />
+							<ResourcePanel 
+								resources={mock_resources}
+							/>
 						</Notification>
 					</Columns.Column>
 					<Columns.Column size={3}>
