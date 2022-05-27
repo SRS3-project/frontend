@@ -1,6 +1,7 @@
 import LateralMenu from "./LateralMenu/LateralMenu";
 import TechPanel from "./ElementPanels/TechPanel";
 import ResourcePanel from "./ElementPanels/ResourcePanel";
+import EmptyPanel from "./ElementPanels/EmptyPanel";
 import { Columns, Notification } from "react-bulma-components";
 import Logo from "../images/logo.png";
 import UserBox from "./UserBox/UserBox";
@@ -23,7 +24,8 @@ function Home() {
 	const { auth } = useAuth();
 	const { user, setUser } = useUser();
 	const [info, setInfo] = useState(Descriptions.buildings.home);
-	const [items, setItems] = useState([]);
+	const [items, setItems] = useState(Descriptions.technologies);
+	const [elements, setElements] = useState([]);
 
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
@@ -105,6 +107,7 @@ function Home() {
 								descriptions={Descriptions}
 								setInfo={setInfo}
 								setItems={setItems}
+								setElements={setElements}
 							/>
 						</Notification>
 					</Columns.Column>
@@ -114,10 +117,13 @@ function Home() {
 						</Notification>
 						<br />
 						<Notification color="link">
-							<TechPanel 
+							<EmptyPanel 
+								element={elements}
+							/>
+							{/* <TechPanel 
 								techs={items}
 								setInfo={setInfo}
-								/>
+								/> */}
 						</Notification>
 					</Columns.Column>
 

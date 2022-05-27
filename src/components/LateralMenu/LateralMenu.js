@@ -8,11 +8,12 @@ import "bulma/sass/components/menu.sass";
 import "bulma/css/bulma.min.css";
 import { Menu } from "react-bulma-components";
 import styles from "./lateralmenu.module.css";
+import TechPanel from "../ElementPanels/TechPanel";
 
 //const stampa = () => { console.log('pressed button')}
 
 //JSX
-function LateralMenu({ descriptions, setInfo, setItems }) {
+function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 	/* const navigate = useNavigate();
     const logout = useLogout();
 
@@ -73,7 +74,8 @@ function LateralMenu({ descriptions, setInfo, setItems }) {
 								onClick={(e) => {
 									e.preventDefault();
 									setInfo(descriptions.buildings.magetower);
-									setItems(descriptions.technologies)
+									setItems(descriptions.technologies);
+									setElements(TechPanel(descriptions.technologies, setInfo));
 								}}
 							/>
 						</Menu.List.Item>

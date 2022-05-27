@@ -2,79 +2,114 @@ import React from "react";
 import "bulma/sass/utilities/_all.sass";
 import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
-
+import { Columns, Notification } from "react-bulma-components";
 
 
 //this should read the player tecnlogies tree
 
-const TechPanel = ({ techs, setInfo} ) => {
-
-	let techInit = () => {
-
-		techs.filter((item) => item.type.include('base')).map(filteredType => (
-			<span>
-					<ItemBox
-						topLabel={filteredType.name}
-						image="logo192.png"
-						bottomLabel={filteredType.level}
-						onclick={(e) => {
-							e.preventDefault();
-							setInfo(filteredType.description);
-						}}
-					/>
-				</span>
-		))}
+function TechPanel( techs, setInfo ) {
 
 	return (
 		<>
-			<div id="technologies">
-				<div id="technologies_basic" className="columns">
-					<div className="Column">
+			<Columns multiline centered id="technologies">
+				<Columns.Column size={6} id="technologies_basic">
+					<Notification color="link">
 						<h3>Ricerche base</h3>
-						{
-							//not working
-							//{techinit}
-						}
-						{
-							//va tutto in vacca
-							/* techs.filter((tech) => tech.type.include('base')).map(filteredItem => (
-								<div>P{filteredItem.name}</div>
-							)) */
-							
-							// anche qui va tutto in vacca
-							/* techs.map((tech) => (
-								<div>{tech.name}</div>
-							)) */
-						}
-						{techs.length > 0 && ( 
-							<ItemBox
-								topLabel={techs.tartarus.name}
+					</Notification>
+					<ul>
+					{
+						techs.map((tech) => (tech.type === 'base' ? (
+							<li key={tech.id}>
+							<ItemBox 
+								topLabel={tech.name}
 								image="logo192.png"
-								bottomLabel={techs.tartarus.level}
-								onClick={(e) => {
+								bottomLabel={tech.level}
+								onclick={(e) => {
 									e.preventDefault();
-									setInfo(techs.tartarus);
-									//localStorage.setItem('techs', JSON.stringify(techs));
+									setInfo(tech.description);
 								}}
 							/>
-						)}	
+						</li>
+							) : (null) 
+							
+						))
+					}	
+					</ul>
+				</Columns.Column >
+				<Columns.Column size={6} id="technologies_speed">
+					<Notification color="link">
+						<h3>Ricerche trasporto</h3>
+					</Notification>
+					<ul>
+					{
+						techs.map((tech) => (tech.type === 'movement' ? (
+							<li key={tech.id}>
+							<ItemBox 
+								topLabel={tech.name}
+								image="logo192.png"
+								bottomLabel={tech.level}
+								onclick={(e) => {
+									e.preventDefault();
+									setInfo(tech.description);
+								}}
+							/>
+						</li>
+							) : (null) 
+							
+						))
+					}	
+					</ul>
+				</Columns.Column >
 
-						
-					</div>
-				</div>
-				<div id="technologies_speed">
-					<h3>Ricerche trasporto</h3>
-					<ul className="icons"></ul>
-				</div>
-				<div id="technologies_advanced">
-					<h3>Ricerche avanzate</h3>
-					<ul className="icons"></ul>
-				</div>
-				<div id="technologies_combat">
-					<h3>Ricerche militari</h3>
-					<ul className="icons"></ul>
-				</div>
-			</div>
+				<Columns.Column  size={6} id="technologies_advanced">
+					<Notification color="link">
+						<h3>Ricerche avanzate</h3>
+					</Notification>
+					<ul>
+					{
+						techs.map((tech) => (tech.type === 'advanced' ? (
+							<li key={tech.id}>
+							<ItemBox 
+								topLabel={tech.name}
+								image="logo192.png"
+								bottomLabel={tech.level}
+								onclick={(e) => {
+									e.preventDefault();
+									setInfo(tech.description);
+								}}
+							/>
+						</li>
+							) : (null) 
+							
+						))
+					}	
+					</ul>
+				</Columns.Column >
+				<Columns.Column size={6} id="technologies_combat">
+					<Notification color="link">
+						<h3>Ricerche militari</h3>
+					</Notification>
+					<ul>
+					{
+						techs.map((tech) => (tech.type === 'military' ? (
+							<li key={tech.id}>
+							<ItemBox 
+								topLabel={tech.name}
+								image="logo192.png"
+								bottomLabel={tech.level}
+								onclick={(e) => {
+									e.preventDefault();
+									setInfo(tech.description);
+								}}
+							/>
+						</li>
+							) : (null) 
+							
+						))
+					}	
+					</ul>
+				</Columns.Column >
+			</Columns>
 		</>
 	);
 }

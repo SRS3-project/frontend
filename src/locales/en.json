@@ -347,8 +347,9 @@
       }
     },
 
-    "technologies": {
-      "picks":{
+    "technologies": [
+      {
+        "id":"picks",
         "name": "Picks",
         "description":"Each level of this technology increases metal production by 1%",
         "type": "base",
@@ -363,7 +364,8 @@
         "seconds": 180,
         "unlock": false
       },
-      "axes":{
+      {
+        "id":"axes",
           "name": "Axes",
           "description":"Each level of this technology increases wood production by 1%",
           "type":"base",
@@ -378,7 +380,8 @@
           "seconds": 180,
           "unlock": false
       },
-      "crucible":{
+      {
+        "id":"crucible",
           "name": "Crucible",
           "description":"Each level of this technology increases gold production by 1%",
           "type": "base",
@@ -393,7 +396,8 @@
           "seconds": 180,
           "unlock": false
         },
-        "storage":{
+        {
+          "id":"storage",
           "name": "Storage",
           "description":"Each level of this technology increases food production by 1%",
           "type": "base",
@@ -408,7 +412,8 @@
           "seconds":360,
           "unlock": false
         },
-        "wagons":{
+        {
+          "id":"wagons",
           "name": "Wagons Enhancing",
           "description":"Each level of this technology increases Civilian's Units speed by 10%",
           "type": "movement",
@@ -423,7 +428,8 @@
           "seconds":150,
           "unlock": false
       },
-      "mounts":{
+      {
+        "id":"mounts",
           "name": "Mounts Training",
           "description":"Each level of this technology increases Military's Units speed by 10%",
           "type": "movement",
@@ -438,7 +444,8 @@
           "seconds":300,
           "unlock": false
       },
-      "eagles":{
+      {
+        "id":"eagles",
           "name": "Eagles Training",
           "description":"Each level of this technology increases All Units speed by 20%",
           "type": "movement",
@@ -453,7 +460,8 @@
           "seconds":5,
           "unlock": false
       },
-      "spaceandtime":{
+      {
+        "id":"spaceandtime",
           "name": "Power of the Space and Time",
           "description":"Allows instant troop transfer through linked portals",
           "type": "movement",
@@ -468,22 +476,24 @@
           "seconds":86400,
           "unlock": false
       },
-      "weapons":{
-          "name": "Melee Weapons",
-          "description":"Each level of this technology increases Units attack power by 10%",
-          "type": "military",
-          "level": 0,
-          "icon": "general",
-          "cost":{
-              "metals": 800,
-              "wood": 200,
-              "gold": 0,
-              "food": 0
-          },
-          "seconds":285,
-          "unlock": false
+      {
+        "id":"weapons",
+        "name": "Melee Weapons",
+        "description":"Each level of this technology increases Units attack power by 10%",
+        "type": "military",
+        "level": 0,
+        "icon": "general",
+        "cost":{
+          "metals": 800,
+          "wood": 200,
+          "gold": 0,
+          "food": 0
+        },
+        "seconds":285,
+        "unlock": false
       },
-      "armors":{
+      {
+          "id":"armors",
           "name": "Armors",
           "description":"Each level of this technology increases All's Units defence by 10%",
           "type": "military",
@@ -498,7 +508,8 @@
           "seconds":285,
           "unlock": false
       },
-      "arcanomancy":{
+      {
+          "id":"arcanomancy",
           "name": "Arcanomancy",
           "description":"Each level of this technology increases All's Units statistics by 20%",
           "type": "military",
@@ -513,7 +524,8 @@
           "seconds":2850,
           "unlock": false
       },
-      "espionage":{
+      {
+          "id":"espionage",
           "name": "Espionage",
           "description": "Raising the level of this technology helps to provide more and more information on the activities of enemy troops in your territory.",
           "type": "advanced",
@@ -528,7 +540,8 @@
           "seconds":330,
           "unlock": false
       },
-      "logistic":{
+      {
+        "id":"logistic",
           "name": "Logistic",
           "description":"Raising the level of this technology increase Units storage by 5% per level.",
           "type": "advanced",
@@ -543,7 +556,8 @@
           "seconds":293,
           "unlock": false
       },
-      "strategy":{
+      {
+          "id":"strategy",
           "name": "Strategy",
           "description": "The higher the level of this technology, the more places you will have in the fleet. Each additional level allows you to have an extra place in your fleet.",
           "type": "advanced",
@@ -558,7 +572,8 @@
           "seconds":150,
           "unlock": false
       },
-      "exploration":{
+      {
+          "id":"exploration",
           "name": "Exploration",
           "description": "With explorer training, units can take part in long expeditions. Each second level of this technology will allow the colonization of an additional territory.",
           "type": "advanced",
@@ -573,7 +588,8 @@
           "seconds":2700,
           "unlock": false
       },
-      "tartarus":{
+      {
+          "id": "tartarus",
           "name": "Portal of Tartarus",
           "description": "By sacrificing a huge amount of food and materials, it is possible to ask the Gods to open a breach in Tartarus from which to summon the sealed minor Titans.",
           "type": "advanced",
@@ -588,5 +604,5 @@
           "seconds":2700,
           "unlock": false
       }  
-    }
+    ]
   }
