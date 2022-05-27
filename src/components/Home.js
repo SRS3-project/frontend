@@ -23,6 +23,7 @@ function Home() {
 	const { auth } = useAuth();
 	const { user, setUser } = useUser();
 	const [info, setInfo] = useState(Descriptions.buildings.home);
+	const [items, setItems] = useState([]);
 
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
@@ -101,8 +102,9 @@ function Home() {
 					<Columns.Column size={4}>
 						<Notification color="link">
 							<LateralMenu
-								descriptions={Descriptions.buildings}
+								descriptions={Descriptions}
 								setInfo={setInfo}
+								setItems={setItems}
 							/>
 						</Notification>
 					</Columns.Column>
@@ -113,7 +115,7 @@ function Home() {
 						<br />
 						<Notification color="link">
 							<TechPanel 
-								techs={Descriptions.technologies}
+								techs={items}
 								setInfo={setInfo}
 								/>
 						</Notification>

@@ -46,15 +46,18 @@ const TechPanel = ({ techs, setInfo} ) => {
 								<div>{tech.name}</div>
 							)) */
 						}
-						<ItemBox
-						topLabel={techs.tartarus.name}
-						image="logo192.png"
-						bottomLabel={techs.tartarus.level}
-						onClick={(e) => {
-							e.preventDefault();
-							setInfo(techs.tartarus);
-						}}
-					/>
+						{techs.length > 0 && ( 
+							<ItemBox
+								topLabel={techs.tartarus.name}
+								image="logo192.png"
+								bottomLabel={techs.tartarus.level}
+								onClick={(e) => {
+									e.preventDefault();
+									setInfo(techs.tartarus);
+									//localStorage.setItem('techs', JSON.stringify(techs));
+								}}
+							/>
+						)}	
 
 						
 					</div>

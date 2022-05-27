@@ -12,7 +12,7 @@ import styles from "./lateralmenu.module.css";
 //const stampa = () => { console.log('pressed button')}
 
 //JSX
-function LateralMenu({ descriptions, setInfo }) {
+function LateralMenu({ descriptions, setInfo, setItems }) {
 	/* const navigate = useNavigate();
     const logout = useLogout();
 
@@ -30,7 +30,7 @@ function LateralMenu({ descriptions, setInfo }) {
 							label="Overview"
 							onClick={(e) => {
 								e.preventDefault();
-								setInfo(descriptions.home);
+								setInfo(descriptions.buildings.home);
 							}}
 						/>
 					</Menu.List.Item>
@@ -42,7 +42,7 @@ function LateralMenu({ descriptions, setInfo }) {
 							label="Castle"
 							onClick={(e) => {
 								e.preventDefault();
-								setInfo(descriptions.castle);
+								setInfo(descriptions.buildings.castle);
 							}}
 						/>
 					</Menu.List.Item>
@@ -51,7 +51,7 @@ function LateralMenu({ descriptions, setInfo }) {
 							label="City"
 							onClick={(e) => {
 								e.preventDefault();
-								setInfo(descriptions.city);
+								setInfo(descriptions.buildings.city);
 							}}
 						/>
 					</Menu.List.Item>
@@ -61,7 +61,7 @@ function LateralMenu({ descriptions, setInfo }) {
 								label="Barracs"
 								onClick={(e) => {
 									e.preventDefault();
-									setInfo(descriptions.barracs);
+									setInfo(descriptions.buildings.barracs);
 								}}
 							/>
 						</Menu.List.Item>
@@ -72,7 +72,8 @@ function LateralMenu({ descriptions, setInfo }) {
 								label="Mage Tower"
 								onClick={(e) => {
 									e.preventDefault();
-									setInfo(descriptions.magetower);
+									setInfo(descriptions.buildings.magetower);
+									setItems(descriptions.technologies)
 								}}
 							/>
 						</Menu.List.Item>
