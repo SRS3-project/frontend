@@ -1,10 +1,22 @@
 import React, { useState } from "react";
 
 
-const EmptyPanel = ({ element }) => {
-	        
+const EmptyPanel = ({ element, setInfo}) => {
+	
+    /* switch(param) {
+        case 'barracs':
+          return ;
+        case 'tower':
+          return TechPanel();
+        case 'troops':
+          null;  
+        default:
+          null;
+      } */
+ 
     return (
-        <div>{element}</div>);
+        element
+    );
 };
 
 export default EmptyPanel;

@@ -48,19 +48,21 @@ function Home() {
 			const requestUrl = `${USERINFO_URL}/${auth.user}`;
 			console.log("requestUrl: ", requestUrl);
 			
-			const response = await axiosUser.post(USERINFO_URL, {
+			let response = await axiosUser.post(USERINFO_URL, {
 				headers: {
-					"Content-Type": "application/json",
+					/* "Content-Type": "application/json", */
 					//new backend
 					Authorization: `Bearer ${auth.accessToken}`,
 					//old backend
 					//Authorization: auth.accessToken,
 				},				
 				body: {
-					"username": `${auth.user}`,
+					"username": auth.user,
 				},
-				withCredentials: true,
+				/* withCredentials: true, */
 			})
+
+			console.log("creation: ",response);
 			
 			if(!response.ok)
 			{
@@ -149,6 +151,7 @@ function Home() {
 						<Notification color="link">
 							<EmptyPanel 
 								element={elements}
+								setInfo={setInfo}
 							/>
 							{/* <TechPanel 
 								techs={items}
