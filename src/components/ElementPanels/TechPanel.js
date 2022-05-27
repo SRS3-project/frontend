@@ -21,7 +21,7 @@ const TechPanel = ({ techs, setInfo} ) => {
 							e.preventDefault();
 							setInfo(filteredType.description);
 						}}
-									/>
+					/>
 				</span>
 		))}
 
@@ -31,11 +31,31 @@ const TechPanel = ({ techs, setInfo} ) => {
 				<div id="technologies_basic" className="columns">
 					<div className="Column">
 						<h3>Ricerche base</h3>
-						{/* {techs.map((tech) => (
-								<div>{tech.name}</div>
-							))} */
-							/* () => techInit() */
+						{
+							//not working
+							//{techinit}
 						}
+						{
+							//va tutto in vacca
+							/* techs.filter((tech) => tech.type.include('base')).map(filteredItem => (
+								<div>P{filteredItem.name}</div>
+							)) */
+							
+							// anche qui va tutto in vacca
+							/* techs.map((tech) => (
+								<div>{tech.name}</div>
+							)) */
+						}
+						<ItemBox
+						topLabel={techs.tartarus.name}
+						image="logo192.png"
+						bottomLabel={techs.tartarus.level}
+						onClick={(e) => {
+							e.preventDefault();
+							setInfo(techs.tartarus);
+						}}
+					/>
+
 						
 					</div>
 				</div>

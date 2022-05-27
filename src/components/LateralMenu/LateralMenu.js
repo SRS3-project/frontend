@@ -83,9 +83,9 @@ function LateralMenu({ descriptions, setInfo }) {
 					<Menu.List.Item>
 						<RedirectButton label="Army" path="/army" />
 					</Menu.List.Item>
-					<Menu.List.Item>
+					{/* <Menu.List.Item>
 						<RedirectButton label="Defence" path="/defence" />
-					</Menu.List.Item>
+					</Menu.List.Item> */}
 				</Menu.List>
 
 				<Menu.List title="World">
@@ -111,6 +111,7 @@ function LateralMenu({ descriptions, setInfo }) {
                     <Button label='Sign Out' onClick={signOut}/>   
                 </Menu.List.Item>
             </Menu.List> */}
+
 			</Menu>
 		</>
 	);
