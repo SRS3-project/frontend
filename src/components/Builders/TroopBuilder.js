@@ -7,6 +7,7 @@ const TroopBuilder = ({toBuild}) => {
     <form className='buildForm'>
         <label htmlFor='buildItem' style={{display: "none"}}> Add Item</label>
         <input
+            className='input'
             autoFocus
             id='itemBuild'
             type='text'
