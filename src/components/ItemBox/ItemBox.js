@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./itembox.module.css";
-import { useNavigate } from "react-router-dom";
+
 
 function ItemBox(props) {
 	return (
