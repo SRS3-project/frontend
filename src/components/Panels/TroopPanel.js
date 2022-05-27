@@ -24,9 +24,9 @@ function TroopPanel( units, setInfo ) {
                                     topLabel={unit.name}
                                     image="logo192.png"
                                     bottomLabel={unit.level}
-                                    onclick={(e) => {
+                                    onClick={(e) => {
                                         e.preventDefault();
-                                        setInfo(unit.description);
+                                        setInfo(unit);
                                     }}
                                 />
 						</li>
@@ -49,9 +49,9 @@ function TroopPanel( units, setInfo ) {
                                     topLabel={unit.name}
                                     image="logo192.png"
                                     bottomLabel={unit.level}
-                                    onclick={(e) => {
+                                    onClick={(e) => {
                                         e.preventDefault();
-                                        setInfo(unit.description);
+                                        setInfo(unit);
                                     }}
                                 />
 						</li>

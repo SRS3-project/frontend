@@ -25,9 +25,9 @@ function TechPanel( techs, setInfo ) {
 								topLabel={tech.name}
 								image="logo192.png"
 								bottomLabel={tech.level}
-								onclick={(e) => {
+								onClick={(e) => {
 									e.preventDefault();
-									setInfo(tech.description);
+									setInfo(tech);
 								}}
 							/>
 						</li>
@@ -49,9 +49,9 @@ function TechPanel( techs, setInfo ) {
 								topLabel={tech.name}
 								image="logo192.png"
 								bottomLabel={tech.level}
-								onclick={(e) => {
+								onClick={(e) => {
 									e.preventDefault();
-									setInfo(tech.description);
+									setInfo(tech);
 								}}
 							/>
 						</li>
@@ -74,9 +74,9 @@ function TechPanel( techs, setInfo ) {
 								topLabel={tech.name}
 								image="logo192.png"
 								bottomLabel={tech.level}
-								onclick={(e) => {
+								onClick={(e) => {
 									e.preventDefault();
-									setInfo(tech.description);
+									setInfo(tech);
 								}}
 							/>
 						</li>
@@ -98,9 +98,9 @@ function TechPanel( techs, setInfo ) {
 								topLabel={tech.name}
 								image="logo192.png"
 								bottomLabel={tech.level}
-								onclick={(e) => {
+								onClick={(e) => {
 									e.preventDefault();
-									setInfo(tech.description);
+									setInfo(tech);
 								}}
 							/>
 						</li>

@@ -1,7 +1,7 @@
 import LateralMenu from "./LateralMenu/LateralMenu";
-import TechPanel from "./ElementPanels/TechPanel";
-import ResourcePanel from "./ElementPanels/ResourcePanel";
-import EmptyPanel from "./ElementPanels/EmptyPanel";
+import TechPanel from "./Panels/TechPanel";
+import ResourcePanel from "./Panels/ResourcePanel";
+import EmptyPanel from "./Panels/ContainerPanel";
 import { Columns, Notification } from "react-bulma-components";
 import Logo from "../images/logo.png";
 import UserBox from "./UserBox/UserBox";
@@ -15,7 +15,7 @@ import useAuth from "../hooks/useAuth";
 
 import styles from "../index.css";
 import InfoBox from "./InfoBox/InfoBox";
-
+import ContainerPanel from "./Panels/ContainerPanel";
 import Descriptions from "../locales/en.json";
 
 const USERINFO_URL = "/player";
@@ -27,13 +27,6 @@ function Home() {
 	const [items, setItems] = useState(Descriptions.technologies);
 	const [elements, setElements] = useState([]);
 
-	//mock list for resources
-	let mock_resources = {
-		mineral:10000,
-		wood: 7500,
-		gold: 5000,
-		food:2500
-	}
 
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
@@ -48,19 +41,20 @@ function Home() {
 			const requestUrl = `${USERINFO_URL}/${auth.user}`;
 			console.log("requestUrl: ", requestUrl);
 			
-			let response = await axiosUser.post(USERINFO_URL, {
-				headers: {
-					/* "Content-Type": "application/json", */
+			let response = await axiosUser.post(
+				USERINFO_URL,
+				{ username: auth.user },
+				{
+				  headers: {
+					"Content-Type": "application/json",
 					//new backend
 					Authorization: `Bearer ${auth.accessToken}`,
 					//old backend
 					//Authorization: auth.accessToken,
-				},				
-				body: {
-					"username": auth.user,
-				},
-				/* withCredentials: true, */
-			})
+				  },
+				  withCredentials: true,
+				}
+			  );
 
 			console.log("creation: ",response);
 			
@@ -122,8 +116,9 @@ function Home() {
 							<h1 className="gameName">diOgame</h1>
 						</Notification>
 						<Notification color="link">
-							<ResourcePanel 
-								resources={mock_resources}
+							<ResourcePanel
+								/* resources={user.resources} */
+								resources={user.resources}
 							/>
 						</Notification>
 					</Columns.Column>
@@ -149,9 +144,10 @@ function Home() {
 						</Notification>
 						<br />
 						<Notification color="link">
-							<EmptyPanel 
-								element={elements}
-								setInfo={setInfo}
+							<ContainerPanel
+								filter={elements[0]} 
+								element={elements[1]}
+								setInfo={elements[2]}
 							/>
 							{/* <TechPanel 
 								techs={items}
@@ -159,6 +155,13 @@ function Home() {
 								/> */}
 						</Notification>
 					</Columns.Column>
+
+					{/* <Columns.Column>
+						{TechPanel(Descriptions.technologies, setInfo)}
+					</Columns.Column> */}
+					
+
+
 
 					<Columns.Column size={12}>
 						<Notification color="link">

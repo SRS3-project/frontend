@@ -8,8 +8,8 @@ import "bulma/sass/components/menu.sass";
 import "bulma/css/bulma.min.css";
 import { Menu } from "react-bulma-components";
 import styles from "./lateralmenu.module.css";
-import TechPanel from "../ElementPanels/TechPanel";
-import TroopPanel from "../ElementPanels/TroopPanel";
+import TechPanel from "../Panels/TechPanel";
+import TroopPanel from "../Panels/TroopPanel";
 
 //const stampa = () => { console.log('pressed button')}
 
@@ -64,8 +64,8 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								onClick={(e) => {
 									e.preventDefault();
 									setInfo(descriptions.buildings.barracs);
-									setItems(descriptions.technologies);
-									setElements(TroopPanel(descriptions.troops, setInfo));
+									setItems(descriptions.troops);
+									setElements( ["barracs",descriptions.troops,setInfo] );
 								}}
 							/>
 						</Menu.List.Item>
@@ -78,7 +78,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 									e.preventDefault();
 									setInfo(descriptions.buildings.magetower);
 									setItems(descriptions.technologies);
-									setElements(TechPanel(descriptions.technologies, setInfo));
+									setElements(["tower",descriptions.technologies, setInfo]);
 								}}
 							/>
 						</Menu.List.Item>
@@ -92,8 +92,8 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo("This is your army");
-								setItems(descriptions.technologies);
-								setElements(TroopPanel(descriptions.troops, setInfo));
+								setItems(descriptions.troops);
+								setElements(["troops",descriptions.troops,setInfo]);
 							}}
 						/>
 					</Menu.List.Item>
