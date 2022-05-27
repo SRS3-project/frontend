@@ -9,6 +9,7 @@ import "bulma/css/bulma.min.css";
 import { Menu } from "react-bulma-components";
 import styles from "./lateralmenu.module.css";
 import TechPanel from "../ElementPanels/TechPanel";
+import TroopPanel from "../ElementPanels/TroopPanel";
 
 //const stampa = () => { console.log('pressed button')}
 
@@ -63,6 +64,8 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								onClick={(e) => {
 									e.preventDefault();
 									setInfo(descriptions.buildings.barracs);
+									setItems(descriptions.technologies);
+									setElements(TroopPanel(descriptions.troops, setInfo));
 								}}
 							/>
 						</Menu.List.Item>
@@ -84,7 +87,15 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 
 				<Menu.List title="Troops">
 					<Menu.List.Item>
-						<RedirectButton label="Army" path="/army" />
+						<Button
+							label="Troops"
+							onClick={(e) => {
+								e.preventDefault();
+								setInfo("This is your army");
+								setItems(descriptions.technologies);
+								setElements(TroopPanel(descriptions.troops, setInfo));
+							}}
+						/>
 					</Menu.List.Item>
 					{/* <Menu.List.Item>
 						<RedirectButton label="Defence" path="/defence" />
