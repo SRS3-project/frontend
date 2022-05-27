@@ -1,0 +1,14 @@
+ul#horizontal-list {
+    /* display: inline-flex;
+    flex-direction: column;
+    list-style: none; */
+    margin: 0;
+    padding: 0 0 0 20px;
+    overflow: hidden;
+  }
+  
+ ul#horizontal-list li {
+    /* display: inline; */
+    display: inline-block;
+    margin: 10px;
+  }
