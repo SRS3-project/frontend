@@ -58,7 +58,7 @@ function Home() {
 				  withCredentials: true,
 				}
 			  );
-
+			
 			console.log("creation: ",response);
 			
 			if(!response.ok)

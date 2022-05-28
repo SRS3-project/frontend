@@ -33,6 +33,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.home);
+								setElements({});
 							}}
 						/>
 					</Menu.List.Item>
@@ -45,6 +46,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.castle);
+								setElements({});
 							}}
 						/>
 					</Menu.List.Item>
