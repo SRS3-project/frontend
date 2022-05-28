@@ -19,7 +19,6 @@ import ContainerPanel from "./Panels/ContainerPanel";
 import Descriptions from "../locales/en.json";
 
 const USERINFO_URL = "/player";
-const TROOPBUILD_URL = '/game/build';
 
 function Home() {
 	const { auth } = useAuth();
@@ -99,64 +98,13 @@ function Home() {
 		}
 	};
 
-	const buildTroopsRequest = async (toBuild) => {
-		console.log("POST Request: Build troops")
-
-		try{
-
-			const requestUrl = `${TROOPBUILD_URL}`;
-			console.log("requestUrl: ", requestUrl);
-			
-			let response = await axiosUser.post(
-				requestUrl,
-				{ toBuild },
-				{
-				  headers: {
-					"Content-Type": "application/json",
-					//new backend
-					Authorization: `Bearer ${auth.accessToken}`,
-					//old backend
-					//Authorization: auth.accessToken,
-				  },
-				  withCredentials: true,
-				}
-			  );
-
-		}catch(err) {
-			//console.log(err);
-			if (!err?.response) {
-				console.log("FETCH USER DATA: No Server Response");
-			} else if (err.response?.status === 401) {
-				console.log("FETCH USER DATA: Unauthorized");
-			} else {
-				console.log("FETCH USER DATA: Unknown error");
-			}
-		} finally {
-			console.log("user: ", user);
-		}
-	}
+	
 
 	useEffect(() => {
 		updateUserInfo();
 		//remove comment below for constant update
 		//setInterval(updateUserInfo, 30000);
 	}, []);
-
-	const handleSubmmit = (e) => {
-		e.preventDefault();
-
-		console.log("Submitted: ", toBuild.amount,"x", toBuild.type);
-		
-		//additem
-		buildTroopsRequest(toBuild);
-
-		setToBuild('');
-
-		if(!toBuild) return;
-
-
-		console.log('end handleSubmmit');
-	}
 
 	return (
 		<>
@@ -204,9 +152,6 @@ function Home() {
 							<ContainerPanel
 								filter={elements.filter} 
 								elements={elements.desc}
-								setInfo={elements.setInfo}
-								setToBuild={setToBuild}
-								handleSubmmit={handleSubmmit}
 							/>
 							{/* <TechPanel 
 								techs={items}

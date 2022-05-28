@@ -8,7 +8,7 @@ import TroopBuilder from "../Builders/TroopBuilder";
 
 //this should read the player tecnlogies tree
 
-function BarracsPanel( units, setInfo, setToBuild, handleSubmmit ) {
+function BarracsPanel( units, setInfo ) {
 
 	return (
 		<>
@@ -32,8 +32,6 @@ function BarracsPanel( units, setInfo, setToBuild, handleSubmmit ) {
                                 />
                                 <TroopBuilder 
 									item={unit}
-									setToBuild={setToBuild}
-									handleSubmmit={handleSubmmit} 
 								/>
 						</li>
 							) : (null) 
@@ -62,8 +60,6 @@ function BarracsPanel( units, setInfo, setToBuild, handleSubmmit ) {
                                 />
                                 <TroopBuilder 
 									item={unit}
-									setToBuild={setToBuild}
-									handleSubmmit={handleSubmmit} 
 								/>
 						    </li>                            
 						) : (null)))
