@@ -48,7 +48,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							}}
 						/>
 					</Menu.List.Item>
-					<Menu.List.Item>
+					{/* <Menu.List.Item>
 						<Button
 							label="City"
 							onClick={(e) => {
@@ -56,7 +56,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								setInfo(descriptions.buildings.city);
 							}}
 						/>
-					</Menu.List.Item>
+					</Menu.List.Item> */}
 					{true && (
 						<Menu.List.Item>
 							<Button
