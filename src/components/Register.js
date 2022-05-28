@@ -125,9 +125,8 @@ const Register = () => {
 					withCredentials: true,
 				}
 			);
-			console.log("response: ", response.data);
+			//console.log("response: ", response.data);
 			setRecaptchaSuccess(response.data.success);
-			console.log("recaptchaSuccess: ", recaptchaSuccess);
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
