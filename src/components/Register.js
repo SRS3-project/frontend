@@ -9,10 +9,14 @@ import axios from "../api/axios";
 import { Link } from "react-router-dom";
 import Button from "./Button/Button";
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const MAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const MAIL_REGEX = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 const REGISTER_URL = "/register";
+const CAPTCHA_URL = "/checkRecaptcha";
+const CAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY;
 
 const Register = () => {
 	const userRef = useRef();
@@ -40,6 +44,8 @@ const Register = () => {
 
 	const [errMsg, setErrMsg] = useState("");
 	const [success, setSuccess] = useState(false);
+
+	const [recaptchaSuccess, setRecaptchaSuccess] = useState(false);
 
 	useEffect(() => {
 		userRef.current.focus();
@@ -83,6 +89,7 @@ const Register = () => {
 				}
 			);
 			// TODO: remove console.logs before deployment
+			console.log(response);
 			//console.log(JSON.stringify(response?.data));
 			//console.log(JSON.stringify(response))
 			setSuccess(true);
@@ -101,6 +108,31 @@ const Register = () => {
 				setErrMsg("Username or Email alerady Taken");
 			} else {
 				setErrMsg("Registration Failed");
+			}
+			errRef.current.focus();
+		}
+	};
+
+	const onRecaptchaChenge = async (value) => {
+		console.log("captcha value: ", value);
+
+		try {
+			const response = await axios.post(
+				CAPTCHA_URL,
+				{ captcha: value },
+				{
+					headers: { "Content-Type": "application/json" },
+					withCredentials: true,
+				}
+			);
+			console.log("response: ", response.data);
+			setRecaptchaSuccess(response.data.success);
+			console.log("recaptchaSuccess: ", recaptchaSuccess);
+		} catch (err) {
+			if (!err?.response) {
+				setErrMsg("No Server Response");
+			} else {
+				setErrMsg("Captcha failed");
 			}
 			errRef.current.focus();
 		}
@@ -332,6 +364,12 @@ const Register = () => {
 							Must match the first email input field.
 						</p>
 						<br />
+						<ReCAPTCHA
+							//sitekey="***REMOVED***"
+							sitekey={CAPTCHA_KEY}
+							onChange={onRecaptchaChenge}
+						/>
+						<br />
 						<Button
 							label="Sign Up"
 							disabled={
@@ -339,7 +377,8 @@ const Register = () => {
 								!validPwd ||
 								!validMatch ||
 								!validMail ||
-								!validMailMatch
+								!validMailMatch ||
+								!recaptchaSuccess
 									? true
 									: false
 							}
