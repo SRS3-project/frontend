@@ -152,6 +152,7 @@ function Home() {
 							<ContainerPanel
 								filter={elements.filter} 
 								elements={elements.desc}
+								setInfo={setInfo}
 							/>
 							{/* <TechPanel 
 								techs={items}

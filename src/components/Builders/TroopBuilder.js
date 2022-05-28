@@ -11,7 +11,7 @@ const TROOPBUILD_URL = '/game/build';
 const TroopBuilder = ({item}) => {
   
   // For The Async Build Request
-  const { user, setUser } = useUser();
+  const { user } = useUser();
   const { auth } = useAuth();
 
   // For Component Functionality
