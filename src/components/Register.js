@@ -365,7 +365,6 @@ const Register = () => {
 						</p>
 						<br />
 						<ReCAPTCHA
-							//sitekey="***REMOVED***"
 							sitekey={CAPTCHA_KEY}
 							onChange={onRecaptchaChenge}
 						/>
