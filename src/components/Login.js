@@ -3,8 +3,13 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import Button from "./Button/Button";
 import useAuth from "../hooks/useAuth";
 
+import ReCAPTCHA from "react-google-recaptcha";
+
 import axios from "../api/axios";
 const LOGIN_URL = "/login";
+
+const CAPTCHA_URL = "/checkRecaptcha";
+const CAPTCHA_KEY = process.env.REACT_APP_RECAPTCHA_KEY;
 
 const Login = () => {
 	const { auth, setAuth, persist, setPersist } = useAuth();
@@ -19,6 +24,8 @@ const Login = () => {
 	const [user, setUser] = useState("");
 	const [pwd, setPwd] = useState("");
 	const [errMsg, setErrMsg] = useState("");
+
+	const [recaptchaSuccess, setRecaptchaSuccess] = useState(false);
 
 	useEffect(() => {
 		userRef.current.focus();
@@ -67,6 +74,30 @@ const Login = () => {
 		}
 	};
 
+	const onRecaptchaChenge = async (value) => {
+		console.log("captcha value: ", value);
+
+		try {
+			const response = await axios.post(
+				CAPTCHA_URL,
+				{ captcha: value },
+				{
+					headers: { "Content-Type": "application/json" },
+					withCredentials: true,
+				}
+			);
+			//console.log("response: ", response.data);
+			setRecaptchaSuccess(response.data.success);
+		} catch (err) {
+			if (!err?.response) {
+				setErrMsg("No Server Response");
+			} else {
+				setErrMsg("Captcha failed");
+			}
+			errRef.current.focus();
+		}
+	};
+
 	const togglePersist = () => {
 		setPersist((prev) => !prev);
 	};
@@ -101,7 +132,13 @@ const Login = () => {
 					required
 				/>{" "}
 				<br />
-				<Button label="Sign in" /> <br />
+				<ReCAPTCHA sitekey={CAPTCHA_KEY} onChange={onRecaptchaChenge} />
+				<br />
+				<Button
+					label="Sign in"
+					disabled={!recaptchaSuccess ? true : false}
+				/>{" "}
+				<br />
 				<div className="persistCheck">
 					<input
 						type="checkbox"
