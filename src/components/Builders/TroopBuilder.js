@@ -21,7 +21,7 @@ const TroopBuilder = ({item, setToBuild, handleSubmmit}) => {
             onChange={(e) => {
               setVal(e.target.value);
               setToBuild({
-                "type": `${item.id}`,
+                "type": `${item.id.toUpperCase()}`,
                 "amount": e.target.value		
               });
             }} 
