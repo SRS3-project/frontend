@@ -4,10 +4,12 @@ import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css"
-
+import useUser from "../../hooks/useUser";
 //this should read the player tecnlogies tree
 
 function TroopPanel( units, setInfo ) {
+
+	const{user,setUser} = useUser();
 
 	return (
 		<>
@@ -23,13 +25,14 @@ function TroopPanel( units, setInfo ) {
                                 <ItemBox 
                                     topLabel={unit.name}
                                     image="logo192.png"
-                                    bottomLabel={unit.level}
-                                    onClick={(e) => {
+                                    //bottomLabel={user.troops.{unit.id}.ammount}
+                                    bottomLabel={unit.quantity}
+									onClick={(e) => {
                                         e.preventDefault();
                                         setInfo(unit);
                                     }}
                                 />
-						</li>
+							</li>
 							) : (null) 
 							
 						))
@@ -48,7 +51,7 @@ function TroopPanel( units, setInfo ) {
                                 <ItemBox 
                                     topLabel={unit.name}
                                     image="logo192.png"
-                                    bottomLabel={unit.level}
+                                    bottomLabel={unit.quantity}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         setInfo(unit);

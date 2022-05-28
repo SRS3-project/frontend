@@ -4,11 +4,13 @@ import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css"
-
+import useUser from "../../hooks/useUser";
 
 //this should read the player tecnlogies tree
 
 function TechPanel( techs, setInfo ) {
+
+	const {user, setUser} = useUser();
 
 	return (
 		<>

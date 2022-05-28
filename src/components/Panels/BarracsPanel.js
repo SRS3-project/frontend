@@ -5,10 +5,13 @@ import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css"
 import TroopBuilder from "../Builders/TroopBuilder";
-
+import useUser from "../../hooks/useUser";
+import { UserProvider } from "../../context/UserProvider";
 //this should read the player tecnlogies tree
 
 function BarracsPanel( units, setInfo ) {
+
+	const{user, setUser} = useUser();
 
 	return (
 		<>
@@ -24,7 +27,7 @@ function BarracsPanel( units, setInfo ) {
                                 <ItemBox 
                                     topLabel={unit.name}
                                     image="logo192.png"
-                                    bottomLabel={unit.level}
+                                    bottomLabel={user.quantity}
                                     onClick={(e) => {
                                         e.preventDefault();
                                         setInfo(unit);
@@ -66,7 +69,6 @@ function BarracsPanel( units, setInfo ) {
 					}	
 					</ul>
 				</Columns.Column >
-
 			</Columns>
 		</>
 	);
