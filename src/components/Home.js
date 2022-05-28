@@ -155,7 +155,7 @@ function Home() {
 		if(!toBuild) return;
 
 
-		console.log('submitted');
+		console.log('end handleSubmmit');
 	}
 
 	return (
