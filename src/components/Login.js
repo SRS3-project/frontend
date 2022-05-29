@@ -86,7 +86,7 @@ const Login = () => {
 					withCredentials: true,
 				}
 			);
-			//console.log("response: ", response.data);
+			console.log("response: ", response.data);
 			setRecaptchaSuccess(response.data.success);
 		} catch (err) {
 			if (!err?.response) {
