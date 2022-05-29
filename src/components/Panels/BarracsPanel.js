@@ -3,15 +3,31 @@ import "bulma/sass/utilities/_all.sass";
 import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
-import styles from "./items.panels.css"
+import styles from "./items.panels.css";
 import TroopBuilder from "../Builders/TroopBuilder";
 import useUser from "../../hooks/useUser";
 import { UserProvider } from "../../context/UserProvider";
 //this should read the player tecnlogies tree
 
-function BarracsPanel( units, setInfo ) {
+const troops = [
+	"ARCHER",
+	"CARAVAN",
+	"CROSSBOWMAN",
+	"DRAGON",
+	"GROUNDTROLL",
+	"INFANTRYMAN",
+	"JACKAL",
+	"KNIGHT",
+	"NEUROMANCER",
+	"SETTLERS",
+	"SPY",
+	"TITAN",
+	"WANDERERS",
+	"WAREAGLE",
+];
 
-	const{user, setUser} = useUser();
+function BarracsPanel(units, setInfo) {
+	const { user, setUser } = useUser();
 
 	return (
 		<>
@@ -21,54 +37,48 @@ function BarracsPanel( units, setInfo ) {
 						<h3>Unita' Civili</h3>
 					</Notification>
 					<ul id="horizontal-list">
-					{
-						units.map((unit) => (unit.type === 'civilian' ? (
-							<li key={unit.id}>
-                                <ItemBox 
-                                    topLabel={unit.name}
-                                    image="logo192.png"
-                                    bottomLabel={user.quantity}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setInfo(unit);
-                                    }}
-                                />
-                                <TroopBuilder 
-									item={unit}
-								/>
-						</li>
-							) : (null) 
-							
-						))
-					}	
+						{units.map((unit) =>
+							unit.type === "civilian" ? (
+								<li key={unit.id}>
+									<ItemBox
+										topLabel={unit.name}
+										image="logo192.png"
+										bottomLabel={user.quantity}
+										onClick={(e) => {
+											e.preventDefault();
+											setInfo(unit);
+										}}
+									/>
+									<TroopBuilder item={unit} />
+								</li>
+							) : null
+						)}
 					</ul>
-				</Columns.Column >
-				
-                <Columns.Column size={12} className="military_units">
+				</Columns.Column>
+
+				<Columns.Column size={12} className="military_units">
 					<Notification color="link">
 						<h3>Unita' Militari</h3>
 					</Notification>
 					<ul id="horizontal-list">
-					{
-						units.map((unit) => (unit.type === 'military' ? (
-							<li key={unit.id}>
-                                <ItemBox 
-                                    topLabel={unit.name}
-                                    image="logo192.png"
-                                    bottomLabel={unit.level}
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        setInfo(unit);
-                                    }}
-                                />
-                                <TroopBuilder 
-									item={unit}
-								/>
-						    </li>                            
-						) : (null)))
-					}	
+						{units.map((unit) =>
+							unit.type === "military" ? (
+								<li key={unit.id}>
+									<ItemBox
+										topLabel={unit.name}
+										image="logo192.png"
+										bottomLabel={unit.level}
+										onClick={(e) => {
+											e.preventDefault();
+											setInfo(unit);
+										}}
+									/>
+									<TroopBuilder item={unit} />
+								</li>
+							) : null
+						)}
 					</ul>
-				</Columns.Column >
+				</Columns.Column>
 			</Columns>
 		</>
 	);

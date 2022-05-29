@@ -8,6 +8,25 @@ import useUser from "../../hooks/useUser";
 
 //this should read the player tecnlogies tree
 
+const technologies = [
+	"ARCANOMANCY",
+	"ARMORS",
+	"AXES",
+	"CRUCIBLE",
+	"EAGLES",
+	"ESPIONAGE",
+	"EXPLORATION",
+	"LOGISTIC",
+	"MOUNTS",
+	"PICKS",
+	"SPACEANDTIME",
+	"STORAGE",
+	"STRATEGY",
+	"TARTARUS",
+	"WAGONS",
+	"WEAPONS",
+];
+
 function TechPanel(techs, setInfo) {
 	const { user, setUser } = useUser();
 

@@ -27,8 +27,8 @@ function Home() {
 	const [items, setItems] = useState(Descriptions.technologies);
 	const [elements, setElements] = useState({});
 	const [toBuild, setToBuild] = useState({
-		"type": "WARRIORS",
-		"amount": 0		
+		type: "WARRIORS",
+		amount: 0,
 	});
 
 	//setInfo(Descriptions.buildings.home);
@@ -43,26 +43,25 @@ function Home() {
 			//new backend
 			const requestUrl = `${USERINFO_URL}/${auth.user}`;
 			console.log("requestUrl: ", requestUrl);
-			
+
 			let response = await axiosUser.post(
 				USERINFO_URL,
 				{ username: auth.user },
 				{
-				  headers: {
-					"Content-Type": "application/json",
-					//new backend
-					Authorization: `Bearer ${auth.accessToken}`,
-					//old backend
-					//Authorization: auth.accessToken,
-				  },
-				  withCredentials: true,
+					headers: {
+						"Content-Type": "application/json",
+						//new backend
+						Authorization: `Bearer ${auth.accessToken}`,
+						//old backend
+						//Authorization: auth.accessToken,
+					},
+					withCredentials: true,
 				}
-			  );
-			
-			console.log("creation: ",response);
-			
-			if(!response.ok)
-			{
+			);
+
+			console.log("creation: ", response);
+
+			if (!response.ok) {
 				response = await axiosUser.get(requestUrl, {
 					headers: {
 						"Content-Type": "application/json",
@@ -73,17 +72,15 @@ function Home() {
 					},
 					withCredentials: true,
 				});
-				
+
 				//console.log("response: ", response.data);
-	
+
 				//response.data.player is for the old backend
 				//console.log(typeof response.data.player, " ", response.data.player);
 				localStorage.setItem("user", JSON.stringify(response.data));
-	
+
 				setUser(response.data);
 			}
-			
-			
 		} catch (err) {
 			//console.log(err);
 			if (!err?.response) {
@@ -97,8 +94,6 @@ function Home() {
 			console.log("user: ", user);
 		}
 	};
-
-	
 
 	useEffect(() => {
 		updateUserInfo();
@@ -121,10 +116,7 @@ function Home() {
 							<h1 className="gameName">diOgame</h1>
 						</Notification>
 						<Notification color="link">
-							<ResourcePanel
-								/* resources={user.resources} */
-								resources={user.resources}
-							/>
+							<ResourcePanel resources={user.resources} />
 						</Notification>
 					</Columns.Column>
 					<Columns.Column size={3}>
@@ -150,7 +142,7 @@ function Home() {
 						<br />
 						<Notification color="link">
 							<ContainerPanel
-								filter={elements.filter} 
+								filter={elements.filter}
 								elements={elements.desc}
 								setInfo={setInfo}
 							/>
@@ -164,9 +156,6 @@ function Home() {
 					{/* <Columns.Column>
 						{TechPanel(Descriptions.technologies, setInfo)}
 					</Columns.Column> */}
-					
-
-
 
 					<Columns.Column size={12}>
 						<Notification color="link">

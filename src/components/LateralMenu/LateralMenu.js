@@ -68,9 +68,9 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 									setInfo(descriptions.buildings.barracs);
 									setItems(descriptions.troops);
 									setElements({
-										filter:"barracs",
+										filter: "barracs",
 										desc: descriptions.troops,
-										setInfo:setInfo
+										setInfo: setInfo,
 									});
 								}}
 							/>
@@ -85,9 +85,9 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 									setInfo(descriptions.buildings.magetower);
 									setItems(descriptions.technologies);
 									setElements({
-										filter:"tower",
+										filter: "tower",
 										desc: descriptions.technologies,
-										setInfo:setInfo
+										setInfo: setInfo,
 									});
 								}}
 							/>
@@ -105,9 +105,9 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								setItems(descriptions.troops);
 								//setElements(["troops",descriptions.troops, setInfo ]);
 								setElements({
-									filter:"troops",
+									filter: "troops",
 									desc: descriptions.troops,
-									setInfo:setInfo
+									setInfo: setInfo,
 								});
 							}}
 						/>
@@ -140,7 +140,6 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
                     <Button label='Sign Out' onClick={signOut}/>   
                 </Menu.List.Item>
             </Menu.List> */}
-
 			</Menu>
 		</>
 	);
