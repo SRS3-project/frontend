@@ -21,6 +21,13 @@ const resources = [
 
 const ResourcePanel = () => {
 	const { user } = useUser();
+	
+	const isUserValid = () => {
+		return (
+			!(Object.is(user, null) || Object.is(user, undefined) || Object.keys(user).length === 0)
+		)
+	}
+	
 	return (
 		<>
 			<ContainerBox>
@@ -35,7 +42,8 @@ const ResourcePanel = () => {
 								topLabel={label}
 								image={resource.image}
 								bottomLabel={
-									Object.keys(user).length !== 0
+									//Object.keys(user).length === 0
+									isUserValid()
 										? user.resources[i].amount
 										: "0"
 								}
