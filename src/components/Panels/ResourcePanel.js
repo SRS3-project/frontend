@@ -28,13 +28,14 @@ const ResourcePanel = () => {
 					const label =
 						resource.name.charAt(0) +
 						resource.name.slice(1).toLowerCase();
+					console.log(Object.keys(user));
 					return (
 						<li key={resource.name}>
 							<ItemBox
 								topLabel={label}
 								image={resource.image}
 								bottomLabel={
-									!Object.keys(user).length === 0
+									Object.keys(user).length !== 0
 										? user.resources[i].amount
 										: "0"
 								}

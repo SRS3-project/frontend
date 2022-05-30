@@ -57,17 +57,17 @@ function Home() {
 		} catch (err) {
 			//console.log(err);
 			if (!err?.response) {
-				console.log("FETCH USER DATA: No Server Response");
+				console.log("CREATE USER: No Server Response");
 			} else if (err.response?.status === 401) {
-				console.log("FETCH USER DATA: Unauthorized");
+				console.log("CREATE USER: Unauthorized");
 			} else {
-				console.log("FETCH USER DATA: Unknown error");
+				console.log("CREATE USER: Unknown error");
 			}
 			//console.log("create errored");
 			localStorage.setItem("user", "{}");
 			setUser({});
 		} finally {
-			//console.log("creationResponse: ", user);
+			console.log("creationResponse: ", user);
 		}
 	};
 
@@ -89,9 +89,8 @@ function Home() {
 				withCredentials: true,
 			});
 
-			//console.log("response: ", response.data);
+			console.log("response: ", response.data);
 			localStorage.setItem("user", JSON.stringify(response.data));
-
 			setUser(response.data);
 		} catch (err) {
 			//console.log(err);
