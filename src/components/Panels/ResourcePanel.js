@@ -24,7 +24,7 @@ const ResourcePanel = () => {
 	return (
 		<>
 			<ContainerBox>
-				{resources.map((resource) => {
+				{resources.map((resource, i) => {
 					const label =
 						resource.name.charAt(0) +
 						resource.name.slice(1).toLowerCase();
@@ -34,8 +34,9 @@ const ResourcePanel = () => {
 								topLabel={label}
 								image={resource.image}
 								bottomLabel={
-									user.resources[resources.indexOf(resource)]
-										.amount
+									!Object.keys(user).length === 0
+										? user.resources[i].amount
+										: "0"
 								}
 							/>
 						</li>

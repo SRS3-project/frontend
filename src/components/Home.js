@@ -34,17 +34,10 @@ function Home() {
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
 
-	const updateUserInfo = async () => {
-		console.log("fetchingData");
-
+	const createUser = async () => {
+		console.log("creating user");
 		try {
-			//old backend
-			//const requestUrl = `/me`;
-			//new backend
-			const requestUrl = `${USERINFO_URL}/${auth.user}`;
-			console.log("requestUrl: ", requestUrl);
-
-			let response = await axiosUser.post(
+			const response = await axiosUser.post(
 				USERINFO_URL,
 				{ username: auth.user },
 				{
@@ -58,29 +51,48 @@ function Home() {
 					withCredentials: true,
 				}
 			);
-
-			console.log("creation: ", response);
-
-			if (!response.ok) {
-				response = await axiosUser.get(requestUrl, {
-					headers: {
-						"Content-Type": "application/json",
-						//new backend
-						Authorization: `Bearer ${auth.accessToken}`,
-						//old backend
-						//Authorization: auth.accessToken,
-					},
-					withCredentials: true,
-				});
-
-				//console.log("response: ", response.data);
-
-				//response.data.player is for the old backend
-				//console.log(typeof response.data.player, " ", response.data.player);
-				localStorage.setItem("user", JSON.stringify(response.data));
-
-				setUser(response.data);
+			console.log("create ok");
+			localStorage.setItem("user", JSON.stringify(response.data));
+			setUser(response.data);
+		} catch (err) {
+			//console.log(err);
+			if (!err?.response) {
+				console.log("FETCH USER DATA: No Server Response");
+			} else if (err.response?.status === 401) {
+				console.log("FETCH USER DATA: Unauthorized");
+			} else {
+				console.log("FETCH USER DATA: Unknown error");
 			}
+			console.log("create errored");
+			localStorage.setItem("user", "{}");
+			setUser({});
+		} finally {
+			console.log("creationResponse: ", user);
+		}
+	};
+
+	const updateUserInfo = async () => {
+		console.log("fetchingData");
+
+		try {
+			const requestUrl = `${USERINFO_URL}/${auth.user}`;
+			console.log("requestUrl: ", requestUrl);
+
+			const response = await axiosUser.get(requestUrl, {
+				headers: {
+					"Content-Type": "application/json",
+					//new backend
+					Authorization: `Bearer ${auth.accessToken}`,
+					//old backend
+					//Authorization: auth.accessToken,
+				},
+				withCredentials: true,
+			});
+
+			//console.log("response: ", response.data);
+			localStorage.setItem("user", JSON.stringify(response.data));
+
+			setUser(response.data);
 		} catch (err) {
 			//console.log(err);
 			if (!err?.response) {
@@ -96,7 +108,8 @@ function Home() {
 	};
 
 	useEffect(() => {
-		updateUserInfo();
+		//return a new user if non existant or the existin user data
+		createUser();
 		//remove comment below for constant update
 		//setInterval(updateUserInfo, 30000);
 	}, []);
@@ -116,7 +129,7 @@ function Home() {
 							<h1 className="gameName">diOgame</h1>
 						</Notification>
 						<Notification color="link">
-							<ResourcePanel resources={user.resources} />
+							<ResourcePanel resources={user?.resources} />
 						</Notification>
 					</Columns.Column>
 					<Columns.Column size={3}>
