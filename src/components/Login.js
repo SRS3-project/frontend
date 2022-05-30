@@ -63,12 +63,12 @@ const Login = () => {
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
-			} else if (err.response?.status === 400) {
+			} /*else if (err.response?.status === 400) {
 				setErrMsg("Missing Username or Password");
 			} else if (err.response?.status === 401) {
 				setErrMsg("Unauthorized");
-			} else {
-				setErrMsg("Login Failed");
+			} */ else {
+				setErrMsg(err?.response?.data?.message);
 			}
 			errRef.current.focus();
 		}

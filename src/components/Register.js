@@ -65,9 +65,14 @@ const Register = () => {
 		setValidMailMatch(mail === matchMail);
 	}, [mail, matchMail]);
 
+	/* useEffect(() => {
+		if (!recaptchaSuccess) setErrMsg("Captcha failed");
+		console.log("set err captcha");
+	}, [recaptchaSuccess]); */
+
 	useEffect(() => {
 		setErrMsg("");
-	}, [user, pwd, matchPwd, mail, matchMail]);
+	}, [user, pwd, matchPwd, mail, matchMail, recaptchaSuccess]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -102,12 +107,12 @@ const Register = () => {
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
-			} else if (err.response?.status === 400) {
+			} /*else if (err.response?.status === 400) {
 				setErrMsg("Invalid Input");
 			} else if (err.response?.status === 409) {
 				setErrMsg("Username or Email alerady Taken");
-			} else {
-				setErrMsg("Registration Failed");
+			} */ else {
+				setErrMsg(err?.response?.data?.message);
 			}
 			errRef.current.focus();
 		}
@@ -134,6 +139,8 @@ const Register = () => {
 				setErrMsg("Captcha failed");
 			}
 			errRef.current.focus();
+		} finally {
+			if (!recaptchaSuccess) setErrMsg("Captcha failed");
 		}
 	};
 

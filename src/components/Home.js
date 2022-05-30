@@ -35,7 +35,7 @@ function Home() {
 	//console.log("info: ", info);
 
 	const createUser = async () => {
-		console.log("creating user");
+		//console.log("creating user");
 		try {
 			const response = await axiosUser.post(
 				USERINFO_URL,
@@ -51,7 +51,7 @@ function Home() {
 					withCredentials: true,
 				}
 			);
-			console.log("create ok");
+			//console.log("create ok");
 			localStorage.setItem("user", JSON.stringify(response.data));
 			setUser(response.data);
 		} catch (err) {
@@ -63,20 +63,20 @@ function Home() {
 			} else {
 				console.log("FETCH USER DATA: Unknown error");
 			}
-			console.log("create errored");
+			//console.log("create errored");
 			localStorage.setItem("user", "{}");
 			setUser({});
 		} finally {
-			console.log("creationResponse: ", user);
+			//console.log("creationResponse: ", user);
 		}
 	};
 
 	const updateUserInfo = async () => {
-		console.log("fetchingData");
+		//console.log("fetchingData");
 
 		try {
 			const requestUrl = `${USERINFO_URL}/${auth.user}`;
-			console.log("requestUrl: ", requestUrl);
+			//console.log("requestUrl: ", requestUrl);
 
 			const response = await axiosUser.get(requestUrl, {
 				headers: {
