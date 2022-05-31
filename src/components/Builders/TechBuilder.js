@@ -16,30 +16,32 @@ const TechBuilder = ({ item }) => {
 	const { user } = useUser();
 	const { auth } = useAuth();
 
-	// For Component Functionality
-	const [upgrade, setUpgrade] = useState({});
-
 	const isUpgradable = () => {
-		const foodNeeded = (user.resource[0].amount >= item.cost.food);
-        const goldNeeded = (user.resource[1].amount >= item.cost.gold);
-		const mineralNeeded = (user.resource[2].amount >= item.cost.minerals);
-		const woodNeeded = (user.resource[3].amount >= item.cost.wood);
+		const foodNeeded = (user.resources[0]?.amount >= item.cost.food);
+        const goldNeeded = (user.resources[1]?.amount >= item.cost.gold);
+		const mineralNeeded = (user.resources[2]?.amount >= item.cost.minerals);
+		const woodNeeded = (user.resources[3]?.amount >= item.cost.wood);
+
 
 		return (foodNeeded && goldNeeded && mineralNeeded && woodNeeded);
 	}
 
 
-	const buildTroopsRequest = async (toBuild) => {
+	const upgradeTechRequest = async () => {
 		console.log("POST Request: Build troops");
 
-		if (validInput) {
+		if (isUpgradable()) {
 			try {
 				const requestUrl = `${TROOPBUILD_URL}`;
 				console.log("requestUrl: ", requestUrl);
 
-				const response = await axiosUser.post(
+				const response = await axiosUser.upgrade(
 					requestUrl,
-					{ toBuild },
+					{
+                        "username": `${user.username}`,
+                        "type": `${item.id.toUpperCase()}`,
+                        "level": `${item.level+1}`
+                    },
 					{
 						headers: {
 							"Content-Type": "application/json",
@@ -72,51 +74,25 @@ const TechBuilder = ({ item }) => {
 	const handleClick = (e) => {
 		e.preventDefault();
 
-		console.log("Submitted: ", build.amount, "x", build.type);
+        if (!item) return;
 
-		//additem
-		buildTroopsRequest(build);
+		console.log(`Submitted ${item.name} at Level: ${item.level+1}`);
 
-		setBuild("");
-
-		if (!build) return;
-
+        //additem
+		upgradeTechRequest();
 		//console.log('end handleSubmmit');
-
-		setVal("");
 	};
 
-	return (
-		<form className="buildForm" onSubmit={handleSubmmit}>
-			<label htmlFor="buildItem" style={{ display: "none" }}>
-				{" "}
-				Add Item
-			</label>
-			<input
-				className="input"
-				//autoFocus
-				id="itemBuild"
-				type="text"
-				placeholder={item.name}
-				required
-				value={val}
-				onChange={(e) => {
-					setVal(e.target.value);
-					setBuild({
-						type: `${item.id.toUpperCase()}`,
-						amount: {maxUnitsBuildable},
-					});
-					//console.log(`${build.type}:${build.ammount}`);
-				}}
-			/>
-			<button 
-				type="submit" 
-				aria-label="Build"
-				disabled = {false} //isBuildable
-				>
-				<FaPlus />
-			</button>
-		</form>
+	return (		
+        <button
+			id="TechButton"
+            type="submit" 
+            aria-label="Build"
+            disabled = {isUpgradable()}
+            onClick = {handleClick}
+            >
+            <FaPlus />
+        </button>
 	);
 };
 

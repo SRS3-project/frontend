@@ -123,6 +123,7 @@ const TroopBuilder = ({ item }) => {
 				}}
 			/>
 			<button 
+				id="TroopBuilder"
 				type="submit" 
 				aria-label="Build"
 				disabled = {false} //isBuildable

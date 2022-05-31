@@ -16,7 +16,7 @@ function TroopPanel(setInfo) {
 	//console.log({troops_mock});
 
 	const getTroopAmount = (id) => {
-		return user.troops[troops_mock.indexOf(id.toUpperCase())].amount;
+		return user.troops.find((el) => el.type == `${id.toUpperCase()}`).amount;
 	}
 
 	return (

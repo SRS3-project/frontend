@@ -6,6 +6,7 @@ import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css";
 import useUser from "../../hooks/useUser";
 import en from "../../locales/en.json"
+import TechBuilder from "../Builders/TechBuilder";
 //this should read the player tecnlogies tree
 
 const TECH_DEFINITIONS = en.technologies;
@@ -18,7 +19,11 @@ function TechPanel(setInfo) {
 	console.log({tech_mock});
 
 	const getTechLevel = (id) => {
-		return user.techs[tech_mock.indexOf(id.toUpperCase())].level;
+		
+		//const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
+		//console.log(`lvl: ${lvl} id: ${id.toUpperCase()}`);
+
+		return 0;
 	}
 
 	return (
@@ -38,10 +43,11 @@ function TechPanel(setInfo) {
 											image="logo192.png"
 											bottomLabel={getTechLevel(tech.id)}
 											onClick={(e) => {
-												e.preventDefault();
+												e .preventDefault();
 												setInfo(tech);
 											}}
 										/>
+										<TechBuilder item={tech} />
 									</li>
 								) : null
 						)}
@@ -64,6 +70,7 @@ function TechPanel(setInfo) {
 											setInfo(tech);
 										}}
 									/>
+									<TechBuilder item={tech} />
 								</li>
 							) : null
 						)}
@@ -87,6 +94,7 @@ function TechPanel(setInfo) {
 											setInfo(tech);
 										}}
 									/>
+									<TechBuilder item={tech} />
 								</li>
 							) : null
 						)}
@@ -109,6 +117,7 @@ function TechPanel(setInfo) {
 											setInfo(tech);
 										}}
 									/>
+									<TechBuilder item={tech} />
 								</li>
 							) : null
 						)}
