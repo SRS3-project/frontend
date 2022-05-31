@@ -9,7 +9,7 @@ import en from "../../locales/en.json"
 
 const TROOPS_DEFINITIONS  = en.troops;
 
-function TroopPanel(units, setInfo) {
+function TroopPanel(setInfo) {
 	const { user } = useUser();
 
 	const troops_mock = user.troops.map((troop) => troop.type);

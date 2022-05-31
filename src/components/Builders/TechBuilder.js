@@ -9,38 +9,25 @@ import { useEffect } from "react";
 import Button from "../Button/Button"
 
 
-const TROOPBUILD_URL = "/game/build";
-const NUMBER_REGEX = /^[0-9]+$/;
+const TROOPBUILD_URL = "/player/techs";
 
-const TroopBuilder = ({ item }) => {
+const TechBuilder = ({ item }) => {
 	// For The Async Build Request
 	const { user } = useUser();
 	const { auth } = useAuth();
-	const [validInput, setValidInput] = useState(false);
 
 	// For Component Functionality
-	const [build, setBuild] = useState({});
-	const [val, setVal] = useState("");
+	const [upgrade, setUpgrade] = useState({});
 
-	useEffect(() => {
-		setValidInput(NUMBER_REGEX.test(val));
-	}, [val]);
+	const isUpgradable = () => {
+		const foodNeeded = (user.resource[0].amount >= item.cost.food);
+        const goldNeeded = (user.resource[1].amount >= item.cost.gold);
+		const mineralNeeded = (user.resource[2].amount >= item.cost.minerals);
+		const woodNeeded = (user.resource[3].amount >= item.cost.wood);
 
-	const maxUnitsBuildable = () => {
-		const goldUnits = user.resource[1].amount % item.cost.gold;
-		const mineralUnits = user.resource[2].amount % item.cost.minerals;
-		const woodUnits = user.resource[3].amount % item.cost.wood;
-
-		return Math.min(goldUnits, mineralUnits, woodUnits);
+		return (foodNeeded && goldNeeded && mineralNeeded && woodNeeded);
 	}
 
-	const isBuildable = () => {
-		return (
-			user.resource[1].amount >= 0 ||
-			user.resource[2].amount >= 0 ||
-			user.resource[3].amount >= 0
-			)
-	}
 
 	const buildTroopsRequest = async (toBuild) => {
 		console.log("POST Request: Build troops");
@@ -133,4 +120,4 @@ const TroopBuilder = ({ item }) => {
 	);
 };
 
-export default TroopBuilder;
+export default TechBuilder;
