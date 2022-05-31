@@ -32,12 +32,12 @@ const TechBuilder = ({ item }) => {
 				const requestUrl = `${TROOPBUILD_URL}`;
 				console.log("requestUrl: ", requestUrl);
 
-				const response = await axiosUser.upgrade(
+				const response = await axiosUser.patch(
 					requestUrl,
 					{
-                        "username": `${user.username}`,
-                        "type": `${item.id.toUpperCase()}`,
-                        "level": `${item.level+1}`
+                        username: `${user.username}`,
+                        type: `${item.id.toUpperCase()}`,
+                        level: item.level+1
                     },
 					{
 						headers: {
