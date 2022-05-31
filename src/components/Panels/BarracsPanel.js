@@ -6,7 +6,6 @@ import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css";
 import TroopBuilder from "../Builders/TroopBuilder";
 import useUser from "../../hooks/useUser";
-import { UserProvider } from "../../context/UserProvider";
 import en from "../../locales/en.json"
 
 const TROOPS_DEFINITIONS = en.troops;

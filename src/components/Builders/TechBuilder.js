@@ -1,12 +1,9 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import styles from "./builder.css";
-import { useState } from "react";
 import { axiosUser } from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
-import { useEffect } from "react";
-import Button from "../Button/Button"
 
 
 const TROOPBUILD_URL = "/player/techs";

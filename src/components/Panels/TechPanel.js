@@ -20,10 +20,10 @@ function TechPanel(setInfo) {
 
 	const getTechLevel = (id) => {
 		
-		const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
+		//const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
 		//console.log(`lvl: ${lvl} id: ${id.toUpperCase()}`);
 
-		return 0;
+		return 0;//lvl;
 	}
 
 	return (
@@ -106,7 +106,7 @@ function TechPanel(setInfo) {
 					</Notification>
 					<ul id="horizontal-list">
 						{TECH_DEFINITIONS.map((tech) =>
-							tech.type === "military" ? (
+							tech.type === "weapons" ? (
 								<li key={tech.id}>
 									<ItemBox
 										topLabel={getTechLevel(tech.id)}

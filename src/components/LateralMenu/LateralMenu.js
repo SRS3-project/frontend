@@ -45,7 +45,7 @@ function LateralMenu({ setFilter,setInfo }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.castle);
-								setFilter({});
+								setFilter("castle");
 							}}
 						/>
 					</Menu.List.Item>

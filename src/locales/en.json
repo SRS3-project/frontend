@@ -370,7 +370,7 @@
         "icon": "general",
         "level": 0,
         "cost":{
-          "metals": 800,
+          "minerals": 800,
             "wood": 400,
             "gold": 0,
             "food": 0
@@ -386,7 +386,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 800,
+              "minerals": 800,
               "wood": 400,
               "gold": 0,
               "food": 0
@@ -402,7 +402,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-            "metals": 1600,
+            "minerals": 1600,
             "wood": 0,
             "gold": 0,
             "food": 0
@@ -418,7 +418,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 1600,
+              "minerals": 1600,
               "wood": 800,
               "gold": 400,
               "food": 0
@@ -434,7 +434,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 200,
+              "minerals": 200,
               "wood": 400,
               "gold": 60,
               "food": 0
@@ -450,7 +450,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 600,
+              "minerals": 600,
               "wood": 0,
               "gold": 900,
               "food": 0
@@ -466,7 +466,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 10000,
+              "minerals": 10000,
               "wood": 20000,
               "gold": 6000,
               "food": 0
@@ -482,7 +482,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 2000000,
+              "minerals": 2000000,
               "wood": 1000000,
               "gold": 2000000,
               "food": 0
@@ -494,11 +494,11 @@
         "id":"weapons",
         "name": "Melee Weapons",
         "description":"Each level of this technology increases Units attack power by 10%",
-        "type": "military",
+        "type": "weapons",
         "level": 0,
         "icon": "general",
         "cost":{
-          "metals": 800,
+          "minerals": 800,
           "wood": 200,
           "gold": 0,
           "food": 0
@@ -510,11 +510,11 @@
           "id":"armors",
           "name": "Armors",
           "description":"Each level of this technology increases All's Units defence by 10%",
-          "type": "military",
+          "type": "weapons",
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 1600,
+              "minerals": 1600,
               "wood": 0,
               "gold": 0,
               "food": 0
@@ -526,11 +526,11 @@
           "id":"arcanomancy",
           "name": "Arcanomancy",
           "description":"Each level of this technology increases All's Units statistics by 20%",
-          "type": "military",
+          "type": "weapons",
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 8000,
+              "minerals": 8000,
               "wood": 6000,
               "gold": 4000,
               "food": 0
@@ -546,7 +546,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-            "metals": 200,
+            "minerals": 200,
             "wood": 1000,
             "gold": 200,
             "food": 0
@@ -562,7 +562,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 1000,
+              "minerals": 1000,
               "wood": 300,
               "gold": 100,
               "food": 0
@@ -578,7 +578,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 0,
+              "minerals": 0,
               "wood": 400,
               "gold": 600,
               "food": 0
@@ -594,7 +594,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 4000,
+              "minerals": 4000,
               "wood": 8000,
               "gold": 4000,
               "food": 0
@@ -610,7 +610,7 @@
           "icon": "general",
           "level": 0,
           "cost":{
-              "metals": 0,
+              "minerals": 0,
               "wood": 0,
               "gold": 0,
               "food": 300000

@@ -6,7 +6,7 @@ import { axiosUser } from "../../api/axios";
 import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 import { useEffect } from "react";
-import Button from "../Button/Button"
+
 
 
 const TROOPBUILD_URL = "/game/build";
@@ -36,9 +36,9 @@ const TroopBuilder = ({ item }) => {
 
 	const isBuildable = () => {
 		return (
-			user.resource[1].amount >= 0 ||
-			user.resource[2].amount >= 0 ||
-			user.resource[3].amount >= 0
+			user.resources[1].amount >= 0 ||
+			user.resources[2].amount >= 0 ||
+			user.resources[3].amount >= 0
 			)
 	}
 
@@ -126,7 +126,7 @@ const TroopBuilder = ({ item }) => {
 				id="TroopBuilder"
 				type="submit" 
 				aria-label="Build"
-				disabled = {false} //isBuildable
+				disabled = {!isBuildable()} //
 				>
 				<FaPlus />
 			</button>
