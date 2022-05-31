@@ -88,7 +88,7 @@ const TechBuilder = ({ item }) => {
 			id="TechButton"
             type="submit" 
             aria-label="Build"
-            disabled = {isUpgradable()}
+            disabled = {!isUpgradable()}
             onClick = {handleClick}
             >
             <FaPlus />

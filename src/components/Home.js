@@ -106,7 +106,7 @@ function Home() {
 		//return a new user if non existant or the existin user data
 		createUser();
 		//remove comment below for constant update
-		//setInterval(updateUserInfo, 30000);
+		setInterval(updateUserInfo, 30000);
 	}, []);
 
 	return (

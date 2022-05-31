@@ -20,7 +20,7 @@ function TechPanel(setInfo) {
 
 	const getTechLevel = (id) => {
 		
-		//const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
+		const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
 		//console.log(`lvl: ${lvl} id: ${id.toUpperCase()}`);
 
 		return 0;
