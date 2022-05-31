@@ -11,6 +11,25 @@ import TechBuilder from "../Builders/TechBuilder";
 
 const TECH_DEFINITIONS = en.technologies;
 
+const mock_teck = [
+"ARCANOMANCY",
+"ARMORS",
+"AXES",
+"CRUCIBLE",
+"EAGLES",
+"ESPIONAGE",
+"EXPOLRATION",
+"LOGISTIC",
+"MOUNTS",
+"PICKS",
+"SPACEANDTIME",
+"STORAGE",
+"STRATEGY",
+"TARTARUS",
+"WAGONS",
+"WEAPONS"
+]
+
 function TechPanel(setInfo) {
 	
 	const { user } = useUser();
@@ -20,7 +39,7 @@ function TechPanel(setInfo) {
 
 	const getTechLevel = (id) => {
 		
-		//const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
+		const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
 		//console.log(`lvl: ${lvl} id: ${id.toUpperCase()}`);
 
 		return 0;//lvl;
