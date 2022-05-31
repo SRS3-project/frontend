@@ -3,7 +3,7 @@ import UserContext from "../context/UserProvider";
 
 const useUser = () => {
 	const { user } = useContext(UserContext);
-	//console.log("User provider say: ", user);
+	//console.log("useUser say: ", user);
 	return useContext(UserContext);
 };
 

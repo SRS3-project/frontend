@@ -66,16 +66,8 @@ const ResetPassword = (props) => {
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
-			} else if (err.response?.status === 400) {
-				setErrMsg(
-					"	Invalid Input: the e-mail is not properly formatted"
-				);
-			} else if (err.response?.status === 401) {
-				setErrMsg(
-					"	Either the user does not exist or the token does not exist"
-				);
 			} else {
-				setErrMsg("Password Update Failed");
+				setErrMsg(err?.response?.data?.message);
 			}
 			errRef.current.focus();
 		}

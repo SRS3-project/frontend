@@ -5,7 +5,7 @@ const UserContext = createContext({});
 export const UserProvider = ({ children }) => {
 	const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-	//console.log("UserProvider say userinfo: ", user);
+	//console.log("UserProvider say: ", user);
 
 	return (
 		<UserContext.Provider value={{ user, setUser }}>
@@ -15,15 +15,3 @@ export const UserProvider = ({ children }) => {
 };
 
 export default UserContext;
-
-/* const user = {
-    anagrafica: {
-        nome,cognome
-    },
-    materiali: {
-        minerali,legno,oro,cibo
-    }
-    armate: {
-        soldati,arcieri
-    }
-} */

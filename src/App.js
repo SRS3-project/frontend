@@ -16,6 +16,7 @@ import ResetPassword from "./components/ResetPassword";
 import ConfirmEmail from "./components/ConfirmEmail";
 
 import { UserProvider } from "./context/UserProvider";
+import DeleteAccount from "./components/DeleteAccount";
 
 const ROLES = {
 	User: 2001,
@@ -38,6 +39,10 @@ function App() {
 							{/* public routes */}
 							<Route path="login" element={<Login />} />
 							<Route path="register" element={<Register />} />
+							<Route
+								path="deleteAccount"
+								element={<DeleteAccount />}
+							/>
 							<Route
 								path="forgotPassword"
 								element={<ForgotPassword />}

@@ -4,7 +4,7 @@ import useUser from "../hooks/useUser";
 
 const USERINFO_URL = "/player";
 
-const world = () => {
+const World = () => {
 	const { auth } = useAuth();
 	const { user } = useUser();
 	const [success, setSuccess] = useState(false);
@@ -46,4 +46,4 @@ const world = () => {
 	return <div>world</div>;
 };
 
-export default world;
+export default World;

@@ -3,9 +3,10 @@ import styles from "./userbox.module.css";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthProvider";
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useLogout from "../../hooks/useLogout";
 import Button from "../Button/Button";
+import RedirectButton from "../Button/RedirectButton/RedirectButton";
 
 const UserBox = () => {
 	const { auth } = useContext(AuthContext);
@@ -25,6 +26,7 @@ const UserBox = () => {
 			<h1> Benvenuto: {userName} </h1>
 
 			<Button label="Sign Out" onClick={signOut} />
+			<RedirectButton label="Delete account" path="/deleteAccount" />
 		</div>
 	);
 };
