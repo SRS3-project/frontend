@@ -24,12 +24,8 @@ function Home() {
 	const { auth } = useAuth();
 	const { user, setUser } = useUser();
 	const [info, setInfo] = useState(Descriptions.buildings.home);
-	const [items, setItems] = useState(Descriptions.technologies);
-	const [elements, setElements] = useState({});
-	const [toBuild, setToBuild] = useState({
-		type: "WARRIORS",
-		amount: 0,
-	});
+	const [filter, setFilter] = useState('');
+	
 
 	//setInfo(Descriptions.buildings.home);
 	//console.log("info: ", info);
@@ -128,7 +124,7 @@ function Home() {
 							<h1 className="gameName">diOgame</h1>
 						</Notification>
 						<Notification color="link">
-							<ResourcePanel resources={user?.resources} />
+							<ResourcePanel/>
 						</Notification>
 					</Columns.Column>
 					<Columns.Column size={3}>
@@ -140,10 +136,8 @@ function Home() {
 					<Columns.Column size={4}>
 						<Notification color="link">
 							<LateralMenu
-								descriptions={Descriptions}
+								setFilter={setFilter}
 								setInfo={setInfo}
-								setItems={setItems}
-								setElements={setElements}
 							/>
 						</Notification>
 					</Columns.Column>
@@ -154,8 +148,7 @@ function Home() {
 						<br />
 						<Notification color="link">
 							<ContainerPanel
-								filter={elements.filter}
-								elements={elements.desc}
+								filter={filter}
 								setInfo={setInfo}
 							/>
 							{/* <TechPanel 

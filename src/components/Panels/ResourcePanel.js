@@ -5,7 +5,6 @@ import ItemBox from "../ItemBox/ItemBox";
 import ContainerBox from "../ContainerBox/ContainerBox";
 
 import minerals from "../../images/mineral-icon.png";
-import mineral from "../../images/mineral-icon.png";
 import wood from "../../images/wood-icon.png";
 import gold from "../../images/gold-icon.png";
 import food from "../../images/food-icon.png";
@@ -21,25 +20,25 @@ const resources = [
 
 const ResourcePanel = () => {
 	const { user } = useUser();
-	
+
 	const isUserValid = () => {
 		return (
 			!(Object.is(user, null) || Object.is(user, undefined) || Object.keys(user).length === 0)
 		)
 	}
 	
+	const setLabel = (resource) => {
+		return resource.name.charAt(0) + resource.name.slice(1).toLowerCase();
+	}
+	
 	return (
 		<>
 			<ContainerBox>
-				{resources.map((resource, i) => {
-					const label =
-						resource.name.charAt(0) +
-						resource.name.slice(1).toLowerCase();
-					//console.log(Object.keys(user));
-					return (
+				{resources.map((resource, i) => (
+						
 						<li key={resource.name}>
 							<ItemBox
-								topLabel={label}
+								topLabel={setLabel(resource)}
 								image={resource.image}
 								bottomLabel={
 									//Object.keys(user).length === 0
@@ -49,8 +48,8 @@ const ResourcePanel = () => {
 								}
 							/>
 						</li>
-					);
-				})}
+					)
+				)}
 			</ContainerBox>
 		</>
 	);

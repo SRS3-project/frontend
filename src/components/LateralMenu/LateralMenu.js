@@ -8,13 +8,12 @@ import "bulma/sass/components/menu.sass";
 import "bulma/css/bulma.min.css";
 import { Menu } from "react-bulma-components";
 import styles from "./lateralmenu.module.css";
-import TechPanel from "../Panels/TechPanel";
-import TroopPanel from "../Panels/TroopPanel";
+import descriptions from "../../locales/en.json"
 
 //const stampa = () => { console.log('pressed button')}
 
 //JSX
-function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
+function LateralMenu({ setFilter,setInfo }) {
 	/* const navigate = useNavigate();
     const logout = useLogout();
 
@@ -33,7 +32,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.home);
-								setElements({});
+								setFilter({});
 							}}
 						/>
 					</Menu.List.Item>
@@ -46,7 +45,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.castle);
-								setElements({});
+								setFilter({});
 							}}
 						/>
 					</Menu.List.Item>
@@ -66,12 +65,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								onClick={(e) => {
 									e.preventDefault();
 									setInfo(descriptions.buildings.barracs);
-									setItems(descriptions.troops);
-									setElements({
-										filter: "barracs",
-										desc: descriptions.troops,
-										setInfo: setInfo,
-									});
+									setFilter("barracs");
 								}}
 							/>
 						</Menu.List.Item>
@@ -83,12 +77,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 								onClick={(e) => {
 									e.preventDefault();
 									setInfo(descriptions.buildings.magetower);
-									setItems(descriptions.technologies);
-									setElements({
-										filter: "tower",
-										desc: descriptions.technologies,
-										setInfo: setInfo,
-									});
+									setFilter("tower");
 								}}
 							/>
 						</Menu.List.Item>
@@ -102,13 +91,7 @@ function LateralMenu({ descriptions, setInfo, setItems, setElements }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo("This is your army");
-								setItems(descriptions.troops);
-								//setElements(["troops",descriptions.troops, setInfo ]);
-								setElements({
-									filter: "troops",
-									desc: descriptions.troops,
-									setInfo: setInfo,
-								});
+								setFilter("troops");
 							}}
 						/>
 					</Menu.List.Item>

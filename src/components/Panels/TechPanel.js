@@ -5,30 +5,21 @@ import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css";
 import useUser from "../../hooks/useUser";
-
+import en from "../../locales/en.json"
 //this should read the player tecnlogies tree
 
-const technologies = [
-	"ARCANOMANCY",
-	"ARMORS",
-	"AXES",
-	"CRUCIBLE",
-	"EAGLES",
-	"ESPIONAGE",
-	"EXPLORATION",
-	"LOGISTIC",
-	"MOUNTS",
-	"PICKS",
-	"SPACEANDTIME",
-	"STORAGE",
-	"STRATEGY",
-	"TARTARUS",
-	"WAGONS",
-	"WEAPONS",
-];
+const TECH_DEFINITIONS = en.technologies;
 
-function TechPanel(techs, setInfo) {
-	const { user, setUser } = useUser();
+function TechPanel(setInfo) {
+	
+	const { user } = useUser();
+	
+	const tech_mock = user.techs.map((tech) => tech.type);
+	console.log({tech_mock});
+
+	const getTechLevel = (id) => {
+		return user.techs[tech_mock.indexOf(id.toUpperCase())].level;
+	}
 
 	return (
 		<>
@@ -38,20 +29,21 @@ function TechPanel(techs, setInfo) {
 						<h3>Ricerche base</h3>
 					</Notification>
 					<ul id="horizontal-list">
-						{techs.map((tech) =>
-							tech.type === "base" ? (
-								<li key={tech.id}>
-									<ItemBox
-										topLabel={tech.name}
-										image="logo192.png"
-										bottomLabel={tech.level}
-										onClick={(e) => {
-											e.preventDefault();
-											setInfo(tech);
-										}}
-									/>
-								</li>
-							) : null
+						{TECH_DEFINITIONS.map((tech) =>
+							tech.type === "base" ? 
+								(
+									<li key={tech.id}>
+										<ItemBox
+											topLabel={tech.name}
+											image="logo192.png"
+											bottomLabel={getTechLevel(tech.id)}
+											onClick={(e) => {
+												e.preventDefault();
+												setInfo(tech);
+											}}
+										/>
+									</li>
+								) : null
 						)}
 					</ul>
 				</Columns.Column>
@@ -60,13 +52,13 @@ function TechPanel(techs, setInfo) {
 						<h3>Ricerche trasporto</h3>
 					</Notification>
 					<ul id="horizontal-list">
-						{techs.map((tech) =>
+						{TECH_DEFINITIONS.map((tech) =>
 							tech.type === "movement" ? (
 								<li key={tech.id}>
 									<ItemBox
 										topLabel={tech.name}
 										image="logo192.png"
-										bottomLabel={tech.level}
+										bottomLabel={getTechLevel(tech.id)}
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(tech);
@@ -83,13 +75,13 @@ function TechPanel(techs, setInfo) {
 						<h3>Ricerche avanzate</h3>
 					</Notification>
 					<ul id="horizontal-list">
-						{techs.map((tech) =>
+						{TECH_DEFINITIONS.map((tech) =>
 							tech.type === "advanced" ? (
 								<li key={tech.id}>
 									<ItemBox
 										topLabel={tech.name}
 										image="logo192.png"
-										bottomLabel={tech.level}
+										bottomLabel={getTechLevel(tech.id)}
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(tech);
@@ -105,13 +97,13 @@ function TechPanel(techs, setInfo) {
 						<h3>Ricerche militari</h3>
 					</Notification>
 					<ul id="horizontal-list">
-						{techs.map((tech) =>
+						{TECH_DEFINITIONS.map((tech) =>
 							tech.type === "military" ? (
 								<li key={tech.id}>
 									<ItemBox
-										topLabel={tech.name}
+										topLabel={getTechLevel(tech.id)}
 										image="logo192.png"
-										bottomLabel={tech.level}
+										bottomLabel={0}
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(tech);

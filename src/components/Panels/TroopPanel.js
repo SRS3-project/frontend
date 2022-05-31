@@ -5,10 +5,19 @@ import ItemBox from "../ItemBox/ItemBox";
 import { Columns, Notification } from "react-bulma-components";
 import styles from "./items.panels.css";
 import useUser from "../../hooks/useUser";
-//this should read the player tecnlogies tree
+import en from "../../locales/en.json"
+
+const TROOPS_DEFINITIONS  = en.troops;
 
 function TroopPanel(units, setInfo) {
-	const { user, setUser } = useUser();
+	const { user } = useUser();
+
+	const troops_mock = user.troops.map((troop) => troop.type);
+	//console.log({troops_mock});
+
+	const getTroopAmount = (id) => {
+		return user.troops[troops_mock.indexOf(id.toUpperCase())].amount;
+	}
 
 	return (
 		<>
@@ -18,14 +27,13 @@ function TroopPanel(units, setInfo) {
 						<h3>Unita' Civili</h3>
 					</Notification>
 					<ul id="horizontal-list">
-						{units.map((unit) =>
+						{TROOPS_DEFINITIONS.map((unit) =>
 							unit.type === "civilian" ? (
 								<li key={unit.id}>
 									<ItemBox
 										topLabel={unit.name}
 										image="logo192.png"
-										//bottomLabel={user.troops.{unit.id}.ammount}
-										bottomLabel={unit.quantity}
+										bottomLabel={getTroopAmount(unit.id)}
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(unit);
@@ -42,13 +50,13 @@ function TroopPanel(units, setInfo) {
 						<h3>Unita' Militari</h3>
 					</Notification>
 					<ul id="horizontal-list">
-						{units.map((unit) =>
+						{TROOPS_DEFINITIONS.map((unit) =>
 							unit.type === "military" ? (
 								<li key={unit.id}>
 									<ItemBox
 										topLabel={unit.name}
 										image="logo192.png"
-										bottomLabel={unit.quantity}
+										bottomLabel={getTroopAmount(unit.id)}
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(unit);
