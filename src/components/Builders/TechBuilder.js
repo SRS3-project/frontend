@@ -69,7 +69,7 @@ const TechBuilder = ({ item }) => {
 		}
 	};
 
-	const handleSubmmit = (e) => {
+	const handleClick = (e) => {
 		e.preventDefault();
 
 		console.log("Submitted: ", build.amount, "x", build.type);
