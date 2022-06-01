@@ -10,7 +10,7 @@ const TROOPBUILD_URL = "/player/techs";
 
 const TechBuilder = ({ item }) => {
 	// For The Async Build Request
-	const { user } = useUser();
+	const { user, setUser } = useUser();
 	const { auth } = useAuth();
 
 	const isUpgradable = () => {
@@ -52,8 +52,9 @@ const TechBuilder = ({ item }) => {
 							//Authorization: auth.accessToken,
 						},
 						withCredentials: true,
-					}
+					}					
 				);
+				
 				console.log(response);
 			} catch (err) {
 				//console.log(err);
@@ -66,6 +67,7 @@ const TechBuilder = ({ item }) => {
 				}
 			} finally {
 				console.log("user: ", user);
+
 			}
 		} else {
 			console.log("Empty State: Request Not Executed");

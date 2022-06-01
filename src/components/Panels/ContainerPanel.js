@@ -3,6 +3,7 @@ import TroopPanel from "./TroopPanel";
 import TechPanel from "./TechPanel";
 import BarracsPanel from "./BarracsPanel";
 import CastlePanel from "./CastlePanel";
+import WorldPanel from "./WorldPanel";
 
 const ContainerPanel = ({ filter, setInfo }) => {
 	switch (filter) {
@@ -14,6 +15,8 @@ const ContainerPanel = ({ filter, setInfo }) => {
 			return TechPanel(setInfo);
 		case "troops":
 			return TroopPanel(setInfo);
+		case "world":
+			return WorldPanel(setInfo);
 		default: {}
 	}
 };

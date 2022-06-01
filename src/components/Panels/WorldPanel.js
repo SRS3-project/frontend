@@ -1,21 +1,22 @@
-import React from "react";
-import useAuth from "../hooks/useAuth";
-import useUser from "../hooks/useUser";
+import React, { useEffect } from "react";
+import useAuth from "../../hooks/useAuth";
+import useUser from "../../hooks/useUser";
+import { useState } from "react";
+import { axiosUser } from "../../api/axios";
 
 const USERINFO_URL = "/player";
 
-const World = () => {
+function WorldPanel(setInfo) {
 	const { auth } = useAuth();
-	const { user } = useUser();
 	const [success, setSuccess] = useState(false);
 	const [world, setWorld] = useState();
 
 	const requestWorld = async () => {
 		console.log("requesting world");
+				
 		try {
 			const response = await axiosUser.get(
 				USERINFO_URL,
-				{ username: auth.user },
 				{
 					headers: {
 						"Content-Type": "application/json",
@@ -29,6 +30,9 @@ const World = () => {
 			);
 			console.log("world received");
 			setWorld(response.data);
+			
+			//console.log("world:  ", response);
+		
 		} catch (err) {
 			//console.log(err);
 			if (!err?.response) {
@@ -39,11 +43,17 @@ const World = () => {
 				console.log("FETCH WORLD DATA: Unknown error");
 			}
 		} finally {
-			console.log("worldResponse: ", world);
+			//console.log("worldResponse: ", world);
 		}
 	};
 
-	return <div>world</div>;
+	useEffect(() => { 
+		requestWorld(); 
+	}, []);
+
+	return(
+		<h1>This World is your to conquer</h1>
+	);
 };
 
-export default World;
+export default WorldPanel;

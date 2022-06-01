@@ -102,7 +102,14 @@ function LateralMenu({ setFilter,setInfo }) {
 
 				<Menu.List title="World">
 					<Menu.List.Item>
-						<RedirectButton label="World" path="/world" />
+						<Button
+							label="World"
+							onClick={(e) => {
+								e.preventDefault();
+								setInfo("This World is yours to conquer");
+								setFilter("world");
+							}}
+						/>
 					</Menu.List.Item>
 				</Menu.List>
 
