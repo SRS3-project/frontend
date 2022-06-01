@@ -18,14 +18,18 @@ const TechBuilder = ({ item }) => {
         const goldNeeded = (user.resources[1]?.amount >= item.cost.gold);
 		const mineralNeeded = (user.resources[2]?.amount >= item.cost.minerals);
 		const woodNeeded = (user.resources[3]?.amount >= item.cost.wood);
+		//const woodNeeded = (user.resources[3]?.amount >= Math.pow(2,getUserTechLevel())*item.cost.wood);
 
 
 		return (foodNeeded && goldNeeded && mineralNeeded && woodNeeded);
 	}
-
+	
+	const getUserTechLevel = () => {
+		return user.techs?.find((el) => el.type == `${item.id.toUpperCase()}`).level;
+	}
 
 	const upgradeTechRequest = async () => {
-		console.log("POST Request: Build troops");
+		console.log("POST Request: Upgrade Tech");
 
 		if (isUpgradable()) {
 			try {
@@ -37,7 +41,7 @@ const TechBuilder = ({ item }) => {
 					{
                         username: `${user.username}`,
                         type: `${item.id.toUpperCase()}`,
-                        level: item.level+1
+                        level: getUserTechLevel()+1
                     },
 					{
 						headers: {

@@ -20,12 +20,14 @@ const resources = [
 
 const ResourcePanel = () => {
 	const { user } = useUser();
+	const lvl = user?.level;
 
-	const isUserValid = () => {
+	const isUserValid = (item) => {
+		//console.log(`${item}`)
 		return !(
-			Object.is(user, null) ||
-			Object.is(user, undefined) ||
-			Object.keys(user).length === 0
+			Object.is(item, null) ||
+			Object.is(item, undefined) ||
+			Object.keys(item).length === 0
 		);
 	};
 
@@ -43,13 +45,13 @@ const ResourcePanel = () => {
 							image={resource.image}
 							bottomLabel={
 								//Object.keys(user).length === 0
-								isUserValid() ? user.resources[i].amount : "0"
+								isUserValid(user) ? user.resources[i].amount : "0"
 							}
 						/>
 						<p>
-							{resource.rate *
-								(isUserValid() ? user.level : 0) *
-								Math.pow(1.1, user.level).toFixed(2)}
+							{isUserValid(user) ? (
+								resource.rate * (user.level) * Math.pow(1.1, (user.level)).toFixed(2)
+							) : 0}
 							/h
 						</p>
 					</li>

@@ -37,12 +37,14 @@ function TechPanel(setInfo) {
 	const tech_mock = user.techs.map((tech) => tech.type);
 	console.log({tech_mock});
 
+
+
 	const getTechLevel = (id) => {
 		
-		const lvl = user.techs.find((el) => el.type == `${id.toUpperCase()}`).level;
+		const lvl = user.techs?.find((el) => el.type == `${id.toUpperCase()}`).level;
 		//console.log(`lvl: ${lvl} id: ${id.toUpperCase()}`);
 
-		return 0;//lvl;
+		return lvl;
 	}
 
 	return (
