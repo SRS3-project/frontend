@@ -42,7 +42,7 @@ const troops = [
 	{ image: wareagle, name: "WAREAGLE" },
 ];
 
-const TroopPanel = ({setInfo}) => {
+const TroopPanel = ( {setInfo} ) => {
 	const { user } = useUser();
 
 	//const troops_mock = user.troops.map((troop) => troop.type);
@@ -67,8 +67,7 @@ const TroopPanel = ({setInfo}) => {
 					</Notification>
 					<ul id="horizontal-list">
 						{TROOPS_DEFINITIONS.map((unit) =>
-							unit.type === "civilian" ? 
-							(
+							unit.type === "civilian" ? (
 								<li key={unit.id}>
 									<ItemBox
 										topLabel={unit.name}

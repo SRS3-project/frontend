@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TechBuilder from "../Builders/TechBuilder";
 import TroopBuilder from "../Builders/TroopBuilder";
 import styles from "./infobox.module.css";
@@ -13,7 +13,7 @@ const InfoBox = ({ info, filter }) => {
 				return isTroop();
 			case "tower":
 				return isTech();
-			case "troop":
+			case "troops":
 				return isTroop();
 			case "world":
 				return isWorld();
@@ -27,11 +27,8 @@ const InfoBox = ({ info, filter }) => {
 			info.type === "movement" || info.type === "weapons") ?
 			(
 				<>
-				<h1> Infobox: {info.name} </h1>
 				<br />
-				<p>{info.description}</p>
-				<br />
-				<h3>Costo unita':</h3>
+				<h3>Research Cost:</h3>
 				<ul>
 					<li>Food: {info.cost?.food}</li>
 					<li>Gold: {info.cost?.gold}</li>
@@ -49,11 +46,8 @@ const InfoBox = ({ info, filter }) => {
 			(info.type === "civilian" || info.type === "military") ?
 			(
 				<>
-				<h1> Infobox: {info.name} </h1>
 				<br />
-				<p>{info.description}</p>
-				<br />
-				<h3>Costo unita':</h3>
+				<h3>Unit cost:</h3>
 				<ul>
 					<li>Food: {info.cost?.food}</li>
 					<li>Gold: {info.cost?.gold}</li>
@@ -72,12 +66,29 @@ const InfoBox = ({ info, filter }) => {
 	}
 
 	const isWorld = () => {
-		return;
+		return(
+			(info.level >= 0) ? (
+				<>
+				<h1>Username: {info.username}</h1>
+				<br />
+				<h2>Level: {info.level}</h2>
+				<br />
+				<h3>Coordinates:</h3>
+				<ul>
+					<li>X: {info.x}</li>
+					<li>Y: {info.y}</li>
+				</ul>
+				</>	
+			) : null
+		);
 	}
-	
+
 	return (
 			<>
-				{dataSelector()}
+				<h1>{info.name}</h1>
+				<br />
+				<h2>{info.description}</h2>
+				{dataSelector()}		
 			</>
 	);
 };

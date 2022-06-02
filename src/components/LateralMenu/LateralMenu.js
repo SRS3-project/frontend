@@ -85,16 +85,18 @@ function LateralMenu({ setFilter, setInfo }) {
 				</Menu.List>
 
 				<Menu.List title="Army">
-					<Menu.List.Item>
-						<Button
-							label="Troops"
-							onClick={(e) => {
-								e.preventDefault();
-								setInfo(descriptions.buildings.army);
-								setFilter("troops");
-							}}
-						/>
-					</Menu.List.Item>
+					{true && (
+							<Menu.List.Item>
+								<Button
+									label="Troops"
+									onClick={(e) => {
+										e.preventDefault();
+										setInfo(descriptions.buildings.army);
+										setFilter("troops");
+									}}
+								/>
+							</Menu.List.Item>
+					)}
 					{/* <Menu.List.Item>
 						<RedirectButton label="Defence" path="/defence" />
 					</Menu.List.Item> */}
