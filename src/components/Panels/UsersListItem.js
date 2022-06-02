@@ -72,10 +72,11 @@ const UsersListItem = ({opponent, setInfo}) => {
         setInfo(opponent);
     }
     
+    const enemyName = opponent?.username?.charAt(0).toUpperCase() + opponent?.username?.slice(1);
     
     return (
         <li className="opponent" key={opponent.id} onClick={(e)=>{handleClick(e)}}>
-            <label>{opponent.username}</label>
+            <label id='opponentLabel'>{enemyName}</label>
             
             <GiCrossedSwords
                 onClick={(e) => {

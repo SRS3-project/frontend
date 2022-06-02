@@ -32,6 +32,12 @@ ul#horizontal-list {
     background-color: rgb(37, 37, 151);
     box-shadow: 5px 5px 10px rgb(3, 3, 62);
   }
+
+  label#opponentLabel {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
   
   .opponent:first-child {
     margin: 0;

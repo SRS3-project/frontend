@@ -26,6 +26,7 @@ const UserBox = () => {
 			<h1> Benvenuto: {userName} </h1>
 
 			<Button label="Sign Out" onClick={signOut} />
+			<br />
 			<RedirectButton label="Delete account" path="/deleteAccount" />
 		</div>
 	);
