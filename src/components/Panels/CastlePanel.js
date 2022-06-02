@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Gauge from "../Gauge/Gauge";
 import useUser from "../../hooks/useUser"
-const CastlePanel = ({ filter, setInfo }) => {
+
+function CastlePanel() {
 
   const {user} = useUser();
 

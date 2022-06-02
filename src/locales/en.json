@@ -19,7 +19,15 @@
       "magetower": {
         "name": "Mage Tower",
         "description": "This is the Mage Tower descriprion"
-      }
+      },
+      "army": {
+        "name": "Army",
+        "description": "This is the Army descriprion"
+      },
+      "world": {
+        "name": "World",
+        "description": "This is the World descriprion"
+      }      
     },
 
     "troops": [

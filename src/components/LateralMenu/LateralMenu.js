@@ -13,7 +13,7 @@ import descriptions from "../../locales/en.json"
 //const stampa = () => { console.log('pressed button')}
 
 //JSX
-function LateralMenu({ setFilter,setInfo }) {
+function LateralMenu({ setFilter, setInfo }) {
 	/* const navigate = useNavigate();
     const logout = useLogout();
 
@@ -84,13 +84,13 @@ function LateralMenu({ setFilter,setInfo }) {
 					)}
 				</Menu.List>
 
-				<Menu.List title="Troops">
+				<Menu.List title="Army">
 					<Menu.List.Item>
 						<Button
 							label="Troops"
 							onClick={(e) => {
 								e.preventDefault();
-								setInfo("This is your army");
+								setInfo(descriptions.buildings.army);
 								setFilter("troops");
 							}}
 						/>
@@ -106,7 +106,7 @@ function LateralMenu({ setFilter,setInfo }) {
 							label="World"
 							onClick={(e) => {
 								e.preventDefault();
-								setInfo("This World is yours to conquer");
+								setInfo(descriptions.buildings.world);
 								setFilter("world");
 							}}
 						/>

@@ -25,6 +25,7 @@ function Home() {
 	const { user, setUser } = useUser();
 	const [info, setInfo] = useState(Descriptions.buildings.home);
 	const [filter, setFilter] = useState('');
+	const [world, setWorld] = useState();
 	
 
 	//setInfo(Descriptions.buildings.home);
@@ -102,12 +103,53 @@ function Home() {
 		}
 	};
 
+	const requestWorld = async () => {
+		
+		console.log("requesting world");
+				
+		try {
+			const response = await axiosUser.get(
+				USERINFO_URL,
+				{
+					headers: {
+						"Content-Type": "application/json",
+						//new backend
+						Authorization: `Bearer ${auth.accessToken}`,
+						//old backend
+						//Authorization: auth.accessToken,
+					},
+					withCredentials: true,
+				}
+			);
+			console.log("world received");
+			setWorld(response.data);
+			console.log("world:  ", response.data);
+		
+		} catch (err) {
+			
+			//console.log(err);
+			if (!err?.response) {
+				console.log("FETCH WORLD DATA: No Server Response");
+			} else if (err.response?.status === 401) {
+				console.log("FETCH WORLD DATA: Unauthorized");
+			} else {
+				console.log("FETCH WORLD DATA: Unknown error");
+			}
+		} finally {
+			//console.log("worldResponse: ", world);
+		}
+	};
+
 	useEffect(() => {
 		//return a new user if non existant or the existin user data
 		createUser();
 		//remove comment below for constant update
 		setInterval(updateUserInfo, 30000);
 	}, []);
+
+	useEffect(() => {
+		requestWorld();
+	},[user])
 
 	return (
 		
@@ -144,13 +186,17 @@ function Home() {
 					</Columns.Column>
 					<Columns.Column size="auto">
 						<Notification color="link">
-							<InfoBox info={info} />
+							<InfoBox 
+								info={info}
+								filter={filter}
+							/>
 						</Notification>
 						<br />
 						<Notification color="link">
 							<ContainerPanel
 								filter={filter}
 								setInfo={setInfo}
+								scoreboard={world}
 							/>
 							{/* <TechPanel 
 								techs={items}

@@ -9,7 +9,7 @@ import en from "../../locales/en.json"
 
 const TROOPS_DEFINITIONS  = en.troops;
 
-function TroopPanel(setInfo) {
+const TroopPanel = ({setInfo}) => {
 	const { user } = useUser();
 
 	const troops_mock = user.troops.map((troop) => troop.type);
@@ -28,7 +28,8 @@ function TroopPanel(setInfo) {
 					</Notification>
 					<ul id="horizontal-list">
 						{TROOPS_DEFINITIONS.map((unit) =>
-							unit.type === "civilian" ? (
+							unit.type === "civilian" ? 
+							(
 								<li key={unit.id}>
 									<ItemBox
 										topLabel={unit.name}
@@ -37,6 +38,8 @@ function TroopPanel(setInfo) {
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(unit);
+											console.log("Troop Clicked")
+											console.log(unit)
 										}}
 									/>
 								</li>

@@ -10,7 +10,7 @@ import en from "../../locales/en.json"
 
 const TROOPS_DEFINITIONS = en.troops;
 
-function BarracsPanel( setInfo ) {
+const BarracsPanel = ( {setInfo} ) => {
 	const { user } = useUser();
 
 	const troops_mock = user.troops.map((troop) => troop.type);
@@ -38,6 +38,7 @@ function BarracsPanel( setInfo ) {
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(unit);
+											
 										}}
 									/>
 									<TroopBuilder item={unit} />

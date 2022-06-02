@@ -11,26 +11,7 @@ import TechBuilder from "../Builders/TechBuilder";
 
 const TECH_DEFINITIONS = en.technologies;
 
-const mock_teck = [
-"ARCANOMANCY",
-"ARMORS",
-"AXES",
-"CRUCIBLE",
-"EAGLES",
-"ESPIONAGE",
-"EXPOLRATION",
-"LOGISTIC",
-"MOUNTS",
-"PICKS",
-"SPACEANDTIME",
-"STORAGE",
-"STRATEGY",
-"TARTARUS",
-"WAGONS",
-"WEAPONS"
-]
-
-function TechPanel(setInfo) {
+const TechPanel = ({setInfo}) => {
 	
 	const { user } = useUser();
 	
