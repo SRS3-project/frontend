@@ -77,8 +77,7 @@ const TroopPanel = ({setInfo}) => {
 										onClick={(e) => {
 											e.preventDefault();
 											setInfo(unit);
-											console.log("Troop Clicked")
-											console.log(unit)
+											
 										}}
 									/>
 								</li>

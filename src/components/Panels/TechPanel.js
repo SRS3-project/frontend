@@ -30,8 +30,6 @@ import weapons from "../../images/technologies/weapons/weapons.png";
 import arcanomancy from "../../images/technologies/weapons/arcanomancy.png";
 
 const TECH_DEFINITIONS = en.technologies;
-
-
 	
 const techs = [
 	{ image: arcanomancy, name: "ARCANOMANCY" },

@@ -27,9 +27,9 @@ const TroopBuilder = ({ item }) => {
 	}, [val]);
 
 	const maxUnitsBuildable = () => {
-		const goldUnits = user.resource[1].amount % item.cost.gold;
-		const mineralUnits = user.resource[2].amount % item.cost.minerals;
-		const woodUnits = user.resource[3].amount % item.cost.wood;
+		const goldUnits = Math.floor(user.resources[1].amount / item.cost.gold);
+		const mineralUnits = Math.floor(user.resources[2].amount / item.cost.minerals);
+		const woodUnits = Math.floor(user.resources[3].amount / item.cost.wood);
 
 		return Math.min(goldUnits, mineralUnits, woodUnits);
 	}
@@ -52,7 +52,7 @@ const TroopBuilder = ({ item }) => {
 
 				const response = await axiosUser.post(
 					requestUrl,
-					{ toBuild },
+					toBuild,
 					{
 						headers: {
 							"Content-Type": "application/json",
@@ -64,7 +64,7 @@ const TroopBuilder = ({ item }) => {
 						withCredentials: true,
 					}
 				);
-				//setUser(response.data);
+				setUser(response.data);
 				console.log(response);
 
 			} catch (err) {
@@ -90,11 +90,12 @@ const TroopBuilder = ({ item }) => {
 		console.log("Submitted: ", build.amount, "x", build.type);
 
 		//additem
+		if (!build) return;
+
+		console.log("build", build);
 		buildTroopsRequest(build);
 
 		setBuild("");
-
-		if (!build) return;
 
 		//console.log('end handleSubmmit');
 
@@ -119,7 +120,7 @@ const TroopBuilder = ({ item }) => {
 					setVal(e.target.value);
 					setBuild({
 						type: `${item.id.toUpperCase()}`,
-						amount: {maxUnitsBuildable},
+						amount: maxUnitsBuildable()
 					});
 					//console.log(`${build.type}:${build.ammount}`);
 				}}
