@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import useAuth from "../../hooks/useAuth";
-import { useState } from "react";
-import { axiosUser } from "../../api/axios";
 import UsersListItem from "./UsersListItem";
-
-const USERINFO_URL = "/player";
+import useUser from "../../hooks/useUser";
 
 const WorldPanel =({scoreboard, setInfo}) => {
+
+	const {user} = useUser();
 
 	return(
 		<>
@@ -14,6 +12,7 @@ const WorldPanel =({scoreboard, setInfo}) => {
 				<ul>
 					{
 						scoreboard.map((player) => (
+						(player.username !== user.username) && 
 						<UsersListItem
 							key={player.username}
 							opponent={player}
