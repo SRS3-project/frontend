@@ -5,11 +5,11 @@
     border: .5rem;
     border-radius: .5rem;
     border-color: rgb(0, 24, 46);
-    background-color: rgb(36, 3, 219);
+    background-color: #252597;
     width: 4rem;
     height: 4rem;
     margin: .3rem;
-    box-shadow: 5px 5px 10px #0c33b4;
+    box-shadow: 0px 0px 5px #252597;
 }
 
 .img {

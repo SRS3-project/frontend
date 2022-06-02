@@ -1,0 +1,39 @@
+.input{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border: .5rem;
+    border-radius: .5rem;
+    border-color: rgb(0, 24, 46);
+    background-color: #f6f6f8;
+    width: 4rem;
+    height: 2rem;
+    margin: .3rem;
+    box-shadow: 0px 0px 5px #252597;
+}
+
+input[type="text"]{
+    text-size-adjust: auto;
+    font-size: .75rem;
+    text-align: center;
+}
+
+.input::placeholder {
+    color:black;
+    opacity: 1;
+}
+
+#TroopBuilder{
+    border: .5rem;
+    border-radius: .5rem;
+    border-color: rgb(0, 24, 46);
+}
+
+#TechButton {
+    width: 4rem;
+    height: 1rem;
+    margin: .3rem;
+    border: .5rem;
+    border-radius: .5rem;
+    border-color: rgb(0, 24, 46);
+}

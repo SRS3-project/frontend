@@ -1,17 +1,16 @@
 import React from "react";
-import styles from './itembox.module.css'
-import { useNavigate } from "react-router-dom"
+import styles from "./itembox.module.css";
 
 
 function ItemBox(props) {
-
-    return (
-        <div class={styles.div}>
-            <label className={styles.topLabel}>{props.topLabel}</label>
-            <img className={styles.img} src={props.image}/>
-            <label className={styles.bottomLabel}>{props.bottomLabel}</label>
-        </div>
-    )
+	return (
+		<div className={styles.div} onClick={props.onClick}>
+			{/* <button className={styles.topLabel} onClick={props.onClick}>{props.topLabel}</button> */}
+			<label className={styles.topLabel}>{props.topLabel}</label>
+			<img className={styles.img} src={props.image} />
+			<label className={styles.bottomLabel}>{props.bottomLabel}</label>
+		</div>
+	);
 }
 
 export default ItemBox;
