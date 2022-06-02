@@ -11,7 +11,7 @@ const CastlePanel = ({ filter, setInfo }) => {
       <Gauge 
         value={user.xp}
         min={0}
-        max={user.level*1000}
+        max={user.level*100}
         label="Experience"
         units=""
       />
