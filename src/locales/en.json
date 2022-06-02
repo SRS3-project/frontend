@@ -587,7 +587,7 @@
           "unlock": false
       },
       {
-          "id":"expolration",
+          "id":"exploration",
           "name": "Exploration",
           "description": "With explorer training, units can take part in long expeditions. Each second level of this technology will allow the colonization of an additional territory.",
           "type": "advanced",
