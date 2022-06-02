@@ -4,10 +4,10 @@ import "bulma/sass/components/menu.sass";
 import ItemBox from "../ItemBox/ItemBox";
 import ContainerBox from "../ContainerBox/ContainerBox";
 
-import minerals from "../../images/mineral-icon.png";
-import wood from "../../images/wood-icon.png";
-import gold from "../../images/gold-icon.png";
-import food from "../../images/food-icon.png";
+import minerals from "../../images/resources/mineral-icon.png";
+import wood from "../../images/resources/wood-icon.png";
+import gold from "../../images/resources/gold-icon.png";
+import food from "../../images/resources/food-icon.png";
 
 import useUser from "../../hooks/useUser";
 
@@ -45,13 +45,17 @@ const ResourcePanel = () => {
 							image={resource.image}
 							bottomLabel={
 								//Object.keys(user).length === 0
-								isUserValid(user) ? user.resources[i].amount : "0"
+								isUserValid(user)
+									? user.resources[i].amount
+									: "0"
 							}
 						/>
 						<p>
-							{isUserValid(user) ? (
-								resource.rate * (user.level) * Math.pow(1.1, (user.level)).toFixed(2)
-							) : 0}
+							{isUserValid(user)
+								? resource.rate *
+								  user.level *
+								  Math.pow(1.1, user.level).toFixed(2)
+								: 0}
 							/h
 						</p>
 					</li>
