@@ -14,7 +14,7 @@ const NUMBER_REGEX = /^[0-9]+$/;
 
 const TroopBuilder = ({ item }) => {
 	// For The Async Build Request
-	const { user } = useUser();
+	const { user, setUser } = useUser();
 	const { auth } = useAuth();
 	const [validInput, setValidInput] = useState(false);
 
@@ -64,7 +64,9 @@ const TroopBuilder = ({ item }) => {
 						withCredentials: true,
 					}
 				);
+				//setUser(response.data);
 				console.log(response);
+
 			} catch (err) {
 				//console.log(err);
 				if (!err?.response) {

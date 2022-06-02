@@ -54,8 +54,8 @@ const TechBuilder = ({ item }) => {
 						withCredentials: true,
 					}					
 				);
-				
-				console.log(response);
+				//setUser(response.data);
+				console.log(response.data);
 			} catch (err) {
 				//console.log(err);
 				if (!err?.response) {
