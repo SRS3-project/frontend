@@ -1,0 +1,26 @@
+ul#horizontal-list-centered {
+  display: flex;
+  /*flex-direction: column;
+  list-style: none; */
+  margin: 0;
+  padding: 0 0 0 20px;
+  overflow: hidden;
+  justify-content: center    
+}
+
+ul#horizontal-list li {
+  /* display: inline; */
+  display: inline-block;
+  margin: 10px;
+}
+
+ul#horizontal-list-centered li {
+  /* display: inline; */
+  display: inline-block;
+  margin: 10px;    
+  justify-content: center  
+}
+li#highlight:hover {
+  color: yellow;
+  font-size: 150%;
+}

@@ -12,7 +12,7 @@ function CastlePanel() {
       <Gauge 
         value={user.xp}
         min={user.xp % user.level}
-        max={(user.xp % user.level)+100}
+        max={((user.level+1)*100)}
         //max={user.level*100}
         label="Experience"
         units=""

@@ -8,7 +8,9 @@
     background-color: #f6f6f8;
     width: 4rem;
     height: 2rem;
-    margin: .3rem;
+    margin: .0 auto;
+    margin-bottom: 0.5rem;
+    margin-top: 0.25rem;
     box-shadow: 0px 0px 5px #252597;
 }
 
@@ -27,6 +29,9 @@ input[type="text"]{
     border: .5rem;
     border-radius: .5rem;
     border-color: rgb(0, 24, 46);
+    width: 4rem;
+    height: 2rem;
+    margin: .0 auto;
 }
 
 #TechButton {

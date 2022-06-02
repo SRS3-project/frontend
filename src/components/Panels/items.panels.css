@@ -5,13 +5,7 @@ ul#horizontal-list {
     margin: 0;
     padding: 0 0 0 20px;
     overflow: hidden;
-  }
-  
- ul#horizontal-list li {
-    /* display: inline; */
-    display: inline-block;
-    margin: 10px;
-  }
+  }  
 
   ul {
     width: 100%;
