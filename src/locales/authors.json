@@ -3,32 +3,32 @@
         {
             "id":"aleaf",
             "name":"Alessandro Foglia",
-            "mail":"mailto:",
-            "github":"TODO",
-            "gitlab":"TODO",
-            "facebook":"TODO",
-            "instagram":"TODO",
-            "twitter":"TODO"
+            "mail":"mailto:alessandro.foglia@outlook.it",
+            "github":"https://github.com/Leaaaf",
+            "gitlab":"",
+            "facebook":"",
+            "instagram":"",
+            "twitter":""
         },
         {   
             "id":"passwd",
             "name":"Andrea Cavallari ",
-            "mail":"mailto:",
-            "github":"TODO",
-            "gitlab":"TODO",
-            "facebook":"TODO",
-            "instagram":"TODO",
-            "twitter":"TODO"
+            "mail":"mailto:andrea.cavallari5@studio.unibo.it",
+            "github":"https://github.com/passwd0",
+            "gitlab":"",
+            "facebook":"",
+            "instagram":"",
+            "twitter":""
         },
         {
             "id":"asalvucci",
             "name":"Andrea Salvucci",
-            "mail":"mailto:",
-            "github":"TODO",
-            "gitlab":"TODO",
-            "facebook":"TODO",
-            "instagram":"TODO",
-            "twitter":"TODO"
+            "mail":"mailto:andrea.salvucci97@gmail.com",
+            "github":"https://github.com/andreasalvucci",
+            "gitlab":"",
+            "facebook":"",
+            "instagram":"",
+            "twitter":""
         },
         {
             "id":"hyerakon",
@@ -43,12 +43,12 @@
         {
             "id":"mcdeamon7us",
             "name":"Mario Caniglia",
-            "mail":"mailto:",
-            "github":"TODO",
-            "gitlab":"TODO",
-            "facebook":"TODO",
-            "instagram":"TODO",
-            "twitter":"TODO"
+            "mail":"mailto:mcdeamon7@gmail.com",
+            "github":"https://github.com/MCdeamon7",
+            "gitlab":"",
+            "facebook":"",
+            "instagram":"",
+            "twitter":""
         }
     ],
     "project":
