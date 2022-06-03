@@ -33,7 +33,7 @@ const TroopBanner = ({info}) => {
             </ContainerBox>
 		    <ContainerBox>                
                 <br/>
-                <h3>Research Cost:</h3>
+                <h3>Unit Costs:</h3>
                 <br/>
                 <ul id="horizontal-list-centered">
                     <li key="food">

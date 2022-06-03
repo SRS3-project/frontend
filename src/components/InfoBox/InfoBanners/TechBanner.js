@@ -15,7 +15,7 @@ const TechBanner = ({info}) => {
     return(
         <>
 		    <ContainerBox>
-                <h3>Research Cost:</h3>
+                <h3>Research Costs:</h3>
                 <br/>
                 <ul id="horizontal-list-centered">
                     <li key={0}>
