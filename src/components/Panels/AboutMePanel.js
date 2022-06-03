@@ -16,7 +16,7 @@ const AboutMePanel = () => {
                 <Columns.Column size={3} key={author.id}>
                     <h1>{author.name}</h1>
                     <p id="authors">
-                        {author.mail != "" && 
+                        {author.mail !== "" && 
                             <HiOutlineMail onClick={()=> window.open(author.mail)}/>}
                         {author.github !== "" && 
                             <AiFillGithub onClick={()=> window.open(author.github)}/>}
