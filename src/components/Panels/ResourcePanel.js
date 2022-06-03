@@ -24,10 +24,11 @@ const ResourcePanel = () => {
 
 	const isUserValid = (item) => {
 		//console.log(`${item}`)
-		return !(
-			Object.is(item, null) ||
-			Object.is(item, undefined) ||
-			Object.keys(item).length === 0
+		return (
+			item !== null &&
+			item !== "" &&
+			item !== undefined &&
+			Object.keys(item).length !== 0
 		);
 	};
 
@@ -52,9 +53,11 @@ const ResourcePanel = () => {
 						/>
 						<p>
 							{isUserValid(user)
-								? resource.rate *
-								  user.level *
-								  Math.pow(1.1, user.level).toFixed(2)
+								? Math.floor(
+										resource.rate *
+											user.level *
+											Math.pow(1.1, user.level).toFixed(2)
+								  )
 								: 0}
 							/h
 						</p>
