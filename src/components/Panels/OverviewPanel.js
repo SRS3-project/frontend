@@ -1,6 +1,11 @@
+import gif from "../../images/others/pigeon_fly.gif"
+import ContainerBox from "../ContainerBox/ContainerBox";
+
 const OverviewPanel = () => {
     return(
-        <h1> Ciao, io sono l'OverviewPanel e visualizzo un 2 di coppe con la briscola a bastoni :D</h1>
+        <ContainerBox>
+            <img id="funnigif"src={gif} />
+        </ContainerBox>
     );
 }
 export default OverviewPanel;

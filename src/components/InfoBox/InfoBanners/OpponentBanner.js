@@ -1,6 +1,7 @@
-
+import style from "./banners.css"
 import ContainerBox from "../../ContainerBox/ContainerBox";
 import useUser from "../../../hooks/useUser";
+import { FaRegFrownOpen, FaRegGrinAlt } from "react-icons/fa";
 
 
 
@@ -23,11 +24,22 @@ const OpponentBanner = ({info}) => {
 
     return(
         <>
-		    <ContainerBox>
-                <h1>Username: </h1>
+		    <ContainerBox >
+                <p id="enemy">
+                    {user.level < info.level ? 
+                    (
+                        <FaRegFrownOpen style={{color:"#ff0000"}}/>
+                    ) : (
+                        <FaRegGrinAlt style={{color:"#00ff00"}}/>
+                    )}    
+                </p>                
             </ContainerBox>
             <ContainerBox>
-                <h1>{info.username}</h1>
+                <h1>Username: </h1>
+            </ContainerBox>
+            <br />
+            <ContainerBox>
+                <h1 id="uname">{info.username}</h1>
             </ContainerBox>
             <br />
             <ContainerBox>

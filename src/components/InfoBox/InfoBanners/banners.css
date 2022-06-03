@@ -24,3 +24,22 @@ li#highlight:hover {
   color: yellow;
   font-size: 150%;
 }
+
+p#enemy svg {
+  width: 48px;
+  min-width: 48px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+p#enemy svg:focus, 
+p#enemy svg:hover {
+  color: red;
+  outline: none;
+}
+
+h1#uname {
+  font-size:xx-large;
+}

@@ -1,32 +1,31 @@
 {
     "buildings": {
       "home": {
-        "name": "Home",
-        "description": "This is the home"
-      },
+        "name": "Overview",
+        "description": "Hello and welcome to TNO! It is a small game developed by Alessandro Foglia, Andrea Cavallari, Andrea Salvucci, L. Francesco Ricatti and Mario Caniglia for the Scalable and Reliable System course."},
       "castle": {
         "name": "Castle",
-        "description": "This is the Castle descriprion"
+        "description": ""
       },
       "city": {
         "name": "City",
-        "description": "This is the City descriprion"
+        "description": "T"
       },
       "barracs": {
         "name": "Barracs",
-        "description": "This is the Barracs descriprion"
+        "description": "Here you can produce new troops for your army. By clicking on a single technology you will be able to read a brief description and the related progress costs and statistics."
       },
       "magetower": {
         "name": "Mage Tower",
-        "description": "This is the Mage Tower descriprion"
+        "description": "Here you can see the level reached by the technologies of your empire. By clicking on a single technology you will be able to read a brief description and the related progress costs."
       },
       "army": {
         "name": "Army",
-        "description": "This is the Army descriprion"
+        "description": "In this section you can manage your armies. Unfortunately, its development is not yet complete and for now it is only possible to view the units in its possession."
       },
       "world": {
         "name": "World",
-        "description": "This is the World descriprion"
+        "description": "This is the map of the surrounding territories. Here you can see the players who have dared to take root near your possessions. By clicking on one of them you will take a peek at the information gathered about them and decide whether to make them your next victims. Careful ... someone might be a little vindictive."
       }      
     },
 

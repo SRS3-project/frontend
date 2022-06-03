@@ -1,3 +1,4 @@
+import style from "./banners.css"
 import ItemBox from "../../ItemBox/ItemBox";
 import ContainerBox from "../../ContainerBox/ContainerBox";
 

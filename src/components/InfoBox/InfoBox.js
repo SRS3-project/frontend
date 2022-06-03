@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
-import TechBuilder from "../Builders/TechBuilder";
-import TroopBuilder from "../Builders/TroopBuilder";
+
 import ContainerBox from "../ContainerBox/ContainerBox";
+import CastleBanner from "./InfoBanners/CastleBanner";
 import OpponentBanner from "./InfoBanners/OpponentBanner";
+import OverviewBanner from "./InfoBanners/OverviewBanner";
 import TechBanner from "./InfoBanners/TechBanner";
 import TroopBanner from "./InfoBanners/TroopBanner";
 import styles from "./infobox.module.css";
@@ -35,17 +36,7 @@ const InfoBox = ({ info, filter }) => {
 		return(
 			(user.username === auth.user) ? (
 				<>
-				<h1>Username: {user.username}</h1>
-				<br />
-				<h2>Level: {user.level}</h2>
-				<br />
-				<h2>Exp: {user.xp}</h2>
-				<br />
-				<h3>Coordinates:</h3>
-				<ul>
-					<li>X: {user.x}</li>
-					<li>Y: {user.y}</li>
-				</ul>
+					<OverviewBanner />
 				</>	
 			) : null
 		);
@@ -100,7 +91,9 @@ const InfoBox = ({ info, filter }) => {
 	}
 
 	const isCastle = () => {
-		return null;
+		return(
+			<CastleBanner />
+		)
 	}
 
 	const isWorld = () => {
@@ -133,7 +126,6 @@ const InfoBox = ({ info, filter }) => {
 				<ContainerBox>	
 					<h4>{info.description}</h4>						
 				</ContainerBox>
-				<br />
 				{dataSelector()}		
 			</>
 	);
