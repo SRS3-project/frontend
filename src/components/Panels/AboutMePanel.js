@@ -29,7 +29,7 @@ const AboutMePanel = () => {
                         {author.twitter !== "" && 
                             <FaTwitter onClick={()=> window.open(author.twitter)}/>}
                         {author.website !== "" && 
-                            <CgWebsite onClick={()=> window.open(author.twitter)}/>}
+                            <CgWebsite onClick={()=> window.open(author.website)}/>}
                         
                     </p>
                 </Columns.Column>
