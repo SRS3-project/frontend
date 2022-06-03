@@ -25,7 +25,22 @@ li#highlight:hover {
   font-size: 150%;
 }
 
-p#enemy svg {
+div#enemy, svg {
+  width: 48px;
+  min-width: 48px;
+  height: 36px;
+  font-size: 1rem;
+  cursor: pointer;
+  position:relative;
+}
+
+p#enemy :focus, 
+p#enemy :hover {
+  color: red;
+  outline: none;
+}
+
+#about, svg {
   width: 48px;
   min-width: 48px;
   height: 36px;
@@ -34,9 +49,9 @@ p#enemy svg {
   position: relative;
 }
 
-p#enemy svg:focus, 
-p#enemy svg:hover {
-  color: red;
+#about, svg:focus, 
+#about, svg:hover {
+  color: rgb(255, 255, 0);
   outline: none;
 }
 

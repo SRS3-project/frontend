@@ -211,7 +211,9 @@ function Home() {
 
 					<Columns.Column size={12}>
 						<Notification color="link">
-							<Footer />
+							<Footer 
+								setFilter={setFilter}
+							/>
 						</Notification>
 					</Columns.Column>
 				</Columns>

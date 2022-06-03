@@ -1,0 +1,65 @@
+{   
+    "authors":[
+        {
+            "id":"aleaf",
+            "name":"Alessandro Foglia",
+            "mail":"mailto:",
+            "github":"TODO",
+            "gitlab":"TODO",
+            "facebook":"TODO",
+            "instagram":"TODO",
+            "twitter":"TODO"
+        },
+        {   
+            "id":"passwd",
+            "name":"Andrea Cavallari ",
+            "mail":"mailto:",
+            "github":"TODO",
+            "gitlab":"TODO",
+            "facebook":"TODO",
+            "instagram":"TODO",
+            "twitter":"TODO"
+        },
+        {
+            "id":"asalvucci",
+            "name":"Andrea Salvucci",
+            "mail":"mailto:",
+            "github":"TODO",
+            "gitlab":"TODO",
+            "facebook":"TODO",
+            "instagram":"TODO",
+            "twitter":"TODO"
+        },
+        {
+            "id":"hyerakon",
+            "name":"L.Francesco Ricatti",
+            "mail":"mailto:ricattilf@gmail.com",
+            "github":"https://github.com/hyerakon",
+            "gitlab":"https://gitlab.com/Hyerakon",
+            "facebook":"https://www.facebook.com/hyerakon/",
+            "instagram":"https://www.instagram.com/hyerakon/",
+            "twitter":"https://twitter.com/hyerakon"
+        },
+        {
+            "id":"mcdeamon7us",
+            "name":"Mario Caniglia",
+            "mail":"mailto:",
+            "github":"TODO",
+            "gitlab":"TODO",
+            "facebook":"TODO",
+            "instagram":"TODO",
+            "twitter":"TODO"
+        }
+    ],
+    "project":
+    {
+        "id":"tno-srs3",
+        "name":"TNO - Totally Not Ogame",
+        "mail":"",
+        "github":"https://github.com/SRS3-project",
+        "gitlab":"",
+        "facebook":"",
+        "instagram":"",
+        "twitter":""
+    }
+}

@@ -5,6 +5,7 @@ import BarracsPanel from "./BarracsPanel";
 import CastlePanel from "./CastlePanel";
 import WorldPanel from "./WorldPanel";
 import OverviewPanel from "./OverviewPanel";
+import AboutMePanel from "./AboutMePanel";
 
 const ContainerPanel = ( {filter, setInfo, scoreboard} ) => {
 		
@@ -38,6 +39,10 @@ const ContainerPanel = ( {filter, setInfo, scoreboard} ) => {
 					setInfo = {setInfo}
 				/>
 			);
+		case "about":
+			return(
+				<AboutMePanel />
+			)
 		default:
 			return(
 				<OverviewPanel />

@@ -72,3 +72,21 @@ h4 {
   position: relative;
   text-align: center;
 }
+
+
+#authors svg {
+  width: 24px;
+  min-width: 24px;
+  height: 18px;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  position: inherit;
+  right: 4rem;
+}
+
+#authors svg:focus, 
+#authors svg:hover {
+  color: #00ff00;
+  outline: none;
+}

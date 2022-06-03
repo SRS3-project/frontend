@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./footer.module.css";
 
-const Footer = () => {
+const Footer = ({ setFilter }) => {
 	return (
 		<footer className={styles.footer}>
 			<p className={styles.item}>Copyright&copy; 2022</p>
-			<p className={styles.item}>About me</p>
+			{/* <p className={styles.item} >About me</p> */}
 			<p className={styles.item}>
 				<a
 					className={styles.rickroll}

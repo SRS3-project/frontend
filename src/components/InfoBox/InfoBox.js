@@ -3,6 +3,7 @@ import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 
 import ContainerBox from "../ContainerBox/ContainerBox";
+import AboutMeBanner from "./InfoBanners/AboutMeBanner";
 import CastleBanner from "./InfoBanners/CastleBanner";
 import OpponentBanner from "./InfoBanners/OpponentBanner";
 import OverviewBanner from "./InfoBanners/OverviewBanner";
@@ -27,6 +28,8 @@ const InfoBox = ({ info, filter }) => {
 				return isTroop();
 			case "world":
 				return isWorld();
+			case "about":
+				return isAbout();
 			default: 
 				return isOverview();
 		}
@@ -34,7 +37,7 @@ const InfoBox = ({ info, filter }) => {
 
 	const isOverview = () => {
 		return(
-			(user.username === auth.user) ? (
+			(user?.username === auth.user) ? (
 				<>
 					<OverviewBanner />
 				</>	
@@ -116,6 +119,14 @@ const InfoBox = ({ info, filter }) => {
 			) : null
 		);
 	}
+
+	const isAbout = () => {
+		return(
+			<AboutMeBanner />
+		)
+	}
+
+
 
 	return (
 			<>

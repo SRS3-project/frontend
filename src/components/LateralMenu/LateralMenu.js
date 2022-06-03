@@ -115,6 +115,19 @@ function LateralMenu({ setFilter, setInfo }) {
 					</Menu.List.Item>
 				</Menu.List>
 
+				<Menu.List title="About">
+					<Menu.List.Item>
+						<Button
+							label="The Authors"
+							onClick={(e) => {
+								e.preventDefault();
+								setInfo('');
+								setFilter("about");
+							}}
+						/>
+					</Menu.List.Item>
+				</Menu.List>
+
 				{/* <Menu.List title="User's">
                 <Menu.List.Item>
                     <RedirectButton label='Editor' path='/editor'/>

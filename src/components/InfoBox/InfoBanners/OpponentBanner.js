@@ -25,14 +25,14 @@ const OpponentBanner = ({info}) => {
     return(
         <>
 		    <ContainerBox >
-                <p id="enemy">
+                <div id="enemy">
                     {user.level < info.level ? 
                     (
                         <FaRegFrownOpen style={{color:"#ff0000"}}/>
                     ) : (
                         <FaRegGrinAlt style={{color:"#00ff00"}}/>
                     )}    
-                </p>                
+                </div>                
             </ContainerBox>
             <ContainerBox>
                 <h1>Username: </h1>
