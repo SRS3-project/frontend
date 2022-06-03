@@ -12,9 +12,11 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import useAuth from "../hooks/useAuth";
+import useUser from "../hooks/useUser";
 import useLogout from "../hooks/useLogout";
 
 import axios from "../api/axios";
+
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const RESETPASSWORD_URL = "/deleteuser";
 
@@ -24,6 +26,7 @@ const DeleteAccount = () => {
 	const from = location.state?.from?.pathname || "/";
 
 	const { auth } = useAuth();
+	const { setUser } = useUser();
 	const logout = useLogout();
 
 	const [pwd, setPwd] = useState("");
@@ -48,7 +51,6 @@ const DeleteAccount = () => {
 		setErrMsg("");
 	}, [pwd, matchPwd]);
 
-
 	const signOut = async () => {
 		await logout();
 		navigate("/login");
@@ -65,26 +67,22 @@ const DeleteAccount = () => {
 		try {
 			const response = await axios.post(
 				RESETPASSWORD_URL,
-				{ 
-					 token: auth.accessToken,
-					 userToDelete: auth.user,
-					 password: pwd 
-					},
+				{
+					token: auth.accessToken,
+					userToDelete: auth.user,
+					password: pwd,
+				},
 				{
 					headers: { "Content-Type": "application/json" },
 					withCredentials: true,
 				}
 			);
-			// TODO: remove console.logs before deployment
-			//console.log(JSON.stringify(response?.data));
-			//console.log(JSON.stringify(response))
-
-			localStorage.setItem("user", "{}");
-            localStorage.setItem("auth", "{}");
 			setSuccess(true);
-			//clear state and controlled inputs
 			setPwd("");
 			setMatchPwd("");
+			setUser({});
+			localStorage.setItem("user", "{}");
+			await signOut();
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
@@ -93,7 +91,6 @@ const DeleteAccount = () => {
 			}
 			errRef.current.focus();
 		}
-		if (success) await signOut();
 	};
 
 	return (
@@ -112,7 +109,7 @@ const DeleteAccount = () => {
 				is not reversable and for consistency of the database your
 				username and mail will permanently locked.
 			</p>
-			<form /*onSubmit={handleSubmit}*/>
+			<form onSubmit={handleSubmit}>
 				<label htmlFor="password">
 					Password:
 					<FontAwesomeIcon
@@ -190,7 +187,7 @@ const DeleteAccount = () => {
 				<Button
 					label="Delete account permanently"
 					disabled={!validPwd || !validMatch ? true : false}
-					onClick={handleSubmit}
+					/* onClick={handleSubmit} */
 				/>
 			</form>
 			<p>
