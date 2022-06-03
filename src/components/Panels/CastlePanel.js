@@ -7,13 +7,10 @@ function CastlePanel() {
 
 	return (
 		<>
-			<h1>Experience gauge to show experience growth until level up</h1>
-			<br />
-			<h2>Actual level: {user?.level}</h2>
 			<Gauge
-				value={user.xp % 100}
-				min={0}
-				max={(user.xp % 100) + 100}
+				value={user.xp}
+				min={user.xp - (user.xp % 100)}
+				max={user.xp - (user.xp % 100) + 100}
 				//max={user.level*100}
 				label="Experience"
 				units=""
