@@ -48,6 +48,7 @@ const DeleteAccount = () => {
 		setErrMsg("");
 	}, [pwd, matchPwd]);
 
+
 	const signOut = async () => {
 		await logout();
 		navigate("/login");
@@ -62,9 +63,13 @@ const DeleteAccount = () => {
 			return;
 		}
 		try {
-			const response = await axios.put(
+			const response = await axios.post(
 				RESETPASSWORD_URL,
-				{ token: auth.token, userToDelete: auth.user, password: pwd },
+				{ 
+					 token: auth.accessToken,
+					 userToDelete: auth.user,
+					 password: pwd 
+					},
 				{
 					headers: { "Content-Type": "application/json" },
 					withCredentials: true,
@@ -73,6 +78,9 @@ const DeleteAccount = () => {
 			// TODO: remove console.logs before deployment
 			//console.log(JSON.stringify(response?.data));
 			//console.log(JSON.stringify(response))
+
+			localStorage.setItem("user", "{}");
+            localStorage.setItem("auth", "{}");
 			setSuccess(true);
 			//clear state and controlled inputs
 			setPwd("");
@@ -104,7 +112,7 @@ const DeleteAccount = () => {
 				is not reversable and for consistency of the database your
 				username and mail will permanently locked.
 			</p>
-			<form onSubmit={handleSubmit}>
+			<form /*onSubmit={handleSubmit}*/>
 				<label htmlFor="password">
 					Password:
 					<FontAwesomeIcon
@@ -182,6 +190,7 @@ const DeleteAccount = () => {
 				<Button
 					label="Delete account permanently"
 					disabled={!validPwd || !validMatch ? true : false}
+					onClick={handleSubmit}
 				/>
 			</form>
 			<p>
