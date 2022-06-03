@@ -16,28 +16,28 @@ const OpponentBanner = ({ info }) => {
 		}
 	};
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 
-	const isDataValid = () => {
+	const isDataValid = (arg1, arg2) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0 &&
-			isDataValid()
+			arg1 !== null &&
+			arg1 !== "" &&
+			arg1 !== undefined &&
+			Object.keys(arg1).length !== 0 &&
+			isValid(arg2)
 		);
 	}
 
 	return (
 		<>
-			{isDataValid() ? (
+			{isDataValid(info,user) ? (
 			<>
 				<ContainerBox>
 					<div type="enemy">

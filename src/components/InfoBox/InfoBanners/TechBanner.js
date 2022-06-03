@@ -12,18 +12,18 @@ import food from "../../../images/resources/food-icon.png";
 
 const TechBanner = ({info}) => {
 
-    const isInfoValid = () => {
+    const isValid = (arg) => {
         return (
-			info !== null &&
-			info !== "" &&
-			info !== undefined &&
-			Object.keys(info).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
     }
 
     return(
         <>
-            {isInfoValid() ? (
+            {isValid(info) ? (
                 <ContainerBox>
                 <h3>Research Costs:</h3>
                 <br/>

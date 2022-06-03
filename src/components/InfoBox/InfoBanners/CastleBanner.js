@@ -8,18 +8,18 @@ import { Columns } from "react-bulma-components";
 const CastleBanner = () => {
 	const { user } = useUser();
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 
 	return (
 		<>
-			{isUserValid() ? (
+			{isValid(user) ? (
 							<div className="player">
 							<Columns>
 								<Columns.Column size={4}>

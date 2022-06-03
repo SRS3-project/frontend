@@ -19,18 +19,18 @@ const STATS = [
 
 const TroopBanner = ({info}) => {
 
-    const isUserValid = () => {
+    const idValid = (arg) => {
 		return (
-			info !== null &&
-			info !== "" &&
-			info !== undefined &&
-			Object.keys(info).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 
     return(
         <>
-            {isUserValid() ? (
+            {idValid(info) ? (
                 <>
                     <ContainerBox>
                         <ul id="horizontal-list-centered">

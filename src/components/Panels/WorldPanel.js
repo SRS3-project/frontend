@@ -6,28 +6,28 @@ const WorldPanel =({scoreboard, setInfo}) => {
 
 	const {user} = useUser();
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 
-	const isDataValid = () => {
+	const isDataValid = (arg1, arg2) => {
 		return (
-			scoreboard !== null &&
-			scoreboard !== "" &&
-			scoreboard !== undefined &&
-			Object.keys(user).length !== 0 &&
-			isUserValid()
+			arg1 !== null &&
+			arg1 !== "" &&
+			arg1 !== undefined &&
+			Object.keys(arg1).length !== 0 &&
+			isValid(arg2)
 		);
 	}
 
 	return(
 		<>
-			{isDataValid() ? (
+			{isDataValid(scoreboard,user) ? (
 				<ul>
 					{
 						scoreboard.map((player) => (

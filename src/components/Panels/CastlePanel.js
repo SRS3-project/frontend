@@ -5,19 +5,19 @@ import useUser from "../../hooks/useUser";
 function CastlePanel() {
 	const { user } = useUser();
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 	
 
 	return (
 		<>
-			{isUserValid() ? (
+			{isValid(user) ? (
 				<Gauge
 				value={user?.xp}
 				min={user?.xp - (user.xp % 100)}

@@ -70,18 +70,18 @@ const TechPanel = ({setInfo}) => {
 		return image;
 	};
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 
 	return (
 		<>
-			{isUserValid() ? (
+			{isValid(user) ? (
 				<Columns multiline centered className="technologies">
 				<Columns.Column size={6} className="technologies_basic">
 					<Notification color="link">

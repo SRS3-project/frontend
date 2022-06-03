@@ -60,18 +60,18 @@ const BarracsPanel = ( {setInfo} ) => {
 		return image;
 	};
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
 	}
 
 	return (
 		<>
-			{isUserValid() ? 
+			{isValid(user) ? 
 				(
 					<Columns multiline centered className="troops">
 					<Columns.Column size={12} className="civilian_units">

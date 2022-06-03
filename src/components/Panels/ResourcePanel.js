@@ -21,14 +21,14 @@ const resources = [
 const ResourcePanel = () => {
 	const { user } = useUser();
 
-	const isUserValid = () => {
+	const isValid = (arg) => {
 		return (
-			user !== null &&
-			user !== "" &&
-			user !== undefined &&
-			Object.keys(user).length !== 0
+			arg !== null &&
+			arg !== "" &&
+			arg !== undefined &&
+			Object.keys(arg).length !== 0
 		);
-	};
+	}
 
 	const setLabel = (resource) => {
 		return resource.name.charAt(0) + resource.name.slice(1).toLowerCase();
@@ -43,11 +43,11 @@ const ResourcePanel = () => {
 							topLabel={setLabel(resource)}
 							image={resource.image}
 							bottomLabel={
-								isUserValid() ? user.resources[i].amount : "0"
+								isValid(user) ? user.resources[i].amount : "0"
 							}
 						/>
 						<p>
-							{isUserValid()
+							{isValid(user)
 								? Math.floor(
 										resource.rate *
 											user.level *
