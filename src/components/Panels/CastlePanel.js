@@ -1,25 +1,25 @@
 import React, { useState } from "react";
 import Gauge from "../Gauge/Gauge";
-import useUser from "../../hooks/useUser"
+import useUser from "../../hooks/useUser";
 
 function CastlePanel() {
+	const { user } = useUser();
 
-  const {user} = useUser();
-
-  return(
-    <>
-      <div id="gauge">
-        <Gauge 
-          value={user.xp}
-          min={user.xp % user.level}
-          max={((user.level+1)*100)}
-          //max={user.level*100}
-          label="Experience"
-          units=""
-        />
-      </div>
-    </>
-  );
-};
+	return (
+		<>
+			<h1>Experience gauge to show experience growth until level up</h1>
+			<br />
+			<h2>Actual level: {user?.level}</h2>
+			<Gauge
+				value={user.xp % 100}
+				min={0}
+				max={(user.xp % 100) + 100}
+				//max={user.level*100}
+				label="Experience"
+				units=""
+			/>
+		</>
+	);
+}
 
 export default CastlePanel;
