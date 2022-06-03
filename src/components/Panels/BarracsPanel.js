@@ -60,58 +60,73 @@ const BarracsPanel = ( {setInfo} ) => {
 		return image;
 	};
 
+	const isUserValid = () => {
+		return (
+			user !== null &&
+			user !== "" &&
+			user !== undefined &&
+			Object.keys(user).length !== 0
+		);
+	}
+
 	return (
 		<>
-			<Columns multiline centered className="troops">
-				<Columns.Column size={12} className="civilian_units">
-					<Notification color="link">
-						<h3>Unita' Civili</h3>
-					</Notification>
-					<ul id="horizontal-list">
-						{TROOPS_DEFINITIONS.map((unit) =>
-							unit.type === "civilian" ? (
-								<li key={unit.id}>
-									<ItemBox
-										topLabel={unit.name}
-										image={getImage(unit.id)}
-										bottomLabel={getTroopAmount(unit.id)}
-										onClick={(e) => {
-											e.preventDefault();
-											setInfo(unit);
-											
-										}}
-									/>
-									<TroopBuilder item={unit} />
-								</li>
-							) : null
-						)}
-					</ul>
-				</Columns.Column>
-
-				<Columns.Column size={12} className="military_units">
-					<Notification color="link">
-						<h3>Unita' Militari</h3>
-					</Notification>
-					<ul id="horizontal-list">
-						{TROOPS_DEFINITIONS.map((unit) =>
-							unit.type === "military" ? (
-								<li key={unit.id}>
-									<ItemBox
-										topLabel={unit.name}
-										image={getImage(unit.id)}
-										bottomLabel={getTroopAmount(unit.id)}
-										onClick={(e) => {
-											e.preventDefault();
-											setInfo(unit);
-										}}
-									/>
-									<TroopBuilder item={unit} />
-								</li>
-							) : null
-						)}
-					</ul>
-				</Columns.Column>
-			</Columns>
+			{isUserValid() ? 
+				(
+					<Columns multiline centered className="troops">
+					<Columns.Column size={12} className="civilian_units">
+						<Notification color="link">
+							<h3>Unita' Civili</h3>
+						</Notification>
+						<ul id="horizontal-list">
+							{TROOPS_DEFINITIONS.map((unit) =>
+								unit.type === "civilian" ? (
+									<li key={unit.id}>
+										<ItemBox
+											topLabel={unit.name}
+											image={getImage(unit.id)}
+											bottomLabel={getTroopAmount(unit.id)}
+											onClick={(e) => {
+												e.preventDefault();
+												setInfo(unit);
+												
+											}}
+										/>
+										<TroopBuilder item={unit} />
+									</li>
+								) : null
+							)}
+						</ul>
+					</Columns.Column>
+	
+					<Columns.Column size={12} className="military_units">
+						<Notification color="link">
+							<h3>Unita' Militari</h3>
+						</Notification>
+						<ul id="horizontal-list">
+							{TROOPS_DEFINITIONS.map((unit) =>
+								unit.type === "military" ? (
+									<li key={unit.id}>
+										<ItemBox
+											topLabel={unit.name}
+											image={getImage(unit.id)}
+											bottomLabel={getTroopAmount(unit.id)}
+											onClick={(e) => {
+												e.preventDefault();
+												setInfo(unit);
+											}}
+										/>
+										<TroopBuilder item={unit} />
+									</li>
+								) : null
+							)}
+						</ul>
+					</Columns.Column>
+				</Columns>
+				) : (
+					<div>User Loading...</div>
+				)
+			}
 		</>
 	);
 }

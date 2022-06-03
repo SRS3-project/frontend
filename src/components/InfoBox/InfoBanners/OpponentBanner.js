@@ -16,56 +16,81 @@ const OpponentBanner = ({ info }) => {
 		}
 	};
 
+	const isUserValid = () => {
+		return (
+			user !== null &&
+			user !== "" &&
+			user !== undefined &&
+			Object.keys(user).length !== 0
+		);
+	}
+
+	const isDataValid = () => {
+		return (
+			user !== null &&
+			user !== "" &&
+			user !== undefined &&
+			Object.keys(user).length !== 0 &&
+			isDataValid()
+		);
+	}
+
 	return (
 		<>
-			<ContainerBox>
-				<div type="enemy">
-					{user.level < info.level ? (
-						<FaRegFrownOpen
-							style={{
-								color: "#ff0000",
-								width: "96px",
-								minWidth: "48px",
-								height: "72px",
-							}}
-						/>
-					) : (
-						<FaRegGrinAlt
-							style={{
-								color: "#00ff00",
-								width: "96px",
-								minWidth: "48px",
-								height: "72px",
-							}}
-						/>
-					)}
-				</div>
-			</ContainerBox>
-			<ContainerBox>
-				<h1>Username: </h1>
-			</ContainerBox>
-			<br />
-			<ContainerBox>
-				<h1 id="uname">{info.username}</h1>
-			</ContainerBox>
-			<br />
-			<ContainerBox>
-				<h2 style={enemyLvlGauge()}>Level: {info.level}</h2>
-			</ContainerBox>
-			<br />
-			<ContainerBox>
-				<h3>Coordinates:</h3>
-			</ContainerBox>
-			<ContainerBox>
-				<ul id="horizontal-list-centered">
-					<li key="x" id="highlight">
-						X: {info.x}
-					</li>
-					<li key="y" id="highlight">
-						Y: {info.y}
-					</li>
-				</ul>
-			</ContainerBox>
+			{isDataValid() ? (
+			<>
+				<ContainerBox>
+					<div type="enemy">
+						{user.level < info.level ? (
+							<FaRegFrownOpen
+								style={{
+									color: "#ff0000",
+									width: "96px",
+									minWidth: "48px",
+									height: "72px",
+								}}
+							/>
+						) : (
+							<FaRegGrinAlt
+								style={{
+									color: "#00ff00",
+									width: "96px",
+									minWidth: "48px",
+									height: "72px",
+								}}
+							/>
+						)}
+					</div>
+				</ContainerBox>
+				<ContainerBox>
+					<h1>Username: </h1>
+				</ContainerBox>
+				<br />
+				<ContainerBox>
+					<h1 id="uname">{info.username}</h1>
+				</ContainerBox>
+				<br />
+				<ContainerBox>
+					<h2 style={enemyLvlGauge()}>Level: {info.level}</h2>
+				</ContainerBox>
+				<br />
+				<ContainerBox>
+					<h3>Coordinates:</h3>
+				</ContainerBox>
+				<ContainerBox>
+					<ul id="horizontal-list-centered">
+						<li key="x" id="highlight">
+							X: {info.x}
+						</li>
+						<li key="y" id="highlight">
+							Y: {info.y}
+						</li>
+					</ul>
+				</ContainerBox>
+			</>
+			) : (
+				<div>Server sending datas... via smoke signals...</div>
+			)}
 		</>
 	);
 };

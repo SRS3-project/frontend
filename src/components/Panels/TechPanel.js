@@ -70,9 +70,19 @@ const TechPanel = ({setInfo}) => {
 		return image;
 	};
 
+	const isUserValid = () => {
+		return (
+			user !== null &&
+			user !== "" &&
+			user !== undefined &&
+			Object.keys(user).length !== 0
+		);
+	}
+
 	return (
 		<>
-			<Columns multiline centered className="technologies">
+			{isUserValid() ? (
+				<Columns multiline centered className="technologies">
 				<Columns.Column size={6} className="technologies_basic">
 					<Notification color="link">
 						<h3>Ricerche base</h3>
@@ -167,6 +177,9 @@ const TechPanel = ({setInfo}) => {
 					</ul>
 				</Columns.Column>
 			</Columns>
+			) : (
+				<div>User Loading ...</div>
+			)}
 		</>
 	);
 }

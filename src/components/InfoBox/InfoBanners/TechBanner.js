@@ -12,9 +12,19 @@ import food from "../../../images/resources/food-icon.png";
 
 const TechBanner = ({info}) => {
 
+    const isInfoValid = () => {
+        return (
+			info !== null &&
+			info !== "" &&
+			info !== undefined &&
+			Object.keys(info).length !== 0
+		);
+    }
+
     return(
         <>
-		    <ContainerBox>
+            {isInfoValid() ? (
+                <ContainerBox>
                 <h3>Research Costs:</h3>
                 <br/>
                 <ul id="horizontal-list-centered">
@@ -49,6 +59,9 @@ const TechBanner = ({info}) => {
                 </ul>
                 <TechBuilder item={info}/>
             </ContainerBox>
+            ) : (
+                <div>Server sending datas... via smoke signals...</div>
+            )}
         </>
     );
 

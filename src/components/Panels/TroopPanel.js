@@ -58,9 +58,19 @@ const TroopPanel = ( {setInfo} ) => {
 		return image;
 	};
 
+	const isUserValid = () => {
+		return (
+			user !== null &&
+			user !== "" &&
+			user !== undefined &&
+			Object.keys(user).length !== 0
+		);
+	}
+
 	return (
 		<>
-			<Columns multiline centered className="troops">
+			{isUserValid() ? (
+				<Columns multiline centered className="troops">
 				<Columns.Column size={12} className="civilian_units">
 					<Notification color="link">
 						<h3>Unita' Civili</h3>
@@ -108,6 +118,9 @@ const TroopPanel = ( {setInfo} ) => {
 					</ul>
 				</Columns.Column>
 			</Columns>
+			) : (
+				<div>User Loading ...</div>
+			)}
 		</>
 	);
 }

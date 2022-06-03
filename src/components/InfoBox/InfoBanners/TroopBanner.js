@@ -19,54 +19,69 @@ const STATS = [
 
 const TroopBanner = ({info}) => {
 
+    const isUserValid = () => {
+		return (
+			info !== null &&
+			info !== "" &&
+			info !== undefined &&
+			Object.keys(info).length !== 0
+		);
+	}
+
     return(
         <>
-            <ContainerBox>
-                <ul id="horizontal-list-centered">
-                    <li id="highlight" key="health">{STATS[0]}: {info.stats.health}</li>
-                    <li id="highlight" key="armor">{STATS[1]}: {info.stats.armor}</li>
-                    <li id="highlight" key="attack">{STATS[2]}: {info.stats.attack}</li>
-                    <li id="highlight" key="speed">{STATS[3]}: {info.stats.speed}</li>
-                    <li id="highlight" key="backpack">{STATS[4]}: {info.stats.backpack}</li>
-                    <li id="highlight" key="hunger">{STATS[5]}: {info.stats.hunger}</li>
-                </ul>
-            </ContainerBox>
-		    <ContainerBox>                
-                <br/>
-                <h3>Unit Costs:</h3>
-                <br/>
-                <ul id="horizontal-list-centered">
-                    <li key="food">
-                        <ItemBox
-                            topLabel=''
-                            image={food}
-                            bottomLabel={info.cost.food}
-                        />
-                    </li>
-                    <li key="gold">
-                        <ItemBox
-                            topLabel=''
-                            image={gold}
-                            bottomLabel={info.cost.gold}
-                        />
-                    </li>
-                    <li key="minerals">
-                        <ItemBox
-                            topLabel=''
-                            image={minerals}
-                            bottomLabel={info.cost.minerals}
-                        />
-                    </li>
-                    <li key="wood">
-                        <ItemBox
-                            topLabel=''
-                            image={wood}
-                            bottomLabel={info.cost.wood}
-                        />
-                    </li>
-                </ul>
-                <TroopBuilder item={info}/>
-            </ContainerBox>
+            {isUserValid() ? (
+                <>
+                    <ContainerBox>
+                        <ul id="horizontal-list-centered">
+                            <li id="highlight" key="health">{STATS[0]}: {info.stats.health}</li>
+                            <li id="highlight" key="armor">{STATS[1]}: {info.stats.armor}</li>
+                            <li id="highlight" key="attack">{STATS[2]}: {info.stats.attack}</li>
+                            <li id="highlight" key="speed">{STATS[3]}: {info.stats.speed}</li>
+                            <li id="highlight" key="backpack">{STATS[4]}: {info.stats.backpack}</li>
+                            <li id="highlight" key="hunger">{STATS[5]}: {info.stats.hunger}</li>
+                        </ul>
+                    </ContainerBox>
+                    <ContainerBox>                
+                        <br/>
+                        <h3>Unit Costs:</h3>
+                        <br/>
+                        <ul id="horizontal-list-centered">
+                            <li key="food">
+                                <ItemBox
+                                    topLabel=''
+                                    image={food}
+                                    bottomLabel={info.cost.food}
+                                />
+                            </li>
+                            <li key="gold">
+                                <ItemBox
+                                    topLabel=''
+                                    image={gold}
+                                    bottomLabel={info.cost.gold}
+                                />
+                            </li>
+                            <li key="minerals">
+                                <ItemBox
+                                    topLabel=''
+                                    image={minerals}
+                                    bottomLabel={info.cost.minerals}
+                                />
+                            </li>
+                            <li key="wood">
+                                <ItemBox
+                                    topLabel=''
+                                    image={wood}
+                                    bottomLabel={info.cost.wood}
+                                />
+                            </li>
+                        </ul>
+                        <TroopBuilder item={info}/>
+                    </ContainerBox>
+                </>
+            ) : (
+                <div>Server sending datas... via smoke signals...</div>
+            )}
         </>
     );
 
