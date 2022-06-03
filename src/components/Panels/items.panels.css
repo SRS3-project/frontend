@@ -90,3 +90,14 @@ h4 {
   color: #00ff00;
   outline: none;
 }
+
+#gauge svg {
+  width: 192px;
+  min-width: 48px;
+  height: 144px;
+  font-size: 1rem;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  position: inherit;
+  right: 4rem;
+}

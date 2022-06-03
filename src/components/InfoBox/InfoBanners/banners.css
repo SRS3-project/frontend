@@ -26,16 +26,16 @@ li#highlight:hover {
 }
 
 div#enemy, svg {
-  width: 48px;
-  min-width: 48px;
-  height: 36px;
+  width: 96px;
+  min-width: 96px;
+  height: 72px;
   font-size: 1rem;
   cursor: pointer;
   position:relative;
 }
 
-p#enemy :focus, 
-p#enemy :hover {
+#enemy :focus, 
+#enemy :hover {
   color: red;
   outline: none;
 }
