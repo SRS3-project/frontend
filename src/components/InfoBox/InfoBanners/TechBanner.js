@@ -8,22 +8,14 @@ import minerals from "../../../images/resources/mineral-icon.png"
 import wood from "../../../images/resources/wood-icon.png";
 import gold from "../../../images/resources/gold-icon.png";
 import food from "../../../images/resources/food-icon.png";
+import { IsValid } from "../../../utils/checkParams";
 
 
 const TechBanner = ({info}) => {
 
-    const isValid = (arg) => {
-        return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-    }
-
     return(
         <>
-            {isValid(info) ? (
+            {IsValid(info) ? (
                 <ContainerBox>
                 <h3>Research Costs:</h3>
                 <br/>

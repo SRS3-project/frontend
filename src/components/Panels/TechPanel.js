@@ -28,6 +28,7 @@ import tartarus from "../../images/technologies/advanced/tartarus.png";
 import armors from "../../images/technologies/weapons/armors.png";
 import weapons from "../../images/technologies/weapons/weapons.png";
 import arcanomancy from "../../images/technologies/weapons/arcanomancy.png";
+import { IsValid } from "../../utils/checkParams";
 
 const TECH_DEFINITIONS = en.technologies;
 	
@@ -70,18 +71,9 @@ const TechPanel = ({setInfo}) => {
 		return image;
 	};
 
-	const isValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
-
 	return (
 		<>
-			{isValid(user) ? (
+			{IsValid(user) ? (
 				<Columns multiline centered className="technologies">
 				<Columns.Column size={6} className="technologies_basic">
 					<Notification color="link">

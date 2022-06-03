@@ -10,6 +10,7 @@ import gold from "../../images/resources/gold-icon.png";
 import food from "../../images/resources/food-icon.png";
 
 import useUser from "../../hooks/useUser";
+import { IsValid } from "../../utils/checkParams";
 
 const resources = [
 	{ image: food, name: "FOOD", rate: 10 },
@@ -20,15 +21,6 @@ const resources = [
 
 const ResourcePanel = () => {
 	const { user } = useUser();
-
-	const isValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
 
 	const setLabel = (resource) => {
 		return resource.name.charAt(0) + resource.name.slice(1).toLowerCase();
@@ -43,11 +35,11 @@ const ResourcePanel = () => {
 							topLabel={setLabel(resource)}
 							image={resource.image}
 							bottomLabel={
-								isValid(user) ? user.resources[i].amount : "0"
+								IsValid(user) ? user.resources[i].amount : "0"
 							}
 						/>
 						<p>
-							{isValid(user)
+							{IsValid(user)
 								? Math.floor(
 										resource.rate *
 											user.level *

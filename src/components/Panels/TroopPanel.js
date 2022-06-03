@@ -22,6 +22,7 @@ import knight from "../../images/troops/military/knight.png";
 import neuromancer from "../../images/troops/military/neuromancer.png";
 import titan from "../../images/troops/military/titan.png";
 import wareagle from "../../images/troops/military/wareagle.png";
+import { IsValid } from "../../utils/checkParams";
 
 const TROOPS_DEFINITIONS = en.troops;
 
@@ -58,18 +59,9 @@ const TroopPanel = ( {setInfo} ) => {
 		return image;
 	};
 
-	const isValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
-
 	return (
 		<>
-			{isValid(user) ? (
+			{IsValid(user) ? (
 				<Columns multiline centered className="troops">
 				<Columns.Column size={12} className="civilian_units">
 					<Notification color="link">

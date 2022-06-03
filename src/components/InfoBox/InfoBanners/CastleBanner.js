@@ -4,22 +4,14 @@ import useUser from "../../../hooks/useUser";
 import { AiTwotoneCrown } from "react-icons/ai";
 import { GiCrenelCrown } from "react-icons/gi";
 import { Columns } from "react-bulma-components";
+import { IsValid } from "../../../utils/checkParams";
 
 const CastleBanner = () => {
 	const { user } = useUser();
 
-	const isValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
-
 	return (
 		<>
-			{isValid(user) ? (
+			{IsValid(user) ? (
 							<div className="player">
 							<Columns>
 								<Columns.Column size={4}>

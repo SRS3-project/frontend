@@ -7,6 +7,7 @@ import wood from "../../../images/resources/wood-icon.png";
 import gold from "../../../images/resources/gold-icon.png";
 import food from "../../../images/resources/food-icon.png";
 import TroopBuilder from "../../Builders/TroopBuilder";
+import { IsValid } from "../../../utils/checkParams";
 
 const STATS = [
     "health",
@@ -19,18 +20,9 @@ const STATS = [
 
 const TroopBanner = ({info}) => {
 
-    const idValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
-
     return(
         <>
-            {idValid(info) ? (
+            {IsValid(info) ? (
                 <>
                     <ContainerBox>
                         <ul id="horizontal-list-centered">

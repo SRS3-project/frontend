@@ -2,6 +2,7 @@ import style from "./banners.css";
 import ContainerBox from "../../ContainerBox/ContainerBox";
 import useUser from "../../../hooks/useUser";
 import { FaRegFrownOpen, FaRegGrinAlt } from "react-icons/fa";
+import {IsDataValid} from "../../../utils/checkParams.js"
 
 const OpponentBanner = ({ info }) => {
 	const { user } = useUser();
@@ -16,28 +17,9 @@ const OpponentBanner = ({ info }) => {
 		}
 	};
 
-	const isValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
-
-	const isDataValid = (arg1, arg2) => {
-		return (
-			arg1 !== null &&
-			arg1 !== "" &&
-			arg1 !== undefined &&
-			Object.keys(arg1).length !== 0 &&
-			isValid(arg2)
-		);
-	}
-
 	return (
 		<>
-			{isDataValid(info,user) ? (
+			{IsDataValid(info,user) ? (
 			<>
 				<ContainerBox>
 					<div type="enemy">

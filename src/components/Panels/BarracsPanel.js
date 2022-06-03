@@ -7,6 +7,7 @@ import styles from "./items.panels.css";
 import TroopBuilder from "../Builders/TroopBuilder";
 import useUser from "../../hooks/useUser";
 import en from "../../locales/en.json";
+import { IsValid } from "../../utils/checkParams";
 
 import caravan from "../../images/troops/civilian/caravan.png";
 import jackal from "../../images/troops/civilian/jackal.png";
@@ -60,18 +61,9 @@ const BarracsPanel = ( {setInfo} ) => {
 		return image;
 	};
 
-	const isValid = (arg) => {
-		return (
-			arg !== null &&
-			arg !== "" &&
-			arg !== undefined &&
-			Object.keys(arg).length !== 0
-		);
-	}
-
 	return (
 		<>
-			{isValid(user) ? 
+			{IsValid(user) ? 
 				(
 					<Columns multiline centered className="troops">
 					<Columns.Column size={12} className="civilian_units">
