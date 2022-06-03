@@ -8,17 +8,20 @@
             "gitlab":"",
             "facebook":"",
             "instagram":"",
-            "twitter":""
+            "twitter":"",
+            "website":""
         },
         {   
             "id":"passwd",
-            "name":"Andrea Cavallari ",
+            "name":"Andrea Cavallari",
             "mail":"mailto:andrea.cavallari5@studio.unibo.it",
             "github":"https://github.com/passwd0",
             "gitlab":"",
             "facebook":"",
             "instagram":"",
-            "twitter":""
+            "twitter":"https://twitter.com/_passwd",
+            "website":"https://passwd.azurewebsites.net/"
+            
         },
         {
             "id":"asalvucci",
@@ -28,7 +31,8 @@
             "gitlab":"",
             "facebook":"",
             "instagram":"",
-            "twitter":""
+            "twitter":"",
+            "website":""
         },
         {
             "id":"hyerakon",
@@ -38,7 +42,8 @@
             "gitlab":"https://gitlab.com/Hyerakon",
             "facebook":"https://www.facebook.com/hyerakon/",
             "instagram":"https://www.instagram.com/hyerakon/",
-            "twitter":"https://twitter.com/hyerakon"
+            "twitter":"https://twitter.com/hyerakon",
+            "website":""
         },
         {
             "id":"mcdeamon7us",
@@ -48,7 +53,8 @@
             "gitlab":"",
             "facebook":"",
             "instagram":"",
-            "twitter":""
+            "twitter":"",
+            "website":""
         }
     ],
     "project":
@@ -60,6 +66,7 @@
         "gitlab":"",
         "facebook":"",
         "instagram":"",
-        "twitter":""
+        "twitter":"",
+        "website":""
     }
 }

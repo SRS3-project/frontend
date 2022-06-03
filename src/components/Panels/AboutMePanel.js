@@ -3,6 +3,7 @@ import us from "../../locales/authors.json"
 import {HiOutlineMail} from "react-icons/hi";
 import { AiFillGitlab, AiFillGithub } from "react-icons/ai"
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa"
+import { CgWebsite } from "react-icons/cg"
 import styles from "./items.panels.css";
 
 const AUTHORS = us.authors;
@@ -27,6 +28,8 @@ const AboutMePanel = () => {
                             <FaInstagram onClick={()=> window.open(author.instagram)}/>}
                         {author.twitter !== "" && 
                             <FaTwitter onClick={()=> window.open(author.twitter)}/>}
+                        {author.website !== "" && 
+                            <CgWebsite onClick={()=> window.open(author.twitter)}/>}
                         
                     </p>
                 </Columns.Column>
