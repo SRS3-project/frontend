@@ -26,12 +26,14 @@ const TroopBuilder = ({ item }) => {
 		setValidInput(NUMBER_REGEX.test(val));
 	}, [val]);
 
-	const maxUnitsBuildable = () => {
+	const maxUnitsBuildable = (val) => {
 		const goldUnits = Math.floor(user.resources[1].amount / item.cost.gold);
 		const mineralUnits = Math.floor(user.resources[2].amount / item.cost.minerals);
 		const woodUnits = Math.floor(user.resources[3].amount / item.cost.wood);
+		
+		const maxBuildable = Math.min(goldUnits, mineralUnits, woodUnits)
 
-		return Math.min(goldUnits, mineralUnits, woodUnits);
+		return val <= maxBuildable ? val : maxBuildable;
 	}
 
 	const isBuildable = () => {
@@ -120,14 +122,14 @@ const TroopBuilder = ({ item }) => {
 					setVal(e.target.value);
 					setBuild({
 						type: `${item.id.toUpperCase()}`,
-						amount: maxUnitsBuildable()
+						amount: maxUnitsBuildable(e.target.value)
 					});
 					//console.log(`${build.type}:${build.ammount}`);
 				}}
 			/>
 			<button 
 				id="TroopBuilder"
-				type="submit" 
+				type="barracs" 
 				aria-label="Build"
 				disabled = {!isBuildable()} //
 				>

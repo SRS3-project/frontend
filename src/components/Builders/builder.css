@@ -25,7 +25,7 @@ input[type="text"]{
     opacity: 1;
 }
 
-#TroopBuilder{
+button[type="barracs"]{
     border: .5rem;
     border-radius: .5rem;
     border-color: rgb(0, 24, 46);
@@ -34,7 +34,7 @@ input[type="text"]{
     margin: .0 auto;
 }
 
-#TechButton {
+button[type="techUpgrade"] {
     width: 4rem;
     height: 1rem;
     margin: .3rem;

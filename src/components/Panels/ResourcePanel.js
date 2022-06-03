@@ -20,7 +20,6 @@ const resources = [
 
 const ResourcePanel = () => {
 	const { user } = useUser();
-	const lvl = user?.level;
 
 	const isUserValid = (item) => {
 		//console.log(`${item}`)
@@ -52,9 +51,7 @@ const ResourcePanel = () => {
 						/>
 						<p>
 							{isUserValid(user)
-								? resource.rate *
-								  user.level *
-								  Math.pow(1.1, user.level).toFixed(2)
+								? resource.rate * user?.level * Math.pow(1.1, user?.level).toFixed(0)
 								: 0}
 							/h
 						</p>

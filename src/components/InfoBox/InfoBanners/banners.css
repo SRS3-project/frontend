@@ -25,22 +25,13 @@ li#highlight:hover {
   font-size: 150%;
 }
 
-div#enemy, svg {
-  width: 96px;
-  min-width: 96px;
-  height: 72px;
-  font-size: 1rem;
-  cursor: pointer;
-  position:relative;
-}
-
-#enemy :focus, 
-#enemy :hover {
-  color: red;
+.castle :focus, 
+.castle :hover {
+  color:darkorange;
   outline: none;
 }
 
-#about, svg {
+[type="about"] {
   width: 48px;
   min-width: 48px;
   height: 36px;

@@ -25,12 +25,26 @@ const OpponentBanner = ({info}) => {
     return(
         <>
 		    <ContainerBox >
-                <div id="enemy">
+                <div type="enemy">
                     {user.level < info.level ? 
                     (
-                        <FaRegFrownOpen style={{color:"#ff0000"}}/>
+                        <FaRegFrownOpen style={
+                            {
+                                color:"#ff0000",
+                                width: "96px",
+                                "min-width": "48px",
+                                height: "72px"                        
+                            }
+                        }/>
                     ) : (
-                        <FaRegGrinAlt style={{color:"#00ff00"}}/>
+                        <FaRegGrinAlt style={
+                            {
+                                color:"#00ff00",
+                                width: "96px",
+                                "min-width": "48px",
+                                height: "72px"
+                            }
+                        }/>
                     )}    
                 </div>                
             </ContainerBox>

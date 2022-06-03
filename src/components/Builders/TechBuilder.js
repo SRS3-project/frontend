@@ -89,7 +89,7 @@ const TechBuilder = ({ item }) => {
 	return (		
         <button
 			id="TechButton"
-            type="submit" 
+            type="techUpgrade" 
             aria-label="Build"
             disabled = {!isUpgradable()}
             onClick = {handleClick}
