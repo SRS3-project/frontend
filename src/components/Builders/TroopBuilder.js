@@ -122,7 +122,7 @@ const TroopBuilder = ({ item }) => {
 					setVal(e.target.value);
 					setBuild({
 						type: `${item.id.toUpperCase()}`,
-						amount: maxUnitsBuildable(e.target.value)
+						amount: parseInt(maxUnitsBuildable(e.target.value))
 					});
 					//console.log(`${build.type}:${build.ammount}`);
 				}}
