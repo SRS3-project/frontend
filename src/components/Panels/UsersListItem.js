@@ -80,14 +80,14 @@ const UsersListItem = ({opponent, setInfo}) => {
             <label id='opponentLevel'>Level: {opponent.level}</label>
             <label id='opponentXp'>XP: {opponent.xp}</label>
             
-            <GiCrossedSwords
+            {(opponent.username === auth.username) &&<GiCrossedSwords
                 onClick={(e) => {
                     e.preventDefault();
                     handleAttack();
                 }}
                 role="button"
                 tabIndex="0"
-            />            
+            />}            
         </li>
     )
 }

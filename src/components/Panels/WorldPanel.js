@@ -14,7 +14,6 @@ const WorldPanel =({scoreboard, setInfo}) => {
 				<ul>
 					{
 						leaders.map((player) => (
-						(player.username !== user.username) && 
 						<UsersListItem
 							key={player.username}
 							opponent={player}
