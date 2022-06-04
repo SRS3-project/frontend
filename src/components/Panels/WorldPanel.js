@@ -6,13 +6,14 @@ import { IsDataValid } from "../../utils/checkParams";
 const WorldPanel =({scoreboard, setInfo}) => {
 
 	const {user} = useUser();
+	const leaders = scoreboard.sort((a, b) => a.xp < b.xp ? 1 : -1)
 
 	return(
 		<>
-			{IsDataValid(scoreboard,user) ? (
+			{IsDataValid(leaders,user) ? (
 				<ul>
 					{
-						scoreboard.map((player) => (
+						leaders.map((player) => (
 						(player.username !== user.username) && 
 						<UsersListItem
 							key={player.username}

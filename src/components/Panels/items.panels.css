@@ -41,6 +41,20 @@ label#opponentLabel {
   margin-bottom: 1rem;
 }
 
+label#opponentLevel {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+label#opponentXp {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
 .opponent:first-child {
   margin: 0;
 }

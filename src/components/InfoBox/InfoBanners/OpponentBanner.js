@@ -57,6 +57,10 @@ const OpponentBanner = ({ info }) => {
 				</ContainerBox>
 				<br />
 				<ContainerBox>
+					<h2 style={enemyLvlGauge()}>XP: {info.xp}</h2>
+				</ContainerBox>
+				<br />
+				<ContainerBox>
 					<h3>Coordinates:</h3>
 				</ContainerBox>
 				<ContainerBox>

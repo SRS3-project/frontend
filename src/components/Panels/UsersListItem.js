@@ -77,6 +77,8 @@ const UsersListItem = ({opponent, setInfo}) => {
     return (
         <li className="opponent" key={opponent.id} onClick={(e)=>{handleClick(e)}}>
             <label id='opponentLabel'>{enemyName}</label>
+            <label id='opponentLevel'>Level: {opponent.level}</label>
+            <label id='opponentXp'>XP: {opponent.xp}</label>
             
             <GiCrossedSwords
                 onClick={(e) => {
