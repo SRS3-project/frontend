@@ -39,34 +39,34 @@ const TroopBanner = ({info}) => {
                         <h3>Unit Costs:</h3>
                         <br/>
                         <ul id="horizontal-list-centered">
-                            <li key="food">
-                                <ItemBox
-                                    topLabel=''
-                                    image={food}
-                                    bottomLabel={info.cost.food}
-                                />
-                            </li>
-                            <li key="gold">
+                            {!(info.cost.food === 0) && <li key={0}>
+                            <ItemBox
+                                topLabel=''
+                                image={food}
+                                bottomLabel={info.cost.food}
+                            />
+                            </li>}
+                            {!(info.cost.gold === 0) && <li key={1}>
                                 <ItemBox
                                     topLabel=''
                                     image={gold}
                                     bottomLabel={info.cost.gold}
                                 />
-                            </li>
-                            <li key="minerals">
+                            </li>}
+                            {!(info.cost.minerals === 0) && <li key={2}>
                                 <ItemBox
                                     topLabel=''
                                     image={minerals}
                                     bottomLabel={info.cost.minerals}
                                 />
-                            </li>
-                            <li key="wood">
+                            </li>}
+                            {!(info.cost.wood === 0) && <li key={3}>
                                 <ItemBox
                                     topLabel=''
                                     image={wood}
                                     bottomLabel={info.cost.wood}
                                 />
-                            </li>
+                            </li>}
                         </ul>
                         <TroopBuilder item={info}/>
                     </ContainerBox>
