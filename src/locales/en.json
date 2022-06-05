@@ -625,5 +625,120 @@
           "seconds":2700,
           "unlock": false
       }  
+    ],
+
+    "structures": [
+      {
+        "id":"farms",
+        "name": "Farms",
+        "description":"Each level of this structure increases food production.",
+        "type": "production",
+        "icon": "general",
+        "level": 0,
+        "cost":{
+          "minerals": 76,
+            "wood": 38,
+            "gold": 0,
+            "food": 0
+        },
+        "production": {
+          "minerals": 0,
+            "wood": 0,
+            "gold": 0,
+            "food": 10
+        },
+        "consuption":{
+          "minerals": 0,
+            "wood": 0,
+            "gold": 0,
+            "food": 0
+        },
+        "seconds": 180,
+        "unlock": false
+      },
+      {
+        "id":"foundries",
+        "name": "Foundries",
+        "description":"Each level of this structure increases gold production.",
+        "type": "production",
+        "icon": "general",
+        "level": 0,
+        "cost":{
+          "minerals": 256,
+            "wood": 64,
+            "gold": 0,
+            "food": 0
+        },
+        "production": {
+          "minerals": 0,
+            "wood": 0,
+            "gold": 15,
+            "food": 0
+        },
+        "consuption":{
+          "minerals": 0,
+            "wood": 0,
+            "gold": 0,
+            "food": 20
+        },
+        "seconds": 180,
+        "unlock": false
+      },
+      {
+        "id":"mines",
+        "name": "Mines",
+        "description":"Each level of this structure increases minerals production.",
+        "type": "production",
+        "icon": "general",
+        "level": 0,
+        "cost":{
+          "minerals": 45,
+            "wood": 15,
+            "gold": 0,
+            "food": 0
+        },
+        "production": {
+          "minerals": 30,
+            "wood": 0,
+            "gold": 0,
+            "food": 0
+        },
+        "consuption":{
+          "minerals": 0,
+            "wood": 0,
+            "gold": 0,
+            "food": 10
+        },
+        "seconds": 180,
+        "unlock": false
+      },
+      {
+        "id":"carpentries",
+        "name": "Carpentries",
+        "description":"Each level of this structure increases wood production.",
+        "type": "production",
+        "icon": "general",
+        "level": 0,
+        "cost":{
+          "minerals": 48,
+            "wood": 24,
+            "gold": 0,
+            "food": 0
+        },
+        "production": {
+          "minerals": 0,
+            "wood": 20,
+            "gold": 0,
+            "food": 0
+        },
+        "consuption":{
+          "minerals": 0,
+            "wood": 0,
+            "gold": 0,
+            "food": 10
+        },
+        "seconds": 180,
+        "unlock": false
+      }
     ]
   }

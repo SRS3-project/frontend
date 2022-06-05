@@ -32,7 +32,7 @@ function LateralMenu({ setFilter, setInfo }) {
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.home);
-								setFilter({});
+								setFilter("home");
 							}}
 						/>
 					</Menu.List.Item>
@@ -49,15 +49,16 @@ function LateralMenu({ setFilter, setInfo }) {
 							}}
 						/>
 					</Menu.List.Item>
-					{/* <Menu.List.Item>
+					<Menu.List.Item>
 						<Button
 							label="City"
 							onClick={(e) => {
 								e.preventDefault();
 								setInfo(descriptions.buildings.city);
+								setFilter("city");
 							}}
 						/>
-					</Menu.List.Item> */}
+					</Menu.List.Item>
 					{true && (
 						<Menu.List.Item>
 							<Button

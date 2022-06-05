@@ -7,6 +7,7 @@ import AboutMeBanner from "./InfoBanners/AboutMeBanner";
 import CastleBanner from "./InfoBanners/CastleBanner";
 import OpponentBanner from "./InfoBanners/OpponentBanner";
 import OverviewBanner from "./InfoBanners/OverviewBanner";
+import StructureBanner from "./InfoBanners/StructureBanner";
 import TechBanner from "./InfoBanners/TechBanner";
 import TroopBanner from "./InfoBanners/TroopBanner";
 import styles from "./infobox.module.css";
@@ -30,6 +31,10 @@ const InfoBox = ({ info, filter }) => {
 				return isWorld();
 			case "about":
 				return isAbout();
+			case "home":
+				return isOverview();
+			case "city":
+				return isCity();	
 			default: 
 				return isOverview();
 		}
@@ -62,6 +67,30 @@ const InfoBox = ({ info, filter }) => {
 				<TechBuilder item={info}/>
 				*/}
 				<TechBanner
+					info={info}
+				/>
+				</> 
+				
+			) 
+			: null);
+	}
+
+	const isCity = () => {
+		return(
+			(info.type === "production" ) ?
+			(
+				<>
+				{/*<br />
+				<h3>Research Cost:</h3>
+				<ul>
+					<li>Food: {info.cost?.food}</li>
+					<li>Gold: {info.cost?.gold}</li>
+					<li>Minerals: {info.cost?.minerals}</li>
+					<li>Wood: {info.cost?.wood}</li>
+				</ul>					
+				<TechBuilder item={info}/>
+				*/}
+				<StructureBanner
 					info={info}
 				/>
 				</> 

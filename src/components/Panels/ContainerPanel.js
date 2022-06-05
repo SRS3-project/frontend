@@ -6,6 +6,7 @@ import CastlePanel from "./CastlePanel";
 import WorldPanel from "./WorldPanel";
 import OverviewPanel from "./OverviewPanel";
 import AboutMePanel from "./AboutMePanel";
+import StructuresPanel from "./StructuresPanel";
 
 const ContainerPanel = ( {filter, setInfo, scoreboard} ) => {
 		
@@ -43,6 +44,16 @@ const ContainerPanel = ( {filter, setInfo, scoreboard} ) => {
 			return(
 				<AboutMePanel />
 			)
+		case "home":
+			return(
+				<OverviewPanel />
+			);
+		case "city":
+			return(
+				<StructuresPanel 
+					setInfo = {setInfo}
+				/>
+			);
 		default:
 			return(
 				<OverviewPanel />
