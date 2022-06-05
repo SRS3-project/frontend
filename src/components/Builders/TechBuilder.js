@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 
 
-const TROOPBUILD_URL = "/player/techs";
+const TECHUPGRADE_URL = "/player/techs";
 
 const TechBuilder = ({ item }) => {
 	// For The Async Build Request
@@ -33,7 +33,7 @@ const TechBuilder = ({ item }) => {
 
 		if (isUpgradable()) {
 			try {
-				const requestUrl = `${TROOPBUILD_URL}`;
+				const requestUrl = `${TECHUPGRADE_URL}`;
 				console.log("requestUrl: ", requestUrl);
 
 				const response = await axiosUser.patch(
