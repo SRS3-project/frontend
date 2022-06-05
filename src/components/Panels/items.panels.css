@@ -35,26 +35,6 @@ ul li::before {
   border-radius: .5rem;
 }
 
-label#opponentLabel {
-  margin-top: 1rem;
-  margin-left: 2rem;
-  margin-bottom: 1rem;
-}
-
-label#opponentLevel {
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-label#opponentXp {
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
 .opponent:first-child {
   margin: 0;
 }
@@ -75,6 +55,27 @@ label#opponentXp {
   color: red;
   outline: none;
 }
+
+label#opponentLabel {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+}
+
+label#opponentLevel {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+label#opponentXp {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
 
 img#funnigif {
   box-shadow: 5px 5px 10px rgb(3, 3, 62);
