@@ -20,34 +20,34 @@ const TechBanner = ({info}) => {
                 <h3>Research Costs:</h3>
                 <br/>
                 <ul id="horizontal-list-centered">
-                    <li key={0}>
+                    {!(info.cost.food === 0) && <li key={0}>
                         <ItemBox
                             topLabel=''
                             image={food}
                             bottomLabel={info.cost.food}
                         />
-                    </li>
-                    <li key={1}>
+                    </li>}
+                    {!(info.cost.gold === 0) && <li key={1}>
                         <ItemBox
                             topLabel=''
                             image={gold}
                             bottomLabel={info.cost.gold}
                         />
-                    </li>
-                    <li key={2}>
+                    </li>}
+                    {!(info.cost.minerals === 0) && <li key={2}>
                         <ItemBox
                             topLabel=''
                             image={minerals}
                             bottomLabel={info.cost.minerals}
                         />
-                    </li>
-                    <li key={3}>
+                    </li>}
+                    {!(info.cost.wood === 0) && <li key={3}>
                         <ItemBox
                             topLabel=''
                             image={wood}
                             bottomLabel={info.cost.wood}
                         />
-                    </li>
+                    </li>}
                 </ul>
                 <TechBuilder item={info}/>
             </ContainerBox>
