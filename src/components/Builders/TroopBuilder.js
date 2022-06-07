@@ -7,8 +7,6 @@ import useAuth from "../../hooks/useAuth";
 import useUser from "../../hooks/useUser";
 import { useEffect } from "react";
 
-
-
 const TROOPBUILD_URL = "/game/build";
 const NUMBER_REGEX = /^[0-9]+$/;
 
@@ -19,7 +17,6 @@ const TroopBuilder = ({ item }) => {
 	const [validInput, setValidInput] = useState(false);
 
 	// For Component Functionality
-	const [build, setBuild] = useState({});
 	const [val, setVal] = useState("");
 
 	useEffect(() => {
@@ -28,84 +25,70 @@ const TroopBuilder = ({ item }) => {
 
 	const maxUnitsBuildable = (val) => {
 		const goldUnits = Math.floor(user.resources[1].amount / item.cost.gold);
-		const mineralUnits = Math.floor(user.resources[2].amount / item.cost.minerals);
+		const mineralUnits = Math.floor(
+			user.resources[2].amount / item.cost.minerals
+		);
 		const woodUnits = Math.floor(user.resources[3].amount / item.cost.wood);
-		
-		const maxBuildable = Math.min(goldUnits, mineralUnits, woodUnits)
+
+		const maxBuildable = Math.min(goldUnits, mineralUnits, woodUnits);
 
 		return val <= maxBuildable ? val : maxBuildable;
-	}
+	};
 
-	const isBuildable = () => {
+	/* const isBuildable = () => {
 		return (
-			user.resources[1].amount >= 0 ||
-			user.resources[2].amount >= 0 ||
+			user.resources[1].amount >= 0 &&
+			user.resources[2].amount >= 0 &&
 			user.resources[3].amount >= 0
-			)
-	}
+		);
+	}; */
 
-	const buildTroopsRequest = async (toBuild) => {
+	const handleClick = async (e) => {
+		e.preventDefault();
+
 		console.log("POST Request: Build troops");
+		console.log(
+			"Submitted: ",
+			item.id.toUpperCase(),
+			"x",
+			maxUnitsBuildable(val)
+		);
 
-		if (validInput) {
-			try {
-				const requestUrl = `${TROOPBUILD_URL}`;
-				console.log("requestUrl: ", requestUrl);
+		try {
+			console.log("requestUrl: ", TROOPBUILD_URL);
 
-				const response = await axiosUser.post(
-					requestUrl,
-					toBuild,
-					{
-						headers: {
-							"Content-Type": "application/json",
-							//new backend
-							Authorization: `Bearer ${auth.accessToken}`,
-							//old backend
-							//Authorization: auth.accessToken,
-						},
-						withCredentials: true,
-					}
-				);
-				setUser(response.data);
-				console.log(response);
-
-			} catch (err) {
-				//console.log(err);
-				if (!err?.response) {
-					console.log("FETCH USER DATA: No Server Response");
-				} else if (err.response?.status === 401) {
-					console.log("FETCH USER DATA: Unauthorized");
-				} else {
-					console.log("FETCH USER DATA: Unknown error");
+			const response = await axiosUser.post(
+				TROOPBUILD_URL,
+				{
+					type: item.id.toUpperCase(),
+					amount: parseInt(maxUnitsBuildable(val)),
+				},
+				{
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${auth.accessToken}`,
+					},
+					withCredentials: true,
 				}
-			} finally {
-				console.log("user: ", user);
+			);
+			localStorage.setItem("user", JSON.stringify(response.data));
+			setUser(response.data);
+			console.log("buildTroopResponse: ", response.data);
+			setVal("");
+		} catch (err) {
+			//console.log(err);
+			if (!err?.response) {
+				console.log("FETCH USER DATA: No Server Response");
+			} else if (err.response?.status === 401) {
+				console.log("FETCH USER DATA: Unauthorized");
+			} else {
+				console.log("FETCH USER DATA: Unknown error");
 			}
-		} else {
-			console.log("Empty State: Request Not Executed");
 		}
 	};
 
-	const handleSubmmit = (e) => {
-		e.preventDefault();
-
-		console.log("Submitted: ", build.amount, "x", build.type);
-
-		//additem
-		if (!build) return;
-
-		console.log("build", build);
-		buildTroopsRequest(build);
-
-		setBuild("");
-
-		//console.log('end handleSubmmit');
-
-		setVal("");
-	};
-
 	return (
-		<form className="buildForm" onSubmit={handleSubmmit}>
+		<form className="buildForm" onSubmit={handleClick}>
 			<label htmlFor="buildItem" style={{ display: "none" }}>
 				{" "}
 				Add Item
@@ -120,19 +103,14 @@ const TroopBuilder = ({ item }) => {
 				value={val}
 				onChange={(e) => {
 					setVal(e.target.value);
-					setBuild({
-						type: `${item.id.toUpperCase()}`,
-						amount: parseInt(maxUnitsBuildable(e.target.value))
-					});
-					//console.log(`${build.type}:${build.ammount}`);
 				}}
 			/>
-			<button 
+			<button
 				id="TroopBuilder"
-				type="barracs" 
+				type="barracs"
 				aria-label="Build"
-				disabled = {!isBuildable()} //
-				>
+				disabled={!validInput}
+			>
 				<FaPlus />
 			</button>
 		</form>

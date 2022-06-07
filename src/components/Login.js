@@ -86,8 +86,14 @@ const Login = () => {
 					withCredentials: true,
 				}
 			);
-			console.log("response: ", response.data);
+			console.log("captchaRequest: ", response.data);
 			setRecaptchaSuccess(response.data.success);
+			if (!response.data.success) {
+				setErrMsg("Captcha expired");
+				errRef.current.focus();
+			} else {
+				setErrMsg("");
+			}
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");

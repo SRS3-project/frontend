@@ -72,7 +72,7 @@ const Register = () => {
 
 	useEffect(() => {
 		setErrMsg("");
-	}, [user, pwd, matchPwd, mail, matchMail, recaptchaSuccess]);
+	}, [user, pwd, matchPwd, mail, matchMail]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -130,8 +130,15 @@ const Register = () => {
 					withCredentials: true,
 				}
 			);
-			//console.log("response: ", response.data);
+
+			console.log("captchaRequest: ", response.data);
 			setRecaptchaSuccess(response.data.success);
+			if (!response.data.success) {
+				setErrMsg("Captcha expired");
+				errRef.current.focus();
+			} else {
+				setErrMsg("");
+			}
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
@@ -139,8 +146,6 @@ const Register = () => {
 				setErrMsg("Captcha failed");
 			}
 			errRef.current.focus();
-		} finally {
-			if (!recaptchaSuccess) setErrMsg("Captcha failed");
 		}
 	};
 

@@ -11,7 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import axios from "../api/axios";
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const RESETPASSWORD_URL = "/forgotpassword/email";
+const MAIL_REGEX = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const RESETPASSWORD_URL = "/forgotpassword";
 
 const ResetPassword = (props) => {
 	const [searchParams] = useSearchParams();
@@ -25,19 +26,25 @@ const ResetPassword = (props) => {
 	const [validMatch, setValidMatch] = useState(false);
 	const [matchFocus, setMatchFocus] = useState(false);
 
+	const [mail, setMail] = useState("");
+	const [validMail, setValidMail] = useState(false);
+	const [mailFocus, setMailFocus] = useState(false);
+
 	const [errMsg, setErrMsg] = useState("");
 	const [success, setSuccess] = useState(false);
 
 	const errRef = useRef();
+	const mailRef = useRef();
 
 	useEffect(() => {
 		setValidPwd(PWD_REGEX.test(pwd));
 		setValidMatch(pwd === matchPwd);
-	}, [pwd, matchPwd]);
+		setValidMail(MAIL_REGEX.test(mail));
+	}, [pwd, matchPwd, mail]);
 
 	useEffect(() => {
 		setErrMsg("");
-	}, [pwd, matchPwd]);
+	}, [pwd, matchPwd, mail]);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -50,7 +57,7 @@ const ResetPassword = (props) => {
 		try {
 			const response = await axios.put(
 				RESETPASSWORD_URL,
-				{ newPassword: pwd, token: token },
+				{ newPassword: pwd, token: token, email: mail },
 				{
 					headers: { "Content-Type": "application/json" },
 					withCredentials: true,
@@ -61,8 +68,10 @@ const ResetPassword = (props) => {
 			//console.log(JSON.stringify(response))
 			setSuccess(true);
 			//clear state and controlled inputs
+			setMail("");
 			setPwd("");
 			setMatchPwd("");
+			console.log(response);
 		} catch (err) {
 			if (!err?.response) {
 				setErrMsg("No Server Response");
@@ -93,6 +102,44 @@ const ResetPassword = (props) => {
 					</p>
 					<h1>Reset Password</h1>
 					<form onSubmit={handleSubmit}>
+						<label htmlFor="email">
+							Email:
+							<FontAwesomeIcon
+								icon={faCheck}
+								className={validMail ? "valid" : "hide"}
+							/>
+							<FontAwesomeIcon
+								icon={faTimes}
+								className={
+									validMail || !mail ? "hide" : "invalid"
+								}
+							/>
+						</label>
+						<input
+							type="text"
+							id="mail"
+							ref={mailRef}
+							autoComplete="off"
+							onChange={(e) => setMail(e.target.value)}
+							value={mail}
+							required
+							aria-invalid={validMail ? "false" : "true"}
+							aria-describedby="uidnote"
+							onFocus={() => setMailFocus(true)}
+							onBlur={() => setMailFocus(false)}
+						/>
+						<p
+							id="uidnote"
+							className={
+								mailFocus && mail && !validMail
+									? "instructions"
+									: "offscreen"
+							}
+						>
+							<FontAwesomeIcon icon={faInfoCircle} />
+							Something is wrong in your mail.
+							<br />
+						</p>
 						<label htmlFor="password">
 							Password:
 							<FontAwesomeIcon
@@ -179,7 +226,11 @@ const ResetPassword = (props) => {
 						<br />
 						<Button
 							label="Reset Password"
-							disabled={!validPwd || !validMatch ? true : false}
+							disabled={
+								!validPwd || !validMatch || !validMail
+									? true
+									: false
+							}
 						/>
 					</form>
 				</section>
